@@ -31,7 +31,7 @@
                     <th>Gender</th>
                     <th>Address</th>
                     <th>Phone</th>
-                    <th>Emil Karyawan</th>
+                    <th>Email Karyawannn</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
