@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2019 at 04:21 PM
+-- Generation Time: May 17, 2019 at 10:04 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -153,6 +153,7 @@ CREATE TABLE `tb_kerusakan` (
 
 CREATE TABLE `tb_mahasiswa` (
   `id_mahasiswa` int(11) NOT NULL,
+  `Nim` varchar(20) DEFAULT NULL,
   `Name` varchar(20) DEFAULT NULL,
   `Gender` varchar(2) DEFAULT NULL,
   `Address` varchar(40) DEFAULT NULL,
