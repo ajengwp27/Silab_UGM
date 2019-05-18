@@ -23,12 +23,12 @@ class Controller_usergroup extends CI_Controller{
         $this->template->load('Template/Template_admin','Form_usergroup/edit_usergroup',$data);;
     }
 
-    function addusergroup()
+    function addusergroup() // ini jangan dirubah 
     {
         $usergroup = array(
                         'Description'=>$this->input->post('hakakses'),
                         );
-        $addusergroup= $this->Model_usergroup->add_usergroup($usergroup);
+        $addusergroup= $this->Model_usergroup->add_usergroup($usergroup); // yg ini yg dicek 
         if($addusergroup)
         {   
             $this->session->set_flashdata('Status','Input Succes');

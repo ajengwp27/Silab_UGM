@@ -30,14 +30,14 @@ class Model_mahasiswa extends CI_Model{
 
     function update_mahasiswa($id_mahasiswa,$datamahasiswa)
     {
-        $this->db->where('Id',$id_mahasiswa);
+        $this->db->where('id_mahasiswa',$id_mahasiswa);
         $updatemahasiswa=$this->db->update("tb_mahasiswa",$datamahasiswa);
         return $updatemahasiswa;
     }
 
     function delete_mahasiswa($idmahasiswa)
     {
-        $this->db->where('id_mahasiswa',$id_mahasiswa);
+        $this->db->where('id_mahasiswa',$idmahasiswa);
         $deletemahasiswa=$this->db->delete("tb_mahasiswa");
         return $deletemahasiswa;
     }

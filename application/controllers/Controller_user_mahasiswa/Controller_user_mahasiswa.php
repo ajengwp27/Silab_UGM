@@ -20,7 +20,7 @@ class M_user_mahasiswa extends CI_Controller{
     function viewFormEdituser_mahasiswa()
     {
         $id = $this->input->get('id_user_mahasiswa');
-        $data['edituser_mahasiswa '] = $this->Model_user_mahasiswa ->get_user_mahasiswa_by_id($id);
+        $data['edituser_mahasiswa '] = $this->Model_user_mahasiswa->get_user_mahasiswa_by_id($id);
         $this->template->load('Template/Template_admin','Form_user_mahasiswa/edit_user_mahasiswa',$data);;
     }
 

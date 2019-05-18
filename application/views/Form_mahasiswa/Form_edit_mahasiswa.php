@@ -20,19 +20,19 @@
                 <form name="fromeditmahasiswa" action="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/editmahasiswa')?>"  method="post">
                     <div class="form-group">
                         <label>NIM</label>
-                        <input required type="Text" name="nim" class="form-control" value=<?= $editmahasiswa->NIM?>>
+                        <input required type="Text" name="nim" class="form-control" value="<?php echo $editmahasiswa->Nim?>">
                     </div>
                     <div class="form-group">
                         <label>Nama</label>
-                        <input required type="Text" name="name" class="form-control" value=<?= $editmahasiswa->Name?>>
+                        <input required type="Text" name="name" class="form-control" value="<?= $editmahasiswa->Name?>">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <input required type="Text" name="address" class="form-control" value=<?= $editmahasiswa->Address?> >
+                        <input required type="Text" name="address" class="form-control" value="<?= $editmahasiswa->Address?>" >
                     </div>
                     <div class="form-group">
                         <label>Nomer Telepon</label>
-                        <input required type="Text" name="phone" class="form-control" value=<?= $editmahasiswa->Phone?>>
+                        <input required type="Text" name="phone" class="form-control" value="<?= $editmahasiswa->Phone?>">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
@@ -43,10 +43,10 @@
                         </select>  
                     <div class="form-group">
                         <label>Email</label>
-                        <input required type="Text" name="email" class="form-control" value=<?= $editmahasiswa->email?>>
+                        <input required type="Text" name="email" class="form-control" value=<?= $editmahasiswa->Email_mahasiswa?>>
                     </div>
                     </div>
-                    <button type="submit" name="submitid" value=<?= $editmahasiswa->Id?> class="btn btn-default">Update</button>
+                    <button type="submit" name="submitid" value="<?= $editmahasiswa->id_mahasiswa?>" class="btn btn-default">Update</button>
                 </form>
 
             </div>

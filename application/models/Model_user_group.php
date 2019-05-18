@@ -14,7 +14,7 @@ class Model_user_group extends CI_Model{
         return $getuser_groupById;
     }
 
-    function add_user_group($datauser_group)
+    function add_usergroup($datauser_group)
     {
         $adduser_group=$this->db->insert("tb_hak akses",$datauser_group);
         return $adduser_group;

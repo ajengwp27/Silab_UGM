@@ -16,17 +16,17 @@
                             <div class="collapse in" id="FormMaster">
                                 <ul class="nav">
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>examples/pages/pricing.html">
+                                        <a class="nav-link" href="<?= base_url()?>ControllerAlat/Controller_alat/getDataAlat">
                                         <span> Alat </span>
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
+                                        <a class="nav-link" href="<?= base_url()?>ControllerCategory/Controller_category/getDataCategory">
                                         <span> Kategori</span>     
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_mahasiswa/M_mahasiswa/get_mahasiswa')?>">
+                                        <a class="nav-link" href="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa')?>">
                                         <span> Mahasiswa </span>
                                         </a>
                                     </li>

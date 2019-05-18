@@ -20,7 +20,7 @@ class Controller_mahasiswa extends CI_Controller{
     {
         $id_mahasiswa = $this->input->get('id_mahasiswa');
         $data['editmahasiswa'] = $this->Model_mahasiswa->get_mahasiswa_by_id($id_mahasiswa);
-        $this->template->load('Template/Template_admin','Form_mahasiswa/edit_mahasiswa',$data);;
+        $this->template->load('Template/Template_admin','Form_mahasiswa/Form_edit_mahasiswa',$data);;
     }
 
     function addmahasiswa()
@@ -31,26 +31,26 @@ class Controller_mahasiswa extends CI_Controller{
                         'Gender'=>$this->input->post('gender'),
                         'Address'=>$this->input->post('address'),
                         'Phone'=>$this->input->post('phone'),
-                        'Email_mahasiswa'=>$this->input->post('email_mahasiswa'),
+                        'Email_mahasiswa'=>$this->input->post('email'),
                      );
         $addmahasiswa=$this->Model_mahasiswa->add_mahasiswa($mahasiswa);
         if($addmahasiswa)
         {
             $this->session->set_flashdata('Status','Input Success');
-            redirect('ContollerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
         }
     }
 
     function editmahasiswa()
     {
-        $id_mahasiswa = $this->input->post('submited');
+        $id_mahasiswa = $this->input->post('submitid');
         $mahasiswa = array(
                         'Nim'=>$this->input->post('nim'),
                         'Name'=>$this->input->post('name'),
                         'Gender'=>$this->input->post('gender'),
                         'Address'=>$this->input->post('address'),
                         'Phone'=>$this->input->post('phone'),
-                        'Email_mahasiswa'=>$this->input->post('email_mahasiswa'),
+                        'Email_mahasiswa'=>$this->input->post('email'),
                         'Update_at'=>get_current_date()
                     );
         $editmahasiswa = $this->Model_mahasiswa->update_mahasiswa($id_mahasiswa,$mahasiswa);
@@ -69,11 +69,11 @@ class Controller_mahasiswa extends CI_Controller{
     function editStatusmahasiswa()
     {
         $id_mahasiswa = $this->input->get('id_mahasiswa');
-        $status = $this->input->get('Status');
+        $status = $this->input->get('status');
         $mahasiswa = array(
                         'Status'=>$status
                         );
-        $editmahasiswa = $this->Model_mahasiswa->update_mahaiswa($id_mahasiswa,$mahasiswa);
+        $editmahasiswa = $this->Model_mahasiswa->update_mahasiswa($id_mahasiswa,$mahasiswa);
         if($editmahasiswa)
         {
             $this->session->set_flashdata('Status','Edit Success');
