@@ -86,7 +86,9 @@
     <!-- application script for Charisma demo -->
     <script src="<?= base_url('assets/')?>js/charisma.js"></script>
     <script src="<?php echo base_url('assets/')?>js/bootstrap-notify.js"></script>
-
+    <script src="<?php echo base_url('assets/')?>js/jquery.validate.pack.js"></script>
+    
+    
 
 
     <!-- The fav icon -->

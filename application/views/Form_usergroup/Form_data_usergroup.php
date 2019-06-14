@@ -126,4 +126,6 @@ if (err == 'Input Success' || err == 'Edit Success' || err == 'Delete Succes')
   });
 
 }
+
+ 
 </script>

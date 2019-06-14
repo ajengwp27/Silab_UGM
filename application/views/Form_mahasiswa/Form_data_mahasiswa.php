@@ -88,6 +88,12 @@
     $('.addmahasiswa').click(function (e) {
         e.preventDefault();
         $('#addmahasiswa').modal('show');
+        $("#NIM").val("");
+        $("#NAMA").val("");
+        $("#PHONE").val("");
+        $("#ALAMAT").val("");
+        $("#EMAIL").val("");
+
     });
 
 <?php if (!empty($this->session->flashdata('Status'))){?>
@@ -150,4 +156,5 @@ if (err == 'Input Success' || err == 'Edit Success' || err == 'Delete Succes')
   });
 
 }
+
 </script>
