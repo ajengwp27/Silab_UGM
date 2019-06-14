@@ -6,11 +6,12 @@ class Model_karyawan extends CI_Model{
         $dataKaryawan = $this->db->get('tb_karyawan')->result();
         return $dataKaryawan;
     }
+
     function get_karyawan_by_status()
     {
-        $this->db->where('Status','Aktif');
-        $dataKaryawan = $this->db->get('tb_karyawan')->result();
-        return $dataKaryawan;
+        $this->db->where("Status",'Aktif');
+        $getKaryawanByStatus = $this->db->get('tb_karyawan')->result();
+        return $getKaryawanByStatus;
     }
       
     function get_karyawan_by_id($id_karyawan)
@@ -22,8 +23,8 @@ class Model_karyawan extends CI_Model{
 
     function add_karyawan($dataKaryawan)
     {
-        $addKaryawan=$this->db->insert("tb_karyawan",$dataKaryawan);
-        return $addKaryawan;
+        $addkaryawan=$this->db->insert("tb_karyawan",$dataKaryawan);
+        return $addkaryawan;
     }
 
     function update_karyawan($id_karyawan,$datakaryawan)

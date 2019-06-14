@@ -13,7 +13,7 @@ class Controller_usergroup extends CI_Controller{
     function get_usergroup()
     {
         $data['usergroup'] = $this->Model_usergroup->get_usergroup();
-        $this->template->load('Template/Template_admin','Form_usergroup/view_usergroup',$data);
+        $this->template->load('Template/Template_admin','Form_usergroup/Form_data_usergroup',$data);
     }
 
     function viewFormEditusergroup()

@@ -16,14 +16,14 @@ class Controller_karyawan extends CI_Controller{
         $this->template->load('Template/Template_admin','Form_karyawan/Form_data_karyawan',$data);
     }
 
-    function viewFormEditKaryawan()
+    function viewFormEditkaryawan()
     {
         $id_karyawan = $this->input->get('id_karyawan');
         $data['editkaryawan'] = $this->Model_karyawan->get_karyawan_by_id($id_karyawan);
-        $this->template->load('Template/Template_admin','Form_karyawan/edit_karyawan',$data);
+        $this->template->load('Template/Template_admin','Form_karyawan/Form_edit_karyawan',$data);
     }
 
-    function addKaryawan()
+    function addkaryawan()
     {
         $karyawan = array(
             'Name'=>$this->input->post('name'),
@@ -32,7 +32,7 @@ class Controller_karyawan extends CI_Controller{
             'Phone'=>$this->input->post('phone'),
             'email_karyawan'=>$this->input->post('email_karyawan')
             );
-        $addkaryawan= $this->Model_karyawan->add_karyawan($karyawan);
+        $addkaryawan=$this->Model_karyawan->add_karyawan($karyawan);
         if($addkaryawan)
         {
             $this->session->set_flashdata('Status','Input Success');
@@ -45,17 +45,38 @@ class Controller_karyawan extends CI_Controller{
         }
     }
 
-    function editKaryawan()
+    function editkaryawan()
     {
-        $id_karyawan = $this->input->post('submited');
+        $id_karyawan = $this->input->post('submitid');
         $karyawan = array(
             'Name'=>$this->input->post('name'),
             'Gender'=>$this->input->post('gender'),
             'Address'=>$this->input->post('address'),
             'Phone'=>$this->input->post('phone'),
-            'email_karyawan'=>$this->input->post('email_karyawan')
+            'email_karyawan'=>$this->input->post('email_karyawan'),
+            'update_at'=>get_current_date()
             );
         $editkaryawan= $this->Model_karyawan->update_karyawan($id_karyawan,$karyawan);
+        if($editkaryawan)
+        {
+            $this->session->set_flashdata('Status','Edit Success');
+            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+        }
+        else
+        {
+            $this->session->set_flashdata('Status','Edit Failed');
+            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+        }
+    }
+
+    function editStatuskaryawan()
+    {
+        $id_karyawan = $this->input->get('id_karyawan');
+        $status = $this->input->get('status');
+        $karyawan = array(
+                        'Status'=>$status
+                        );
+        $editkaryawan = $this->Model_karyawan->update_karyawan($id_karyawan,$karyawan);
         if($editkaryawan)
         {
             $this->session->set_flashdata('Status','Edit Success');
@@ -75,6 +96,11 @@ class Controller_karyawan extends CI_Controller{
         if($deleteKaryawan)
         {
             $this->session->set_flashdata('Status','Delete Succes');
+            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+        }
+        else
+        {
+            $this->session->set_flashdata('Status','Delete Failed');
             redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
         }
     }

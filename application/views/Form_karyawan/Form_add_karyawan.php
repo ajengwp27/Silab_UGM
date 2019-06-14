@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Email Karyawan</label>
-                                        <input required type="Text" name="email" class="form-control" placeholder="Enter Email">
+                                        <input required type="Text" name="email_karyawan" class="form-control" placeholder="Enter Email">
                                     </div>
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>

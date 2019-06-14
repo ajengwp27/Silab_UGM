@@ -39,6 +39,11 @@ class Controller_mahasiswa extends CI_Controller{
             $this->session->set_flashdata('Status','Input Success');
             redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
         }
+        else
+        {
+            $this->session->set_flashdata('Status','Input Failed');
+            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa')
+        }
     }
 
     function editmahasiswa()

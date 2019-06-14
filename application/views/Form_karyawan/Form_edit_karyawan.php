@@ -20,29 +20,29 @@
                 <form name="fromeditkaryawan" action="<?= base_url('ControllerKaryawan/Controller_karyawan/editKaryawan')?>"  method="post">
                     <div class="form-group">
                         <label>Nama</label>
-                        <input required type="Text" name="name" class="form-control" value=<?= $editKaryawan->Name?>>
+                        <input required type="Text" name="name" class="form-control" value=<?= $editkaryawan->Name?>>
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <input required type="Text" name="address" class="form-control" value=<?= $editKaryawan->Address?> >
+                        <input required type="Text" name="address" class="form-control" value=<?= $editkaryawan->Address?> >
                     </div>
                     <div class="form-group">
                         <label>Nomer Telepon</label>
-                        <input required type="Text" name="phone" class="form-control" value=<?= $editKaryawan->Phone?>>
+                        <input required type="Text" name="phone" class="form-control" value=<?= $editkaryawan->Phone?>>
                     </div>
                     <div class="form-group">
                         <label>Email Karyawan</label>
-                        <input required type="Text" name="email" class="form-control" value=<?= $editKaryawan->Phone?>>
+                        <input required type="Text" name="email_karyawan" class="form-control" value=<?= $editkaryawan->Phone?>>
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
                         <select name="gender" class="form-control selectpicker">
                             <option>Choose Gender</option>
-                            <option value="L" <?php if ($editKaryawan->Gender == "L") {echo 'selected';}?>>Laki-Laki</option>
-                            <option value="P" <?php if ($editKaryawan->Gender == "P") {echo 'selected';}?>>Perempuan</option>
+                            <option value="L" <?php if ($editkaryawan->Gender == "L") {echo 'selected';}?>>Laki-Laki</option>
+                            <option value="P" <?php if ($editkaryawan->Gender == "P") {echo 'selected';}?>>Perempuan</option>
                         </select>    
                     </div>
-                    <button type="submit" name="submitid" value=<?= $editKaryawan->id_karyawan?> class="btn btn-default">Update</button>
+                    <button type="submit" name="submitid" value=<?= $editkaryawan->id_karyawan?> class="btn btn-default">Update</button>
                 </form>
 
             </div>

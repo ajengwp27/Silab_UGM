@@ -32,12 +32,12 @@
                                     </li>
                                     <?php if ($_SESSION['Admin']->id_level == 1) {?>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_karyawan/M_karyawan/get_karyawan')?>">
+                                        <a class="nav-link" href="<?= base_url('ControllerKaryawan/Controller_karyawan/get_karyawan')?>">
                                         <span> Karyawan</span>     
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_usergroup/M_usergroup/get_usergroup')?>">
+                                        <a class="nav-link" href="<?= base_url('Controller_usergroup/Controller_usergroup/get_usergroup')?>">
                                         <span> Usergroup </span>
                                         </a>
                                     </li>
