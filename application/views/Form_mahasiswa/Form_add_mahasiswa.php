@@ -13,15 +13,15 @@
                                 <form name="fromaddmahasiswa" id="formvaliditas" action="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/addmahasiswa')?>"  method="post">
                                     <div class="form-group">
                                         <label>NIM</label>
-                                        <input required type="Text" onclick='validasi(this)'  id="NIM" name="nim" class="form-control required" placeholder="Enter NIM" >
+                                        <input required type="Text" onclick='validasi("NIM","NIM")'  id="NIM" name="nim" class="form-control required" placeholder="Enter NIM" >
                                     </div>
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input required type="Text" onclick='validasi(this)' id="NAMA" name="name" class="form-control" placeholder="Enter Name"  >
+                                        <input required type="Text" onclick='validasi("NAMA","NAMA")' id="NAMA" name="name" class="form-control" placeholder="Enter Name"  >
                                     </div>
                                     <div class="form-group">
                                         <label>Nomer Telepon</label>
-                                        <input required type="Text" onclick='validasi(this)'  id="PHONE" name="phone" class="form-control" placeholder="Enter Number">
+                                        <input required type="Text" onclick='validasi("PHONE","NOMER TELEPON")'  id="PHONE" name="phone" class="form-control" placeholder="Enter Number">
                                     </div>
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
@@ -32,11 +32,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <input required type="Text" onclick='validasi(this)' id="ALAMAT" name="address" class="form-control" placeholder="Enter Address">
+                                        <input required type="Text" onclick='validasi("ALAMAT","ALAMAT")' id="ALAMAT" name="address" class="form-control" placeholder="Enter Address">
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input required type="Text" onclick='validasi(this)'id="EMAIL" name="email" class="form-control" placeholder="Enter Email">
+                                        <input required type="Email" onclick='validasi("EMAIL","EMAIL")'id="EMAIL" name="email" class="form-control" placeholder="Enter Email">
                                     </div>
                             </div>
                     </div>
@@ -64,11 +64,28 @@ if(event.which != 8 && isNaN(String.fromCharCode(event.which))){
 
 var form = document.querySelector("#formvaliditas");
 
-function validasi(textbox)
+
+function validasi(textbox,text)
 {
+    var input = document.getElementById(textbox);
+  
     var cek = form.checkValidity()
-    if(cek == false){
+    if(cek == false)
+    {
+        input.oninvalid = function(e) 
+        {
+            if(e.target.validity.valueMissing)
+            {
+                e.target.setCustomValidity(text+" WAJIB DIISI");
+                return;
+            }
+        }
+        input.oninput = function(e) 
+        {
+             e.target.setCustomValidity("")
+        }
         form.reportValidity();
+        console.log(cek);
     }
 
 }
