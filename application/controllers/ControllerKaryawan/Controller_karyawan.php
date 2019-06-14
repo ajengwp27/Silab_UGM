@@ -30,7 +30,7 @@ class Controller_karyawan extends CI_Controller{
             'Gender'=>$this->input->post('gender'),
             'Address'=>$this->input->post('address'),
             'Phone'=>$this->input->post('phone'),
-            'email_karyawan'=>$this->input->post('email_karyawan')
+            'email_karyawan'=>$this->input->post('email_karyawan'),
             );
         $addkaryawan=$this->Model_karyawan->add_karyawan($karyawan);
         if($addkaryawan)

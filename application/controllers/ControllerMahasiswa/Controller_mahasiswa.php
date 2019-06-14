@@ -42,7 +42,7 @@ class Controller_mahasiswa extends CI_Controller{
         else
         {
             $this->session->set_flashdata('Status','Input Failed');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa')
+            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
         }
     }
 

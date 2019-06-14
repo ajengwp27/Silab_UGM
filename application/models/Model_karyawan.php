@@ -27,10 +27,10 @@ class Model_karyawan extends CI_Model{
         return $addkaryawan;
     }
 
-    function update_karyawan($id_karyawan,$datakaryawan)
+    function update_karyawan($id_karyawan,$dataKaryawan)
     {
         $this->db->where('id_karyawan',$id_karyawan);
-        $updatekaryawan=$this->db->update("tb_karyawan",$datakaryawan);
+        $updatekaryawan=$this->db->update("tb_karyawan",$dataKaryawan);
         return $updatekaryawan;
     }
 

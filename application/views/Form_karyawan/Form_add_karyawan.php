@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="box col-md-12">
                             <div class="box-content">
-                                <form name="fromaddkaryawan" action="<?= base_url('ControllerKaryawan/Controller_karyawan/addKaryawan')?>"  method="post">
+                                <form name="fromaddkaryawan" action="<?= base_url('ControllerKaryawan/Controller_karyawan/addkaryawan')?>"  method="post">
                                     <div class="form-group">
                                         <label>Nama</label>
                                         <input required type="Text" name="name" class="form-control" placeholder="Enter Name">

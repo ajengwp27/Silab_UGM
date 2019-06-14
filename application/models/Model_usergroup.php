@@ -30,7 +30,7 @@ class Model_usergroup extends CI_Model{
     function delete_user_group($id_level)
     {
         $this->db->where('id_level',$id_level);
-        $deleteuser_group=$this->db->delte("tb_hak akses");
+        $deleteuser_group=$this->db->delete("tb_hak akses");
         return $deleteuser_group;
     }
 }

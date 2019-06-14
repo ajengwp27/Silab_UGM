@@ -31,7 +31,7 @@
                     <th>Gender</th>
                     <th>Address</th>
                     <th>Phone</th>
-                    <th>Email Karyawannn</th>
+                    <th>Email Karyawan</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -47,16 +47,17 @@
                         <td class="center">
                             <span class="label-success label <?php if($k->Status=='Aktif') echo 'label-default'; else echo 'label-danger';?>"><?= $k->Status?></span>
                         </td>
+                        <td><?= $k->email_karyawan?></td>
                         <td class="center">
                         <?php if ($_SESSION['Admin']->id_level == 1) {?>
-                            <?php if ($k->Status == "Tidak Aktif") {?>
+                            <?php if ($k->Status == "Off") {?>
                                 <a class="btn btn-success" style="width: 94px;" href="<?= base_url('ControllerKaryawan/Controller_karyawan/editStatusKaryawan?id_karyawan='.$k->id_karyawan.'&status=Aktif')?>">
                                     <i class="glyphicon glyphicon-ok icon-white"></i>
-                                    Aprrove
+                                    Aktif
                             <?php } else {?>
-                                <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('ControllerKaryawan/Controller_karyawan/editStatusKaryawan?id_karyawan='.$k->id_karyawan.'&status=Tidak Aktif')?>">
+                                <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('ControllerKaryawan/Controller_karyawan/editStatusKaryawan?id_karyawan='.$k->id_karyawan.'&status=Off')?>">
                                         <i class="glyphicon glyphicon-remove icon-white"></i>
-                                    Reject
+                                    Off
                             <?php }?>
                                 </a>
                         <?php }?>
@@ -83,7 +84,7 @@
     <?php include "Form_add_karyawan.php";?>
 
 <script>
-    $('.addKaryawan').click(function (e) {
+    $('.addkaryawan').click(function (e) {
         e.preventDefault();
         $('#addkaryawan').modal('show');
     });
