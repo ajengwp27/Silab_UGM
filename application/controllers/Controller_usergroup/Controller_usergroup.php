@@ -12,15 +12,15 @@ class Controller_usergroup extends CI_Controller{
 
     function get_usergroup()
     {
-        $data['usergroup'] = $this->Model_usergroup->get_usergroup();
+        $data['usergroup'] = $this->Model_usergroup->get_user_group();
         $this->template->load('Template/Template_admin','Form_usergroup/Form_data_usergroup',$data);
     }
 
     function viewFormEditusergroup()
     {
         $id_level = $this->input->get('id_level');
-        $data['editusergroup'] = $this->Model_usergroup->get_usergroup_by_id($id_level);
-        $this->template->load('Template/Template_admin','Form_usergroup/edit_usergroup',$data);;
+        $data['editusergroup'] = $this->Model_usergroup->get_user_group_by_id($id_level);
+        $this->template->load('Template/Template_admin','Form_usergroup/Form_edit_usergroup',$data);;
     }
 
     function addusergroup() // ini jangan dirubah 

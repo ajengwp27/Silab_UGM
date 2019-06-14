@@ -20,9 +20,9 @@
                 <form name="fromeditusergroup" action="<?= base_url('Controller_usergroup/Controller_usergroup/editusergroup')?>"  method="post">
                         <div class="form-group">
                             <label>Hak Akses</label>
-                            <input required type="Text" name="hakakses" class="form-control"  value=<?= $editusergroup->Description?>>
+                            <input required type="Text" name="hakakses" class="form-control" value="<?php echo $editusergroup->Description?>">
                         </div>
-                    <button type="submit" name="submitid" value=<?= $editusergroup->Id?> class="btn btn-default">Update</button>
+                    <button type="submit" name="submitid" value=<?= $editusergroup->id_level?> class="btn btn-default">Update</button>
                 </form>
 
             </div>

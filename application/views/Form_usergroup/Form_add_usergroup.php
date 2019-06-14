@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="box col-md-12">
                             <div class="box-content">
-                                <form name="fromaddusergroup" action="<?= base_url('Controller_usergroup/Controller_usergroup/addusergroup')?>"  method="post">
+                                <form name="formaddusergroup" action="<?= base_url('Controller_usergroup/Controller_usergroup/addusergroup')?>"  method="post">
                                     <div class="form-group">
                                         <label>Hak Akses</label>
                                         <input required type="Text" name="hakakses" class="form-control" placeholder="Enter Hak Akses">
