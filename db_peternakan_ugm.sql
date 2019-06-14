@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2019 at 10:04 AM
+-- Generation Time: Jun 14, 2019 at 04:32 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -55,7 +55,8 @@ CREATE TABLE `tb_category` (
 --
 
 INSERT INTO `tb_category` (`Category_id`, `Name_Category`, `Create_at`, `Update_at`) VALUES
-(6, 'Test Category', '2019-05-16 07:20:50', '2019-05-16 14:20:50');
+(6, 'Test sadsfsfsdfsd sdfdsf', '2019-05-17 15:53:22', '2019-05-16 14:20:50'),
+(9, 'test kategori 4', '2019-05-17 15:58:20', '2019-05-17 22:52:56');
 
 -- --------------------------------------------------------
 
@@ -75,10 +76,10 @@ CREATE TABLE `tb_detail_peminjaman` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_hak akses`
+-- Table structure for table `tb_hak_akses`
 --
 
-CREATE TABLE `tb_hak akses` (
+CREATE TABLE `tb_hak_akses` (
   `id_level` int(11) NOT NULL,
   `Description` varchar(40) DEFAULT NULL,
   `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -86,12 +87,12 @@ CREATE TABLE `tb_hak akses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_hak akses`
+-- Dumping data for table `tb_hak_akses`
 --
 
-INSERT INTO `tb_hak akses` (`id_level`, `Description`, `Create_at`, `Update_at`) VALUES
-(1, 'Superadmin', '2019-05-16 06:59:37', '2019-05-16 13:59:37'),
-(2, 'Admin', '2019-05-16 06:59:53', '2019-05-16 13:59:53');
+INSERT INTO `tb_hak_akses` (`id_level`, `Description`, `Create_at`, `Update_at`) VALUES
+(1, 'Superadmin', '2019-06-14 03:27:00', '2019-06-14 10:27:00'),
+(2, 'Admin', '2019-06-14 03:27:00', '2019-06-14 10:27:00');
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,8 @@ CREATE TABLE `tb_karyawan` (
 --
 
 INSERT INTO `tb_karyawan` (`id_karyawan`, `Name`, `Gender`, `Address`, `Status`, `Phone`, `Create_at`, `update_at`, `email_karyawan`) VALUES
-(1, 'Ajeng', 'P', 'Berbah', 'Aktif', '0000000', '2019-05-16 10:10:59', '2019-05-16 14:03:03', 'ajeng300@gmail.com');
+(1, 'Ajeng', 'P', 'Berbah', 'Aktif', '0000000', '2019-06-14 14:21:08', '2019-05-16 14:03:03', 'ajeng300@gmail.com'),
+(4, 'nina', 'P', 'magelang', 'Aktif', '087665544444', '2019-06-14 02:57:11', '2019-06-13 22:11:01', 'ninabobo@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -164,6 +166,14 @@ CREATE TABLE `tb_mahasiswa` (
   `Email_mahasiswa` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_mahasiswa`
+--
+
+INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, `Phone`, `Status`, `Create_at`, `Update_at`, `Email_mahasiswa`) VALUES
+(1, '3163111043', 'Ajeng Wuriprastiwi A', 'P', 'baran', '089608000446', 'Off', '2019-06-14 02:53:57', '2019-05-17 23:19:59', 'ajengpraswi@gmail.com'),
+(3, '3163111042', 'Ajeng WP', 'P', 'baran', '089608000446', 'Aktif', '2019-06-14 02:56:05', NULL, 'ajengpraswi@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -199,7 +209,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `Username`, `Password`, `id_level`, `id_karyawan`, `Create_at`, `Update_at`, `Status`) VALUES
-(1, 'Ajeng', 'pass@word1', 1, 1, '2019-05-16 07:04:39', '2019-05-16 14:04:39', 'Aprove');
+(1, 'Ajeng', 'Ajeng123', 1, 1, '2019-05-17 16:41:40', '2019-05-16 14:04:39', 'Aprove'),
+(3, 'Ajengwuri', 'ajeng123', 2, 1, '2019-06-14 10:07:15', '2019-06-14 17:07:15', 'Aprove');
 
 -- --------------------------------------------------------
 
@@ -240,9 +251,9 @@ ALTER TABLE `tb_detail_peminjaman`
   ADD KEY `id_mahasiswa` (`id_mahasiswa`);
 
 --
--- Indexes for table `tb_hak akses`
+-- Indexes for table `tb_hak_akses`
 --
-ALTER TABLE `tb_hak akses`
+ALTER TABLE `tb_hak_akses`
   ADD PRIMARY KEY (`id_level`);
 
 --
@@ -307,7 +318,7 @@ ALTER TABLE `tb_alat`
 -- AUTO_INCREMENT for table `tb_category`
 --
 ALTER TABLE `tb_category`
-  MODIFY `Category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_detail_peminjaman`
@@ -316,16 +327,16 @@ ALTER TABLE `tb_detail_peminjaman`
   MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_hak akses`
+-- AUTO_INCREMENT for table `tb_hak_akses`
 --
-ALTER TABLE `tb_hak akses`
+ALTER TABLE `tb_hak_akses`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_kegiatan`
@@ -343,7 +354,7 @@ ALTER TABLE `tb_kerusakan`
 -- AUTO_INCREMENT for table `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_peminjaman_alat`
@@ -355,7 +366,7 @@ ALTER TABLE `tb_peminjaman_alat`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_user_mahasiswa`
@@ -398,7 +409,7 @@ ALTER TABLE `tb_peminjaman_alat`
 --
 ALTER TABLE `tb_user`
   ADD CONSTRAINT `fk_id_karyawan` FOREIGN KEY (`id_karyawan`) REFERENCES `tb_karyawan` (`id_karyawan`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_id_level` FOREIGN KEY (`id_level`) REFERENCES `tb_hak akses` (`id_level`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_user_ibfk_1` FOREIGN KEY (`id_level`) REFERENCES `tb_hak_akses` (`id_level`);
 
 --
 -- Constraints for table `tb_user_mahasiswa`
