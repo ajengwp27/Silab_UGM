@@ -4,7 +4,7 @@
                 <a href="#">Home</a>
             </li>
             <li>
-                <a href="#">Data Karyawan</a>
+                <a href="#">Data user</a>
             </li>
         </ul>
     </div>
@@ -13,10 +13,9 @@
     <div class="box col-md-12">
     <div class="box-inner">
     <div class="box-header well" data-original-title="">
-        <h2><i class="glyphicon glyphicon-user"></i> Data Karyawan</h2>
+        <h2><i class="glyphicon glyphicon-user"></i> Data user</h2>
 
         <div class="box-icon">
-            <a href="#" class="btn addKaryawan btn-round btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
             <a href="#" class="btn btn-minimize btn-round btn-default"><i
                     class="glyphicon glyphicon-chevron-up"></i></a>
             <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
@@ -27,44 +26,36 @@
         <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Gender</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Email Karyawan</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Level/Hak Akses</th>
+                    <th>Nama Karyawan</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($karyawan as $k) { ?>
+                <?php foreach($user as $k) { ?>
                     <tr>
-                        <td><?= $k->Name?></td>
-                        <td><?= $k->Gender?></td>
-                        <td><?= $k->Address?></td>
-                        <td><?= $k->Phone?></td>
-                        <td><?= $k->email_karyawan?></td>
+                        <td><?= $k->Username?></td>
+                        <td><?= $k->Password?></td>
+                        <td><?= $k->Hak_akses?></td>
+                        <td><?= $k->Karyawan?></td>
+                        <td><?= $k->Status?></td>
                         <td class="center">
-                            <span class="label-success label <?php if($k->Status=='Aktif') echo 'label-default'; else echo 'label-danger';?>"><?= $k->Status?></span>
-                        </td>
-                        <td class="center">
-                        <?php if ($_SESSION['Admin']->id_level == 1) {?>
-                            <?php if ($k->Status == "Off") {?>
-                                <a class="btn btn-success" style="width: 94px;" href="<?= base_url('ControllerKaryawan/Controller_karyawan/editStatusKaryawan?id_karyawan='.$k->id_karyawan.'&status=Aktif')?>">
-                                    <i class="glyphicon glyphicon-ok icon-white"></i>
-                                    Aktif
-                            <?php } else {?>
-                                <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('ControllerKaryawan/Controller_karyawan/editStatusKaryawan?id_karyawan='.$k->id_karyawan.'&status=Off')?>">
-                                        <i class="glyphicon glyphicon-remove icon-white"></i>
-                                    Off
+                            <?php if ($_SESSION['Admin']->id_level == 1) {?>
+                                <?php if ($k->Status == "Not Aprove") {?>
+                                    <a class="btn btn-success" style="width: 94px;" href="<?= base_url('Controller_user/Controller_user/editStatusUser?id='.$k->id_user.'&status=Aprove')?>">
+                                        <i class="glyphicon glyphicon-ok icon-white"></i>
+                                        Aktif
+                                <?php } else {?>
+                                    <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('Controller_user/Controller_user/editStatusUser?id='.$k->id_user.'&status=Not Aprove')?>">
+                                            <i class="glyphicon glyphicon-remove icon-white"></i>
+                                        Off
+                                <?php }?>
+                                    </a>
                             <?php }?>
-                                </a>
-                        <?php }?>
-                            <a class="btn btn-info" href="<?= base_url('ControllerKaryawan/Controller_karyawan/viewFormEditKaryawan?id_karyawan='.$k->id_karyawan.'')?>">
-                                <i class="glyphicon glyphicon-edit icon-white"></i>
-                                Edit
-                            </a>
-                            <a class="btn btn-danger" href="<?= base_url('ControllerKaryawan/Controller_karyawan/deleteKaryawan?id_karyawan='.$k->id_karyawan.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('Controller_user/Controller_usergroup/deleteuser?id='.$k->id_user.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>
@@ -80,14 +71,8 @@
         </div><!--/row-->
     </div><!--/span-->
 
-    <?php include "Form_add_karyawan.php";?>
 
 <script>
-    $('.addKaryawan').click(function (e) {
-        e.preventDefault();
-        $('#addKaryawan').modal('show');
-    });
-
 <?php if (!empty($this->session->flashdata('Status'))){?>
     setnotifstatus('<?php echo $this->session->flashdata('Status')?>');
 <?php }?>
@@ -95,7 +80,7 @@
 
  function setnotifstatus(err)
 { 
-if (err == 'Input Success' || err == 'Edit Success' || err == 'Delete Success')
+if (err == 'Input Success' || err == 'Edit Success' || err == 'Delete Succes')
     {
       ttp='success';
     }
@@ -148,4 +133,6 @@ if (err == 'Input Success' || err == 'Edit Success' || err == 'Delete Success')
   });
 
 }
+
+ 
 </script>

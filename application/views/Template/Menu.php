@@ -10,7 +10,7 @@
                         <li><a class="nav-link" href="<?= base_url('ControllerAdmin/Dashboard')?>"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
                         
                         <li class="nav-item ">
-                                <a class="nav-link collapsed" data-toggle="collapse" data-target="#" href="#FormMaster">
+                                <a class="nav-link collapsed" data-toggle="collapse" data-target="#">
                                     <i class="glyphicon glyphicon-hdd"></i><span> Forms Input Master</span>
                                 </a>
                             <div class="collapse in" id="FormMaster">
@@ -42,7 +42,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_user/M_user/get_user')?>">
+                                        <a class="nav-link" href="<?= base_url('Controller_user/Controller_user/get_user')?>">
                                         <span> User </span>
                                         </a>
                                     </li>
@@ -62,7 +62,7 @@
                         </li>
 
                         <li class="nav-item ">
-                                <a class="nav-link collapsed" data-toggle="collapse" data-target="#" href="#">
+                                <a class="nav-link collapsed" data-toggle="collapse" data-target="#" >
                                     <i class="glyphicon glyphicon-hdd"></i><span> Form Data</span>
                                 </a>
                             <div class="collapse in" id="FormData">

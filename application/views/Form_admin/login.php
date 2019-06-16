@@ -87,14 +87,16 @@
                     </div>
                     <div class="clearfix"></div>
 
-                    <div class="input-prepend">
-                        <label class="remember" for="remember"><input type="checkbox" id="remember"> Remember me</label>
-                    </div>
+                  
                     <div class="clearfix"></div>
-
-                    <p class="center col-md-5">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </p>
+                    <div style="margin-top:10px;">
+                        <p class="col-md-6">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </p>
+                        <p class="col-md-6">
+                            <a href="<?= base_url('ControllerAdmin/Reg_admin')?>" class="btn btn-primary">Register</a>
+                        </p>
+                    </div>
                 </fieldset>
             </form>
         </div>

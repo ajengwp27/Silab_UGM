@@ -95,7 +95,7 @@ class Controller_karyawan extends CI_Controller{
         $deleteKaryawan = $this->Model_karyawan->delete_karyawan($id_karyawan);
         if($deleteKaryawan)
         {
-            $this->session->set_flashdata('Status','Delete Succes');
+            $this->session->set_flashdata('Status','Delete Success');
             redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
         }
         else

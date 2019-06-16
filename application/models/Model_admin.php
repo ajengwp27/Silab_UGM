@@ -20,7 +20,7 @@ class Model_admin extends CI_Model{
         $this->db->from('tb_user');
         $this->db->join('tb_karyawan','tb_karyawan.id_karyawan=tb_user.id_karyawan');
         $this->db->where("tb_user.Username",$username);
-        $this->db->where("tb_user.Password",$password);
+        $this->db->where("tb_user.Password like BINARY", $password);
         $this->db->where("tb_karyawan.Status",'Aktif');
         $getloginbyuserpass = $this->db->get()->row();
         return $getloginbyuserpass;
@@ -31,6 +31,13 @@ class Model_admin extends CI_Model{
         $this->db->where("id_user",$id);
         $getloginbyId = $this->db->get('tb_user')->row();
         return $getloginbyId;
+    }
+
+    function get_admin_by_id_karyawan($id)
+    {   
+        $this->db->where("id_karyawan",$id);
+        $getdatakaryawan = $this->db->get('tb_user')->row();
+        return $getdatakaryawan;
     }
 
     function add_admin($dataAdmin)

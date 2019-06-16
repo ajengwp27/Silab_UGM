@@ -21,6 +21,13 @@ class Model_karyawan extends CI_Model{
         return $getKaryawanById;
     }
 
+    function get_karyawan_by_email($email)
+    {   
+        $this->db->where("email_karyawan",$email);
+        $getKaryawanByEmail = $this->db->get('tb_karyawan')->row();
+        return $getKaryawanByEmail;
+    }
+
     function add_karyawan($dataKaryawan)
     {
         $addkaryawan=$this->db->insert("tb_karyawan",$dataKaryawan);

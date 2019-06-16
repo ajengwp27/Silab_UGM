@@ -20,19 +20,19 @@
                 <form name="fromeditkaryawan" action="<?= base_url('ControllerKaryawan/Controller_karyawan/editKaryawan')?>"  method="post">
                     <div class="form-group">
                         <label>Nama</label>
-                        <input required type="Text" name="name" class="form-control" value=<?= $editkaryawan->Name?>>
+                        <input required type="Text" name="name" class="form-control" value="<?= $editkaryawan->Name?>">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <input required type="Text" name="address" class="form-control" value=<?= $editkaryawan->Address?> >
+                        <input required type="Text" name="address" class="form-control" value="<?= $editkaryawan->Address?>" >
                     </div>
                     <div class="form-group">
                         <label>Nomer Telepon</label>
-                        <input required type="Text" name="phone" class="form-control" value=<?= $editkaryawan->Phone?>>
+                        <input required type="Text" name="phone" class="form-control" value="<?= $editkaryawan->Phone?>">
                     </div>
                     <div class="form-group">
                         <label>Email Karyawan</label>
-                        <input required type="Text" name="email_karyawan" class="form-control" value=<?= $editkaryawan->Phone?>>
+                        <input required type="Text" name="email_karyawan" class="form-control" value="<?= $editkaryawan->email_karyawan?>">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>

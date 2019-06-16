@@ -9,30 +9,46 @@ class Reg_admin extends CI_Controller{
         parent::__construct();
         $this->load->model('Model_admin');
         $this->load->model('Model_karyawan');
-        $this->load->model('Model_user_group');
+        $this->load->model('Model_usergroup');
     }
 
     function index()
     {
-        $dataRegistrasi['usergroup']=$this->Model_user_group->get_user_group();
-        $dataRegistrasi['karyawan']=$this->Model_karyawan->get_karyawan();
-        $this->load->view('admin/register_admin',$dataRegistrasi);
+        $dataRegistrasi['usergroup']=$this->Model_usergroup->get_user_group();
+        $this->load->view('Form_admin/register_admin',$dataRegistrasi);
     }
 
     function add_admin()
     {
         $username     = $this->input->post('username');
         $password     = $this->input->post('password');
-        $id_level = $this->input->post('id_level');
-        $id_karyawan  = $this->input->post('id_karyawan');
-        $dataAdmin = array('Username'=>$username,
-                           'Password'=>$password,
-                           'id_level'=>$id_level,
-                           'id_karyawan'=>$id_karyawan);
-        $reg_admin = $this->Model_admin->add_admin($dataAdmin);
-        if($reg_admin)
+        $id_level     = $this->input->post('level');
+        $Email        = $this->input->post('email');
+        $datakaryawan = $this->Model_karyawan->get_karyawan_by_email($Email);
+        if ($datakaryawan) 
         {
-            $this->load->view('admin/login');
+            if ($this->Model_admin->get_admin_by_id_karyawan($datakaryawan->id_karyawan)) 
+            {
+                $this->session->set_flashdata('Error','Email Sudah Terdaftar Jadi Admin');
+                redirect('ControllerAdmin/Reg_admin');
+            }
+            else 
+            {
+                $dataAdmin = array('Username'=>$username,
+                                   'Password'=>$password,
+                                   'id_level'=>$id_level,
+                                   'id_karyawan'=>$datakaryawan->id_karyawan);
+                $reg_admin = $this->Model_admin->add_admin($dataAdmin);
+                if($reg_admin)
+                {
+                    $this->load->view('Form_admin/login');
+                }
+            }
+        }
+        else 
+        {
+            $this->session->set_flashdata('Error','Email Karyawan Salah');
+            redirect('ControllerAdmin/Reg_admin');
         }
     }
 }
