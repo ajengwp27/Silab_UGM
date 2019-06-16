@@ -8,7 +8,7 @@
          //mendapatkan semua data alat dari tabel tb_alat
          $this->db->select('a.*, b.Name_Category as NamaKategori');
          $this->db->from('tb_alat as a');
-         $this->db->join('tb_category as b','b.Category_id=a.Categori_id');
+         $this->db->join('tb_category as b','b.Category_id = a.Categori_id');
          $dataalat = $this->db->get()->result();
          return $dataalat;
      }
@@ -37,7 +37,7 @@
      function deleteDataAlat($id)
      {
         $this->db->where('id_alat',$id);
-        $deletAlat =$this->db->delte("tb_alat");
+        $deletAlat = $this->db->delte("tb_alat");
         return $deletAlat;
      }
 

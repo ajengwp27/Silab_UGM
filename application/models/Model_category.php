@@ -35,7 +35,7 @@
      function deleteDataCategory($id)
      {
         $this->db->where('Category_id',$id);
-        $deletCategory =$this->db->delete("tb_category");
+        $deletCategory = $this->db->delete("tb_category");
         return $deletCategory;
      }
 

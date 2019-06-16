@@ -23,14 +23,14 @@ class Model_usergroup extends CI_Model{
     function update_user_group($id_level,$datauser_group)
     {
         $this->db->where('id_level',$id_level);
-        $updateuser_group=$this->db->update("tb_hak_akses",$datauser_group);
+        $updateuser_group = $this->db->update("tb_hak_akses",$datauser_group);
         return $updateuser_group;
     }
 
     function delete_user_group($id_level)
     {
         $this->db->where('id_level',$id_level);
-        $deleteuser_group=$this->db->delete("tb_hak_akses");
+        $deleteuser_group = $this->db->delete("tb_hak_akses");
         return $deleteuser_group;
     }
 }

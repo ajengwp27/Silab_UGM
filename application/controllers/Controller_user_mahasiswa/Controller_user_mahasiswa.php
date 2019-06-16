@@ -27,9 +27,9 @@ class M_user_mahasiswa extends CI_Controller{
     function adduser_mahasiswa()
     {
         $user_mahasiswa  = array(  
-                        'Username'=>$this->input->post('username'),
-                        'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
-                        'Password'=>$this->input->post('password')                 
+                        'Username'     => $this->input->post('username'),
+                        'id_mahasiswa' => $this->input->post('id_mahasiswa'),
+                        'Password'     => $this->input->post('password')                 
                     );
         $adduser_mahasiswa = $this->Model_user_mahasiswa->add_user_mahasiswa($user_mahasiswa );
         if($adduser_mahasiswa)
@@ -48,9 +48,9 @@ class M_user_mahasiswa extends CI_Controller{
     {
         $id = $this->input->post('submitid');
         $user_mahasiswa  = array(  
-                        'Username'=>$this->input->post('username'),
-                        'Password'=>$this->input->post('password'),
-                        'Update_at'=>get_current_date()     
+                        'Username'  => $this->input->post('username'),
+                        'Password'  => $this->input->post('password'),
+                        'Update_at' => get_current_date()     
                      );               
         $edituser_mahasiswa = $this->Model_user_mahasiswa ->update_user_mahasiswa($id,$user_mahasiswa );
         if($edituser_mahasiswa )

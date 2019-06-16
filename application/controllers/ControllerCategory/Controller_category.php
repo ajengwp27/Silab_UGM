@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function viewFormEditCategory()
         {
-            $id = $this->input->get('Category_id');
+            $id                   = $this->input->get('Category_id');
             $data['editcategory'] = $this->Model_category->getDataCategoryById($id);
             $this->template->load('Template/Template_admin','Form_category/Form_edit_category',$data);;
         }
@@ -58,8 +58,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function deleteCategory()
         {
-                $id_Category=$this->input->get('Category_id');
-            $deleteCategory = $this->Model_category->deleteDataCategory($id_Category);
+            $id_Category     = $this->input->get('Category_id');
+            $deleteCategory  = $this->Model_category->deleteDataCategory($id_Category);
             if($deleteCategory)
             {   
                 $this->session->set_flashdata('Status','Delete Succes');

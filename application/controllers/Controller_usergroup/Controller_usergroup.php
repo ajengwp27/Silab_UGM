@@ -18,7 +18,7 @@ class Controller_usergroup extends CI_Controller{
 
     function viewFormEditusergroup()
     {
-        $id_level = $this->input->get('id');
+        $id_level              = $this->input->get('id');
         $data['editusergroup'] = $this->Model_usergroup->get_user_group_by_id($id_level);
         $this->template->load('Template/Template_admin','Form_usergroup/Form_edit_usergroup',$data);;
     }

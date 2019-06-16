@@ -5,8 +5,8 @@ class Model_user extends CI_Model{
     {
         $this->db->select('a.*,b.Description as Hak_akses,c.Name as Karyawan');
         $this->db->from('tb_user as a');
-        $this->db->join('tb_hak_akses as b', 'b.id_level=a.id_level');
-        $this->db->join('tb_karyawan as c', 'c.id_karyawan=a.id_karyawan');
+        $this->db->join('tb_hak_akses as b', 'b.id_level = a.id_level');
+        $this->db->join('tb_karyawan as c', 'c.id_karyawan = a.id_karyawan');
         $datauser = $this->db->get()->result();
         return $datauser;
     }
@@ -34,14 +34,14 @@ class Model_user extends CI_Model{
     function update_user($id_user,$datauser)
     {
         $this->db->where('id_user',$id_user);
-        $updateuser=$this->db->update("tb_user",$datauser);
+        $updateuser = $this->db->update("tb_user",$datauser);
         return $updateuser;
     }
 
     function delete_user($id_user)
     {
         $this->db->where('id_user',$id_user);
-        $deleteuser=$this->db->delete("tb_user");
+        $deleteuser = $this->db->delete("tb_user");
         return $deleteuser;
     }
 }

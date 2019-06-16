@@ -57,7 +57,7 @@
 
 </head>
 
-<body style="opacity:0.9;background-image:url('<?= base_url('assets/')?>img/login.jpg'); background-size: cover;background-repeat: no-repeat;background-position: inherit;">
+<body style="opacity:0.9;background-image:url('<?= base_url('assets/')?>img/login.jpg'); background-size: cover;background-repeat: no-repeat;background-position: inherit; overflow: hidden;">
 <div class="ch-container">
     <div class="row">
         

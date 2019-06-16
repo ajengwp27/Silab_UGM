@@ -72,7 +72,7 @@ class Controller_karyawan extends CI_Controller{
     function editStatuskaryawan()
     {
         $id_karyawan = $this->input->get('id_karyawan');
-        $status = $this->input->get('status');
+        $status      = $this->input->get('status');
         $karyawan = array(
                         'Status'=>$status
                         );
@@ -91,7 +91,7 @@ class Controller_karyawan extends CI_Controller{
 
     function deleteKaryawan()
     {
-        $id_karyawan=$this->input->get('id_karyawan');
+        $id_karyawan    = $this->input->get('id_karyawan');
         $deleteKaryawan = $this->Model_karyawan->delete_karyawan($id_karyawan);
         if($deleteKaryawan)
         {

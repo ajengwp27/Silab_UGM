@@ -26,12 +26,12 @@ class Controller_mahasiswa extends CI_Controller{
     function addmahasiswa()
     {
         $mahasiswa = array(
-                        'Nim'=>$this->input->post('nim'),
-                        'Name'=>$this->input->post('name'),
-                        'Gender'=>$this->input->post('gender'),
-                        'Address'=>$this->input->post('address'),
-                        'Phone'=>$this->input->post('phone'),
-                        'Email_mahasiswa'=>$this->input->post('email'),
+                        'Nim'             => $this->input->post('nim'),
+                        'Name'            => $this->input->post('name'),
+                        'Gender'          => $this->input->post('gender'),
+                        'Address'         => $this->input->post('address'),
+                        'Phone'           => $this->input->post('phone'),
+                        'Email_mahasiswa' => $this->input->post('email'),
                      );
         $addmahasiswa=$this->Model_mahasiswa->add_mahasiswa($mahasiswa);
         if($addmahasiswa)
@@ -50,13 +50,13 @@ class Controller_mahasiswa extends CI_Controller{
     {
         $id_mahasiswa = $this->input->post('submitid');
         $mahasiswa = array(
-                        'Nim'=>$this->input->post('nim'),
-                        'Name'=>$this->input->post('name'),
-                        'Gender'=>$this->input->post('gender'),
-                        'Address'=>$this->input->post('address'),
-                        'Phone'=>$this->input->post('phone'),
-                        'Email_mahasiswa'=>$this->input->post('email'),
-                        'Update_at'=>get_current_date()
+                        'Nim'             => $this->input->post('nim'),
+                        'Name'            => $this->input->post('name'),
+                        'Gender'          => $this->input->post('gender'),
+                        'Address'         => $this->input->post('address'),
+                        'Phone'           => $this->input->post('phone'),
+                        'Email_mahasiswa' => $this->input->post('email'),
+                        'Update_at'       => get_current_date()
                     );
         $editmahasiswa = $this->Model_mahasiswa->update_mahasiswa($id_mahasiswa,$mahasiswa);
         if($editmahasiswa)
@@ -74,7 +74,7 @@ class Controller_mahasiswa extends CI_Controller{
     function editStatusmahasiswa()
     {
         $id_mahasiswa = $this->input->get('id_mahasiswa');
-        $status = $this->input->get('status');
+        $status       = $this->input->get('status');
         $mahasiswa = array(
                         'Status'=>$status
                         );
@@ -93,7 +93,7 @@ class Controller_mahasiswa extends CI_Controller{
 
     function deletemahasiswa()
     {
-        $id_mahasiswa=$this->input->get('id_mahasiswa');
+        $id_mahasiswa    = $this->input->get('id_mahasiswa');
         $deletemahasiswa = $this->Model_mahasiswa->delete_mahasiswa($id_mahasiswa);
         if($deletemahasiswa)
         {

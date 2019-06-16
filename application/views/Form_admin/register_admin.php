@@ -18,7 +18,7 @@
     <script src="<?= base_url('assets/')?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url('assets/')?>js/bootstrap-notify.js"></script>
 </head>
-<body>
+<body style="background-image:url('<?= base_url('assets/')?>img/login.jpg'); background-size: cover;background-repeat: no-repeat;background-position: inherit; overflow: hidden;">
 
     <div class="main">
 

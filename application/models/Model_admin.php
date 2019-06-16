@@ -49,14 +49,14 @@ class Model_admin extends CI_Model{
     function update_admin($idAdmin,$dataAdmin)
     {
         $this->db->where('id_user',$idAdmin);
-        $updateAdmin=$this->db->update("tb_user",$dataAdmin);
+        $updateAdmin = $this->db->update("tb_user",$dataAdmin);
         return $updateAdmin;
     }
 
     function delete_admin($idAdmin)
     {
         $this->db->where('id_user',$idAdmin);
-        $deleteAdmin=$this->db->delete("tb_user");
+        $deleteAdmin = $this->db->delete("tb_user");
         return $deleteAdmin;
     }
 

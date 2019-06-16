@@ -14,8 +14,8 @@
     
     function index()
     {
-        $data['jumlahmahasiswa'] =$this->Model_mahasiswa->get_mahasiswa();
-        $data['jumlahmahasiswaaktif'] =$this->Model_mahasiswa->get_mahasiswa_by_status();
+        $data['jumlahmahasiswa']      = $this->Model_mahasiswa->get_mahasiswa();
+        $data['jumlahmahasiswaaktif'] = $this->Model_mahasiswa->get_mahasiswa_by_status();
         $this->template->load('Template/Template_admin','Form_admin/dashboard',$data);
     }
  }

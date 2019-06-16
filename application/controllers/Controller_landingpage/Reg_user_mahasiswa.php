@@ -19,14 +19,16 @@ class Reg_user_mahasiswa extends CI_Controller{
 
     function add_admin()
     {
-        $username     = $this->input->post('username');
-        $password     = $this->input->post('password');
-        $id_level = $this->input->post('id_level');
-        $id_karyawan  = $this->input->post('id_karyawan');
-        $dataAdmin = array('Username'=>$username,
-                           'Password'=>$password,
-                           'id_level'=>$id_level,
-                           'id_karyawan'=>$id_karyawan);
+        $username    = $this->input->post('username');
+        $password    = $this->input->post('password');
+        $id_level    = $this->input->post('id_level');
+        $id_karyawan = $this->input->post('id_karyawan');
+        $dataAdmin = array(
+                           'Username'    => $username,
+                           'Password'    => $password,
+                           'id_level'    => $id_level,
+                           'id_karyawan' => $id_karyawan
+                        );
         $reg_admin = $this->Model_admin->add_admin($dataAdmin);
         if($reg_admin)
         {

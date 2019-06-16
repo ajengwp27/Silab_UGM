@@ -18,9 +18,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function addAlat()
         {
                 $alat = array (
-                    'Name' =>$this->input->post('name'),
-                    'Category_id'=>$this->input->post('category_id'),
-                    'Number_of_rack'=>$this->input->post('number_of_rack')
+                    'Name'           => $this->input->post('name'),
+                    'Category_id'    => $this->input->post('category_id'),
+                    'Number_of_rack' => $this->input->post('number_of_rack')
                 );
             $addalat= $this->Model_alat->insertDataAlat($alat);
             if($addalat)
@@ -41,9 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             $id_alat = $this->input->post('submitid');
             $alat = array(
-                            'Name'=>$this->input->post('name'),
-                            'Category_id'=>$this->input->post('category_id'),
-                            'Number_of_rack'=>$this->input->post('number_of_rack'),
+                            'Name'           => $this->input->post('name'),
+                            'Category_id'    => $this->input->post('category_id'),
+                            'Number_of_rack' => $this->input->post('number_of_rack'),
                             );
             $editalat= $this->Model_alat->update_karyawan($id_alat,$alat);
             if($editalat)
