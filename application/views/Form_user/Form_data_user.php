@@ -55,7 +55,10 @@
                                 <?php }?>
                                     </a>
                             <?php }?>
-                            <a class="btn btn-danger" href="<?= base_url('Controller_user/Controller_usergroup/deleteuser?id='.$k->id_user.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('Controller_user/Controller_user/viewFormEdituser?id_user='.$k->id_user.'')?>">
+                                <i class="glyphicon glyphicon-edit icon-white"></i>
+                                Edit
+                            <a class="btn btn-danger" href="<?= base_url('Controller_user/Controller_user/deleteuser?id='.$k->id_user.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>

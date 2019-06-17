@@ -48,7 +48,7 @@ class Reg_admin extends CI_Controller{
         else 
         {
             $this->session->set_flashdata('Error','Email Karyawan Salah');
-            redirect('ControllerAdmin/Reg_admin');
+            redirect('ControllerAdmin/Reg_admin/');
         }
     }
 }

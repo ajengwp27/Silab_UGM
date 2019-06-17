@@ -94,7 +94,7 @@
                             <button type="submit" class="btn btn-primary">Login</button>
                         </p>
                         <p class="col-md-6">
-                            <a href="<?= base_url('ControllerAdmin/Reg_admin')?>" class="btn btn-primary">Register</a>
+                            <a href="<?= base_url('ControllerAdmin/Reg_admin/')?>" class="btn btn-primary">Register</a>
                         </p>
                     </div>
                 </fieldset>
