@@ -52,21 +52,21 @@
                         <td class="center">
                         <?php if ($_SESSION['Admin']->id_level == 1) {?>
                             <?php if ($k->Status == "Off") {?>
-                                <a class="btn btn-success" style="width: 69px;" href="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/editStatusmahasiswa?id_mahasiswa='.$k->id_mahasiswa.'&status=Aktif')?>">
+                                <a class="btn btn-success" style="width: 69px;" href="<?= base_url('editstatusmahasiswa/'.$k->id_mahasiswa.'/Aktif')?>">
                                     <i class="glyphicon glyphicon-ok icon-white"></i>
                                     Aktif
                             <?php } else {?>
-                                <a class="btn btn-danger" style="width: 69px;" href="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/editStatusmahasiswa?id_mahasiswa='.$k->id_mahasiswa.'&status=Off')?>">
+                                <a class="btn btn-danger" style="width: 69px;" href="<?= base_url('editstatusmahasiswa/'.$k->id_mahasiswa.'/Off')?>">
                                         <i class="glyphicon glyphicon-remove icon-white"></i>
                                     Off
                             <?php }?>
                                 </a>
                         <?php }?>
-                            <a class="btn btn-info" style="width: 69px;" href="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/viewFormEditmahasiswa?id_mahasiswa='.$k->id_mahasiswa.'')?>">
+                            <a class="btn btn-info" style="width: 69px;" href="<?= base_url('formeditmahasiswa/'.$k->id_mahasiswa.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" style="width: 69px;" href="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/deletemahasiswa?id_mahasiswa='.$k->id_mahasiswa.'')?>">
+                            <a class="btn btn-danger" style="width: 69px;" href="<?= base_url('deletemahasiswa/'.$k->id_mahasiswa.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Del
                             </a>

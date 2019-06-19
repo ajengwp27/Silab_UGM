@@ -50,21 +50,21 @@
                         <td class="center">
                         <?php if ($_SESSION['Admin']->id_level == 1) {?>
                             <?php if ($k->Status == "Off") {?>
-                                <a class="btn btn-success" style="width: 94px;" href="<?= base_url('ControllerKaryawan/Controller_karyawan/editStatusKaryawan?id_karyawan='.$k->id_karyawan.'&status=Aktif')?>">
+                                <a class="btn btn-success" style="width: 94px;" href="<?= base_url('editstatuskaryawan/'.$k->id_karyawan.'/Aktif')?>">
                                     <i class="glyphicon glyphicon-ok icon-white"></i>
                                     Aktif
                             <?php } else {?>
-                                <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('ControllerKaryawan/Controller_karyawan/editStatusKaryawan?id_karyawan='.$k->id_karyawan.'&status=Off')?>">
+                                <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('editstatuskaryawan/'.$k->id_karyawan.'/Off')?>">
                                         <i class="glyphicon glyphicon-remove icon-white"></i>
                                     Off
                             <?php }?>
                                 </a>
                         <?php }?>
-                            <a class="btn btn-info" href="<?= base_url('ControllerKaryawan/Controller_karyawan/viewFormEditKaryawan?id_karyawan='.$k->id_karyawan.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('formeditkaryawan/'.$k->id_karyawan.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="<?= base_url('ControllerKaryawan/Controller_karyawan/deleteKaryawan?id_karyawan='.$k->id_karyawan.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('deletekaryawan/'.$k->id_karyawan.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>

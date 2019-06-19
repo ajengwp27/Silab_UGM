@@ -44,21 +44,21 @@
                         <td><?= $k->Status?></td>
                         <td class="center">
                             <?php if ($_SESSION['Admin']->id_level == 1) {?>
-                                <?php if ($k->Status == "Not Aprove") {?>
-                                    <a class="btn btn-success" style="width: 94px;" href="<?= base_url('Controller_user/Controller_user/editStatusUser?id='.$k->id_user.'&status=Aprove')?>">
+                                <?php if ($k->Status == "NotAprove") {?>
+                                    <a class="btn btn-success" style="width: 94px;" href="<?= base_url('editstatususer/'.$k->id_user.'/Aprove')?>">
                                         <i class="glyphicon glyphicon-ok icon-white"></i>
                                         Aktif
                                 <?php } else {?>
-                                    <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('Controller_user/Controller_user/editStatusUser?id='.$k->id_user.'&status=Not Aprove')?>">
+                                    <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('editstatususer/'.$k->id_user.'/NotAprove')?>">
                                             <i class="glyphicon glyphicon-remove icon-white"></i>
                                         Off
                                 <?php }?>
                                     </a>
                             <?php }?>
-                            <a class="btn btn-info" href="<?= base_url('Controller_user/Controller_user/viewFormEdituser?id_user='.$k->id_user.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('formedituser/'.$k->id_user.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
-                            <a class="btn btn-danger" href="<?= base_url('Controller_user/Controller_user/deleteuser?id='.$k->id_user.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('deleteuser/'.$k->id_user.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>

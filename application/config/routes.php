@@ -50,7 +50,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
+
+//Route Admin
 $route['Admin'] = 'ControllerAdmin/Login';
 $route['admin'] = 'ControllerAdmin/Login';
+$route['dasboard'] = 'ControllerAdmin/Dashboard';
+$route['regadmin'] = 'ControllerAdmin/Reg_admin';
+
+//Route Alat
+$route['alat'] = 'ControllerAlat/Controller_alat/getDataAlat';
+$route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/ViewEditAlat/$1';
+$route['deletealat/(:any)'] = 'ControllerAlat/Controller_alat/DeleteAlat/$1';
+
+//Route Kategori
+$route['kategori'] = 'ControllerCategory/Controller_category/getDataCategory';
+$route['formeditkategori/(:any)'] = 'ControllerCategory/Controller_category/viewFormEditCategory/$1';
+$route['deletekategori/(:any)'] = 'ControllerCategory/Controller_category/deleteCategory/$1';
+
+//Route Mahasiswa
+$route['mahasiswa'] = 'ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa';
+$route['editstatusmahasiswa/(:any)/(:any)'] = 'ControllerMahasiswa/Controller_mahasiswa/editStatusmahasiswa/$1/$2';
+$route['formeditmahasiswa/(:any)'] = 'ControllerMahasiswa/Controller_mahasiswa/viewFormEditmahasiswa/$1';
+$route['deletemahasiswa/(:any)'] = 'ControllerMahasiswa/Controller_mahasiswa/deletemahasiswa/$1';
+
+//Route Karyawan
+$route['karyawan'] = 'ControllerKaryawan/Controller_karyawan/get_karyawan';
+$route['editstatuskaryawan/(:any)/(:any)'] = 'ControllerKaryawan/Controller_karyawan/editStatusKaryawan/$1/$2';
+$route['formeditkaryawan/(:any)'] = 'ControllerKaryawan/Controller_karyawan/viewFormEditKaryawan/$1';
+$route['deletekaryawan/(:any)'] = 'ControllerKaryawan/Controller_karyawan/deleteKaryawan/$1';
+
+//Route Usergroup
+$route['usergroup'] = 'Controller_usergroup/Controller_usergroup/get_usergroup';
+$route['formeditusergroup/(:any)'] = 'Controller_usergroup/Controller_usergroup/viewFormEditusergroup/$1';
+$route['deleteusergroup/(:any)'] = 'Controller_usergroup/Controller_usergroup/deleteusergroup/$1';
+
+//Route User
+$route['user'] = 'Controller_user/Controller_user/get_user';
+$route['editstatususer/(:any)/(:any)'] = 'Controller_user/Controller_user/editStatusUser/$1/$2';
+$route['formedituser/(:any)'] = 'Controller_user/Controller_user/viewFormEdituser/$1';
+$route['deleteuser/(:any)'] = 'Controller_user/Controller_user/deleteuser/$1';
+
+
+
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

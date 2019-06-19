@@ -16,9 +16,8 @@ class Controller_mahasiswa extends CI_Controller{
         $this->template->load('Template/Template_admin','Form_mahasiswa/Form_data_mahasiswa',$data);
     }
 
-    function viewFormEditmahasiswa()
+    function viewFormEditmahasiswa($id_mahasiswa)
     {
-        $id_mahasiswa = $this->input->get('id_mahasiswa');
         $data['editmahasiswa'] = $this->Model_mahasiswa->get_mahasiswa_by_id($id_mahasiswa);
         $this->template->load('Template/Template_admin','Form_mahasiswa/Form_edit_mahasiswa',$data);;
     }
@@ -37,12 +36,12 @@ class Controller_mahasiswa extends CI_Controller{
         if($addmahasiswa)
         {
             $this->session->set_flashdata('Status','Input Success');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
         else
         {
             $this->session->set_flashdata('Status','Input Failed');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
     }
 
@@ -62,19 +61,17 @@ class Controller_mahasiswa extends CI_Controller{
         if($editmahasiswa)
         {
             $this->session->set_flashdata('Status','Edit Success');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
         else
         {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
     }
 
-    function editStatusmahasiswa()
+    function editStatusmahasiswa($id_mahasiswa,$status)
     {
-        $id_mahasiswa = $this->input->get('id_mahasiswa');
-        $status       = $this->input->get('status');
         $mahasiswa = array(
                         'Status'=>$status
                         );
@@ -82,28 +79,27 @@ class Controller_mahasiswa extends CI_Controller{
         if($editmahasiswa)
         {
             $this->session->set_flashdata('Status','Edit Success');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
         else
         {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
     }
 
-    function deletemahasiswa()
+    function deletemahasiswa($id_mahasiswa)
     {
-        $id_mahasiswa    = $this->input->get('id_mahasiswa');
         $deletemahasiswa = $this->Model_mahasiswa->delete_mahasiswa($id_mahasiswa);
         if($deletemahasiswa)
         {
             $this->session->set_flashdata('Status','Delete Succes');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
         else
         {
             $this->session->set_flashdata('Status','Delete Failed');
-            redirect('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa');
+            redirect('mahasiswa');
         }
     }
 }

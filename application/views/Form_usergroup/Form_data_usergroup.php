@@ -38,11 +38,11 @@
                         <td><?= $k->id_level?></td>
                         <td><?= $k->Description?></td>
                         <td class="center">
-                            <a class="btn btn-info" href="<?= base_url('Controller_usergroup/Controller_usergroup/viewFormEditusergroup?id='.$k->id_level.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('formeditusergroup/'.$k->id_level.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="<?= base_url('Controller_usergroup/Controller_usergroup/deleteusergroup?id='.$k->id_level.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('deleteusergroup/'.$k->id_level.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>

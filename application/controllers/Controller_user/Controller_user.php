@@ -18,9 +18,9 @@ class Controller_user extends CI_Controller{
         $this->template->load('Template/Template_admin','Form_user/Form_data_user',$data);
     }
 
-    function viewFormEdituser()
+    function viewFormEdituser($id_user)
     {
-        $id_user = $this->input->get('id_user');
+        
         $data['edituser']  = $this->Model_user->get_user_by_id($id_user);
         $data['usergroup'] = $this->Model_usergroup->get_user_group();
         $this->template->load('Template/Template_admin','Form_user/Form_edit_user',$data);
@@ -37,19 +37,17 @@ class Controller_user extends CI_Controller{
         if($edituser)
         {
             $this->session->set_flashdata('Status','Edit Success');
-            redirect('Controller_user/Controller_user/get_user');
+            redirect('user');
         }
         else
         {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('Controller_user/Controller_user/get_user');
+            redirect('user');
         }
     }
 
-    function editStatusUser()
+    function editStatusUser($id_user,$status)
     {
-        $id_user = $this->input->get('id');
-        $status = $this->input->get('status');
         $user = array(
                         'Status'=>$status
                         );
@@ -57,12 +55,12 @@ class Controller_user extends CI_Controller{
         if($edituser)
         {
             $this->session->set_flashdata('Status','Edit Success');
-            redirect('Controller_user/Controller_user/get_user');
+            redirect('user');
         }
         else
         {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('Controller_user/Controller_user/get_user');
+            redirect('user');
         }
     }
 
@@ -73,12 +71,12 @@ class Controller_user extends CI_Controller{
         if($deleteuser)
         {
             $this->session->set_flashdata('Status','Delete Success');
-            redirect('Controller_user/Controller_user/get_user');
+            redirect('user');
         }
         else
         {
             $this->session->set_flashdata('Status','Delete Failed');
-            redirect('Controller_user/Controller_user/get_user');
+            redirect('user');
         }
     }
 }

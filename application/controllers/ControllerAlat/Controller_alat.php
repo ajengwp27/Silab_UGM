@@ -28,13 +28,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($addalat)
             {
                 $this->session->set_flashdata('Status','Input Succes');
-                redirect('ControllerAlat/ControllerAlat/getDataAlat');
+                redirect('alat');
             }
         }
 
-        function viewFormEditAlat()
+        function viewFormEditAlat($id)
         {
-            $id = $this->input->get('id_alat');
             $data['editalat'] = $this->Model_alat->getDataAlatById($id);
             $this->template->load('Template/Template_admin','Form_alat/Form_edit_alat',$data);;
         }
@@ -51,28 +50,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($editalat)
             {   
             $this->session->set_flashdata('Status','Edit Succes');
-            redirect('ControllerAlat/ControllerAlat/getDataAlat');
+            redirect('alat');
             }
             else
             {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('ControllerAlat/ControllerAlat/getDataAlat');  
+            redirect('alat');  
             } 
         }
 
-        function deleteAlat()
+        function deleteAlat($id)
         {
-                $id_alat=$this->input->get('id_alat');
             $deletealat = $this->Model_alat->delete_alat($id_alat);
             if($deleteAlat)
             {   
                 $this->session->set_flashdata('Status','Delete Succes');
-                redirect('ControllerAlat/ControllerAlat/getDataAlat');
+                redirect('alat');
             }
             else
             {
                 $this->session->set_flashdata('Status','Delete Failed');
-                redirect('ControllerAlat/ControllerAlat/tampilDataAlat');
+                redirect('alat');
             }
         }
         

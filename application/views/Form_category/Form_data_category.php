@@ -37,11 +37,11 @@
                       
                         <td><?= $k->Name_Category?></td>
                         <td class="center">
-                            <a class="btn btn-info" href="<?= base_url('ControllerCategory/Controller_category/viewFormEditCategory?Category_id='.$k->Category_id.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('formeditkategori/'.$k->Category_id.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="<?= base_url('ControllerCategory/Controller_category/deleteCategory?Category_id='.$k->Category_id.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('deletekategori/'.$k->Category_id.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>

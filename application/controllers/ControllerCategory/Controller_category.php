@@ -25,13 +25,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($addCategory)
             {
                 $this->session->set_flashdata('Status','Input Succes');
-                redirect('ControllerCategory/Controller_category/getDataCategory');
+                redirect('kategori');
             }
         }
 
-        function viewFormEditCategory()
+        function viewFormEditCategory($id)
         {
-            $id                   = $this->input->get('Category_id');
             $data['editcategory'] = $this->Model_category->getDataCategoryById($id);
             $this->template->load('Template/Template_admin','Form_category/Form_edit_category',$data);;
         }
@@ -47,28 +46,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($editCategory)
             {   
             $this->session->set_flashdata('Status','Edit Succes');
-            redirect('ControllerCategory/Controller_category/getDataCategory');
+            redirect('kategori');
             }
             else
             {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('ControllerCategory/ControllerCategory/getDataCategory');  
+            redirect('kategori');  
             } 
         }
 
-        function deleteCategory()
+        function deleteCategory($id_Category )
         {
-            $id_Category     = $this->input->get('Category_id');
+          
             $deleteCategory  = $this->Model_category->deleteDataCategory($id_Category);
             if($deleteCategory)
             {   
                 $this->session->set_flashdata('Status','Delete Succes');
-                redirect('ControllerCategory/Controller_category/getDataCategory');
+                redirect('kategori');
             }
             else
             {
                 $this->session->set_flashdata('Status','Delete Failed');
-                redirect('ControllerCategory/Controller_category/tampilDataCategory');
+                redirect('kategori');
             }
         }
         

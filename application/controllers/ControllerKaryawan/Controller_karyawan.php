@@ -16,9 +16,8 @@ class Controller_karyawan extends CI_Controller{
         $this->template->load('Template/Template_admin','Form_karyawan/Form_data_karyawan',$data);
     }
 
-    function viewFormEditkaryawan()
+    function viewFormEditkaryawan($id_karyawan)
     {
-        $id_karyawan = $this->input->get('id_karyawan');
         $data['editkaryawan'] = $this->Model_karyawan->get_karyawan_by_id($id_karyawan);
         $this->template->load('Template/Template_admin','Form_karyawan/Form_edit_karyawan',$data);
     }
@@ -36,12 +35,12 @@ class Controller_karyawan extends CI_Controller{
         if($addkaryawan)
         {
             $this->session->set_flashdata('Status','Input Success');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
         else
         {
             $this->session->set_flashdata('Status','Input Failed');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
     }
 
@@ -60,19 +59,17 @@ class Controller_karyawan extends CI_Controller{
         if($editkaryawan)
         {
             $this->session->set_flashdata('Status','Edit Success');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
         else
         {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
     }
 
-    function editStatuskaryawan()
+    function editStatuskaryawan($id_karyawan,$status)
     {
-        $id_karyawan = $this->input->get('id_karyawan');
-        $status      = $this->input->get('status');
         $karyawan = array(
                         'Status'=>$status
                         );
@@ -80,28 +77,27 @@ class Controller_karyawan extends CI_Controller{
         if($editkaryawan)
         {
             $this->session->set_flashdata('Status','Edit Success');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
         else
         {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
     }
 
-    function deleteKaryawan()
+    function deleteKaryawan($id_karyawan)
     {
-        $id_karyawan    = $this->input->get('id_karyawan');
         $deleteKaryawan = $this->Model_karyawan->delete_karyawan($id_karyawan);
         if($deleteKaryawan)
         {
             $this->session->set_flashdata('Status','Delete Success');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
         else
         {
             $this->session->set_flashdata('Status','Delete Failed');
-            redirect('ControllerKaryawan/Controller_karyawan/get_karyawan');
+            redirect('karyawan');
         }
     }
 }

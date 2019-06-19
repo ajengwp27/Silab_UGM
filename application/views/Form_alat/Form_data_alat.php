@@ -40,11 +40,11 @@
                         <td><?= $k->NamaKategori?></td>
                         <td><?= $k->Number_of_rack?></td>
                         <td class="center">
-                            <a class="btn btn-info" href="<?= base_url('ControllerAlat/Controller_alat/ViewEditAlat?id_alat='.$k->id_alat.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('formeditalat/'.$k->id_alat.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="<?= base_url('ControllerAlat/Controller_alat/DeleteAlat?id_alat='.$k->id_alat.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('deletealat/'.$k->id_alat.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>

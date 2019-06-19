@@ -32,12 +32,12 @@ class Login extends CI_Controller{
         if($getAdmin && $getAdmin->Status=="Aprove")
         {
             $this->session->set_userdata('Admin',$getAdmin);
-            redirect('ControllerAdmin/Dashboard');
+            redirect('dasboard');
         }
         else
         {
             $this->session->set_flashdata('Error','Username and Password Incorect');
-            redirect('ControllerAdmin/Login');
+            redirect('admin');
         }
     }
 

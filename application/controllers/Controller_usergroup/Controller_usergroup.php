@@ -16,9 +16,8 @@ class Controller_usergroup extends CI_Controller{
         $this->template->load('Template/Template_admin','Form_usergroup/Form_data_usergroup',$data);
     }
 
-    function viewFormEditusergroup()
+    function viewFormEditusergroup($id_level)
     {
-        $id_level              = $this->input->get('id');
         $data['editusergroup'] = $this->Model_usergroup->get_user_group_by_id($id_level);
         $this->template->load('Template/Template_admin','Form_usergroup/Form_edit_usergroup',$data);;
     }
@@ -32,12 +31,12 @@ class Controller_usergroup extends CI_Controller{
         if($addusergroup)
         {   
             $this->session->set_flashdata('Status','Input Succes');
-            redirect('Controller_usergroup/Controller_usergroup/get_usergroup');
+            redirect('usergroup');
         }
         else
         {
             $this->session->set_flashdata('Status','Input Failed');
-            redirect('Controller_usergroup/Controller_usergroup/get_usergroup');
+            redirect('usergroup');
         }
     }
 
@@ -48,32 +47,31 @@ class Controller_usergroup extends CI_Controller{
                         'Description'=>$this->input->post('hakakses'),
                         'Update_at'=>get_current_date()    
                         );
-        $editusergroup= $this->Model_usergroup->update_usergroup($id_level,$usergroup);
+        $editusergroup= $this->Model_usergroup->update_user_group($id_level,$usergroup);
         if($editusergroup)
         {   
-            $this->session->set_flashdata('Status','Edit Succes');
-            redirect('Controller_usergroup/Controller_usergroup/get_usergroup');
+            $this->session->set_flashdata('Status','Edit Success');
+            redirect('usergroup');
         }
         else
         {
             $this->session->set_flashdata('Status','Edit Failed');
-            redirect('Controller_usergroup/Controller_usergroup/get_usergroup');
+            redirect('usergroup');
         }
     }
 
-    function deleteusergroup()
+    function deleteusergroup($id_level)
     {
-        $id_level=$this->input->get('id_level');
         $deleteusergroup = $this->Model_usergroup->delete_usergroup($id_level);
         if($deleteusergroup)
         {   
             $this->session->set_flashdata('Status','Delete Succes');
-            redirect('Controller_usergroup/Controller_usergroup/get_usergroup');
+            redirect('usergroup');
         }
         else
         {
             $this->session->set_flashdata('Status','Delete Failed');
-            redirect('Controller_usergroup/Controller_usergroup/get_usergroup');
+            redirect('usergroup');
         }
         
     }

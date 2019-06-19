@@ -16,33 +16,33 @@
                             <div class="collapse in" id="FormMaster">
                                 <ul class="nav">
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>ControllerAlat/Controller_alat/getDataAlat">
+                                        <a class="nav-link" href="<?= base_url()?>alat">
                                         <span> Alat </span>
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>ControllerCategory/Controller_category/getDataCategory">
+                                        <a class="nav-link" href="<?= base_url()?>kategori">
                                         <span> Kategori</span>     
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa')?>">
+                                        <a class="nav-link" href="<?= base_url('mahasiswa')?>">
                                         <span> Mahasiswa </span>
                                         </a>
                                     </li>
                                     <?php if ($_SESSION['Admin']->id_level == 1) {?>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('ControllerKaryawan/Controller_karyawan/get_karyawan')?>">
+                                        <a class="nav-link" href="<?= base_url('karyawan')?>">
                                         <span> Karyawan</span>     
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('Controller_usergroup/Controller_usergroup/get_usergroup')?>">
+                                        <a class="nav-link" href="<?= base_url('usergroup')?>">
                                         <span> Usergroup </span>
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('Controller_user/Controller_user/get_user')?>">
+                                        <a class="nav-link" href="<?= base_url('user')?>">
                                         <span> User </span>
                                         </a>
                                     </li>

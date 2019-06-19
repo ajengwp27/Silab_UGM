@@ -30,7 +30,7 @@ class Reg_admin extends CI_Controller{
             if ($this->Model_admin->get_admin_by_id_karyawan($datakaryawan->id_karyawan)) 
             {
                 $this->session->set_flashdata('Error','Email Sudah Terdaftar Jadi Admin');
-                redirect('ControllerAdmin/Reg_admin');
+                redirect('regadmin');
             }
             else 
             {
@@ -48,7 +48,7 @@ class Reg_admin extends CI_Controller{
         else 
         {
             $this->session->set_flashdata('Error','Email Karyawan Salah');
-            redirect('ControllerAdmin/Reg_admin/');
+            redirect('regadmin/');
         }
     }
 }
