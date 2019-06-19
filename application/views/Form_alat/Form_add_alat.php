@@ -17,7 +17,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Kategory</label>
-                                        <input required type="Text" name="address" class="form-control" placeholder="Enter Kategory"  >
+                                        <select name="Category_id" class="form-control selectpicker">
+                                            <?php foreach ($kategori as $k) {
+                                                echo "<option value='$k->Category_id'>$k->Name_Category</option>";
+                                            } ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Nomer Rak</label>
@@ -29,8 +33,8 @@
                     </div>
                     <!--/span-->
                 </div><!--/row-->
-              <!-- end body -->
-              <div class="modal-footer">
+                <!-- end body -->
+                <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Tambah data</button>
                 </form>
             </div>

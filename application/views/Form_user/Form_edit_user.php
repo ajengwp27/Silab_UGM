@@ -19,20 +19,14 @@
             <div class="box-content">
                 <form name="fromedituser" action="<?= base_url('Controller_user/Controller_user/edituser')?>"  method="post">
                     <div class="form-group">
-                        <label>Username</label>
-                        <input required type="Text" name="username" class="form-control" value="<?= $edituser->Username?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input required type="Text" name="password" class="form-control" value="<?= $edituser->Password?>" >
-                    </div>
-                    <div class="form-group">
                         <label>Hak Akses</label>
-                        <input required type="Text" name="hak_akses" class="form-control" value="<?= $edituser->id_level?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Karyawan</label>
-                        <input required type="Text" name="nama_karyawan" class="form-control" value="<?= $edituser->id_karyawan?>">
+                        <select name="hak_akses" class="form-control selectpicker">
+                            <?php foreach ($usergroup as $k) {
+                                echo "<option value='$k->id_level'";
+                                echo $edituser->id_level==$k->id_level?'selected':'';
+                                echo">$k->Description</option>";
+                            } ?>
+                        </select>
                     </div>
                     <button type="submit" name="submitid" value=<?= $edituser->id_user?> class="btn btn-default">Update</button>
                 </form>
