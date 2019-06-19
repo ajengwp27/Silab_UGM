@@ -54,7 +54,7 @@ $route['default_controller'] = 'welcome';
 //Route Admin
 $route['Admin'] = 'ControllerAdmin/Login';
 $route['admin'] = 'ControllerAdmin/Login';
-$route['dasboard'] = 'ControllerAdmin/Dashboard';
+$route['dashboard'] = 'ControllerAdmin/Dashboard';
 $route['regadmin'] = 'ControllerAdmin/Reg_admin';
 
 //Route Alat

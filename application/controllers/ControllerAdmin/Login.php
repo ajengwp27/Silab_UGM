@@ -32,7 +32,7 @@ class Login extends CI_Controller{
         if($getAdmin && $getAdmin->Status=="Aprove")
         {
             $this->session->set_userdata('Admin',$getAdmin);
-            redirect('dasboard');
+            redirect('dashboard');
         }
         else
         {
