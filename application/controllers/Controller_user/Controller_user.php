@@ -8,6 +8,8 @@ class Controller_user extends CI_Controller{
     function __construct() {
         parent::__construct();
         $this->load->model('Model_user');
+        $this->load->model('Model_karyawan');
+        $this->load->model('Model_usergroup');
     }
 
     function get_user()
@@ -19,7 +21,8 @@ class Controller_user extends CI_Controller{
     function viewFormEdituser()
     {
         $id_user = $this->input->get('id_user');
-        $data['edituser'] = $this->Model_user->get_user_by_id($id_user);
+        $data['edituser']  = $this->Model_user->get_user_by_id($id_user);
+        $data['usergroup'] = $this->Model_usergroup->get_user_group();
         $this->template->load('Template/Template_admin','Form_user/Form_edit_user',$data);
     }
 
@@ -27,10 +30,7 @@ class Controller_user extends CI_Controller{
     {
         $id_user = $this->input->post('submitid');
         $user = array(
-            'Username'=>$this->input->post('username'),
-            'Password'=>$this->input->post('password'),
             'id_level'=>$this->input->post('hak_akses'),
-            'id_karyawan'=>$this->input->post('nama_karyawan'),
             'update_at'=>get_current_date()
             );
         $edituser= $this->Model_user->update_user($id_user,$user);

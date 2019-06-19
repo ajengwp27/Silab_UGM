@@ -27,7 +27,7 @@
                 <h2 align="center">Register Admin/Superadmin</h2>
                 <div class="form-group-1">
                     <input type="text" onclick='validasi("username","username")' name="username" id="username" placeholder="Username" required />
-                    <input type="text" onclick='validasi("password","password")' name="password" id="password" placeholder="Password" required />
+                    <input type="password" onclick='validasi("password","password")' name="password" id="password" placeholder="Password" required />
                     <input type="email" onclick='validasi("email","email")' name="email" id="email" placeholder="Email Karyawan" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
                     <div class="select-list">
                         <select required name="level" id="course_type">

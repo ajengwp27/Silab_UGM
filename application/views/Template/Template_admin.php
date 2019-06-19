@@ -96,7 +96,7 @@
 
 </head>
 
-<body class="bg-purple">
+<body class="bg-purple" style="overflow-x : hidden;">
     <!-- topbar starts -->
     <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
 
@@ -160,12 +160,12 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li> -->
-                <li>
+                <!-- <li>
                     <form class="navbar-search pull-left">
                         <input placeholder="Search" class="search-query form-control col-md-10" name="query"
                                type="text">
                     </form>
-                </li>
+                </li> -->
             </ul>
 
         </div>
