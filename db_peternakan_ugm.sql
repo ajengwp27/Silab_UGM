@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2019 at 05:04 AM
+-- Generation Time: Jun 20, 2019 at 08:58 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -109,7 +109,7 @@ CREATE TABLE `tb_karyawan` (
 --
 
 INSERT INTO `tb_karyawan` (`id_karyawan`, `Name`, `Gender`, `Address`, `Status`, `Phone`, `Create_at`, `update_at`, `email_karyawan`) VALUES
-(1, 'Ajeng', 'Pe', 'Baran', 'Aktif', '081', '2019-06-20 03:03:15', '2019-06-20 10:03:05', 'Ajeng300@gmail.com');
+(1, 'Ajeng', 'P', 'Baran', 'Aktif', '081', '2019-06-20 03:37:06', '2019-06-20 10:37:06', 'Ajeng300@gmail.com');
 
 -- --------------------------------------------------------
 
