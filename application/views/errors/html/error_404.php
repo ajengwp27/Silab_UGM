@@ -307,17 +307,17 @@ li a:hover {
         
         <div class="stars">
             <div class="central-body">
-                <img class="image-404" src="http://albertusndaru/Lab_UGM_2/assets/img/error/404.svg" width="300px">
-                <a href="http://albertusndaru/Lab_UGM_2" class="btn-go-home">GO BACK HOME</a>
+                <img class="image-404" src="http://localhost/Silab_UGM/assets/img/error/404.svg" width="300px">
+                <a href="http://localhost/Silab_UGM" class="btn-go-home">GO BACK HOME</a>
             </div>
             <div class="objects">
-                <img class="object_rocket" src="http://albertusndaru/Lab_UGM_2/assets/img/error/rocket.svg" width="40px">
+                <img class="object_rocket" src="http://localhost/Silab_UGM/assets/img/error/rocket.svg" width="40px">
                 <div class="earth-moon">
-                    <img class="object_earth" src="http://albertusndaru/Lab_UGM_2/assets/img/error/earth.svg" width="100px">
-                    <img class="object_moon" src="http://albertusndaru/Lab_UGM_2/assets/img/error/moon.svg" width="80px">
+                    <img class="object_earth" src="http://localhost/Silab_UGM/assets/img/error/earth.svg" width="100px">
+                    <img class="object_moon" src="http://localhost/Silab_UGM/assets/img/error/moon.svg" width="80px">
                 </div>
                 <div class="box_astronaut">
-                    <img class="object_astronaut" src="http://albertusndaru/Lab_UGM_2/assets/img/error/astronaut.svg" width="140px">
+                    <img class="object_astronaut" src="http://localhost/Silab_UGM/assets/img/error/astronaut.svg" width="140px">
                 </div>
             </div>
             <div class="glowing_stars">
