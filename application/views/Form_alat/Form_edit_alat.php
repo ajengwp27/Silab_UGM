@@ -20,17 +20,17 @@
                 <form name="fromeditalat" action="<?= base_url('ControllerAlat/Controller_alat/editAlat')?>"  method="post">
                     <div class="form-group">
                         <label>Nama Alat</label>
-                        <input required type="Text" name="name" class="form-control" value=<?= $editAlat->Name?>>
+                        <input required type="Text" name="name" class="form-control" value=<?= $editalat->Name?>>
                     </div>
                     <div class="form-group">
                         <label>Category</label>
-                        <input required type="Text" name="address" class="form-control" value=<?= $editAlat->Address?> >
+                        <input required type="Text" name="Category_id" class="form-control" value=<?= $editalat->Category_id?> >
                     </div>
                     <div class="form-group">
                         <label>Nomer Rak</label>
-                        <input required type="Text" name="phone" class="form-control" value=<?= $editAlat->Phone?>>
+                        <input required type="Text" name="nomorrak" class="form-control" value=<?= $editalat->Number_of_rack?>>
                     </div>
-                    <button type="submit" name="submitid" value=<?= $editAlat->id_alat?> class="btn btn-default">Update</button>
+                    <button type="submit" name="submitid" value=<?= $editalat->id_alat?> class="btn btn-default">Update</button>
                 </form>
 
             </div>

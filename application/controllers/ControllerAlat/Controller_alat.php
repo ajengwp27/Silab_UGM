@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $alat = array (
                     'Name'           => $this->input->post('name'),
                     'Category_id'    => $this->input->post('Category_id'),
-                    'Number_of_rack' => $this->input->post('number_of_rack')
+                    'Number_of_rack' => $this->input->post('nomorrak')
                 );
             $addalat= $this->Model_alat->insertDataAlat($alat);
             if($addalat)
@@ -43,10 +43,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $id_alat = $this->input->post('submitid');
             $alat = array(
                             'Name'           => $this->input->post('name'),
-                            'Category_id'    => $this->input->post('category_id'),
-                            'Number_of_rack' => $this->input->post('number_of_rack'),
+                            'Category_id'    => $this->input->post('Category_id'),
+                            'Number_of_rack' => $this->input->post('nomorrak'),
                             );
-            $editalat= $this->Model_alat->update_karyawan($id_alat,$alat);
+            $editalat= $this->Model_alat->editDataAlat($id_alat,$alat);
             if($editalat)
             {   
             $this->session->set_flashdata('Status','Edit Succes');
@@ -61,10 +61,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function deleteAlat($id)
         {
-            $deletealat = $this->Model_alat->delete_alat($id_alat);
-            if($deleteAlat)
+            $deletealat = $this->Model_alat->deleteDataAlat($id);
+            if($deletealat)
             {   
-                $this->session->set_flashdata('Status','Delete Succes');
+                $this->session->set_flashdata('Status','Delete Success');
                 redirect('alat');
             }
             else

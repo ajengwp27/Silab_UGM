@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Nomer Rak</label>
-                                        <input required type="Text" name="phone" class="form-control" placeholder="Enter Number">
+                                        <input required type="Text" name="nomorrak" class="form-control" placeholder="Enter Number">
                                     </div>
                                         </select>    
                                     </div>

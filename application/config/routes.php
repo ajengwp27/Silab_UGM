@@ -59,8 +59,8 @@ $route['regadmin'] = 'ControllerAdmin/Reg_admin';
 
 //Route Alat
 $route['alat'] = 'ControllerAlat/Controller_alat/getDataAlat';
-$route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/ViewEditAlat/$1';
-$route['deletealat/(:any)'] = 'ControllerAlat/Controller_alat/DeleteAlat/$1';
+$route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/viewFormEditAlat/$1';
+$route['deletealat/(:any)'] = 'ControllerAlat/Controller_alat/deleteAlat/$1';
 
 //Route Kategori
 $route['kategori'] = 'ControllerCategory/Controller_category/getDataCategory';
@@ -89,9 +89,6 @@ $route['user'] = 'Controller_user/Controller_user/get_user';
 $route['editstatususer/(:any)/(:any)'] = 'Controller_user/Controller_user/editStatusUser/$1/$2';
 $route['formedituser/(:any)'] = 'Controller_user/Controller_user/viewFormEdituser/$1';
 $route['deleteuser/(:any)'] = 'Controller_user/Controller_user/deleteuser/$1';
-
-
-
 
 
 $route['404_override'] = '';
