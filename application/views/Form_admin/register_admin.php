@@ -22,13 +22,13 @@
 
     <div class="main">
 
-        <div class="container" style="margin:auto; transform: translateY(25%);">
+        <div class="container" style="margin:auto;">
             <form style="padding-bottom:0px;" method="POST" class="appointment-form" id="appointment-form" action="<?= base_url('ControllerAdmin/Reg_admin/add_admin')?>">
                 <h2 align="center">Register Admin/Superadmin</h2>
                 <div class="form-group-1">
                     <input type="text" onclick='validasi("username","username")' name="username" id="username" placeholder="Username" required />
                     <input type="password" onclick='validasi("password","password")' name="password" id="password" placeholder="Password" required />
-                    <input type="email" onclick='validasi("email","email")' name="email" id="email" placeholder="Email Karyawan" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                    <input type="email" onclick='validasi("email","email")' name="email" id="email" placeholder="Email Karyawan" required />
                     <div class="select-list">
                         <select required name="level" id="course_type">
                             <option slected value="">Select Hak Akses</option>
