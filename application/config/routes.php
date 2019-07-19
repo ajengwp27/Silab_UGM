@@ -90,6 +90,12 @@ $route['editstatususer/(:any)/(:any)'] = 'Controller_user/Controller_user/editSt
 $route['formedituser/(:any)'] = 'Controller_user/Controller_user/viewFormEdituser/$1';
 $route['deleteuser/(:any)'] = 'Controller_user/Controller_user/deleteuser/$1';
 
+//Route User Mahasiswa
+$route['user_mahasiswa'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/get_user_mahasiswa';
+$route['editstatususermahasiswa/(:any)/(:any)'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/editStatusUserMahasiswa/$1/$2';
+$route['formedituser/(:any)'] = 'Controller_user/Controller_user/viewFormEdituser/$1';
+$route['deleteuser/(:any)'] = 'Controller_user/Controller_user/deleteuser/$1';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

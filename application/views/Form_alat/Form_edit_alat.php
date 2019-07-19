@@ -20,7 +20,7 @@
                 <form name="fromeditalat" action="<?= base_url('ControllerAlat/Controller_alat/editAlat')?>"  method="post">
                     <div class="form-group">
                         <label>Nama Alat</label>
-                        <input required type="Text" name="name" class="form-control" value=<?= $editalat->Name?>>
+                        <input required type="Text" name="name" class="form-control" value="<?php echo $editalat->Name?>">
                     </div>
                     <div class="form-group">
                         <label>Category</label>
