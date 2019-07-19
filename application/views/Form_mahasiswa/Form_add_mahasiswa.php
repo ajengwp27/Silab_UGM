@@ -62,6 +62,12 @@ if(event.which != 8 && isNaN(String.fromCharCode(event.which))){
 
 });
 
+$('#NAMA').keypress(function(event){
+    var charCode = window.event.keyCode;
+    return(((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))|| charCode == 32 || charCode == 46 )
+
+});
+
 var form = document.querySelector("#formvaliditas");
 
 
