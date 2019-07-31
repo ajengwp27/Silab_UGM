@@ -1,5 +1,5 @@
 <?php
-class Model_usergroup extends CI_Model{
+class Model_user_mahasiswa extends CI_Model{
 
     function get_user_mahasiswa()
     {
