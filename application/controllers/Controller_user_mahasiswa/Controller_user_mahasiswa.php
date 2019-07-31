@@ -43,7 +43,7 @@ class M_user_mahasiswa extends CI_Controller{
         }
     }
 
-    function edituser_mahasiswa()
+    function editusermahasiswa()
     {
         $id = $this->input->post('submitid');
         $user_mahasiswa  = array(  
