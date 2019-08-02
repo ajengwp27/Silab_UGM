@@ -57,6 +57,14 @@ $route['admin'] = 'ControllerAdmin/Login';
 $route['dashboard'] = 'ControllerAdmin/Dashboard';
 $route['regadmin'] = 'ControllerAdmin/Reg_admin';
 
+//Route User
+$route['Userlanding'] = 'Controller_landingpage/landingpage';
+$route['LoginMahasiswa'] = 'Controller_landingpage/Login_user/Viewlogin';
+$route['admin'] = 'ControllerAdmin/Login';
+$route['dashboard'] = 'ControllerAdmin/Dashboard';
+$route['reguser'] = 'Controller_landingpage/Reg_user_mahasiswa';
+
+
 //Route Alat
 $route['alat'] = 'ControllerAlat/Controller_alat/getDataAlat';
 $route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/viewFormEditAlat/$1';
@@ -95,6 +103,12 @@ $route['user_mahasiswa'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/
 $route['editstatususermahasiswa/(:any)/(:any)'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/editStatusUserMahasiswa/$1/$2';
 $route['formedituser/(:any)'] = 'Controller_user/Controller_user/viewFormEdituser/$1';
 $route['deleteuser/(:any)'] = 'Controller_user/Controller_user/deleteuser/$1';
+
+//Route Jadwal
+$route['jadwal'] = 'ControllerJadwal/Controller_jadwal/get_jadwal';
+$route['editstatusjadwal/(:any)/(:any)'] = 'ControllerJadwal/Controller_mahasiswa/editStatusjadwal/$1/$2';
+$route['formeditjadwal/(:any)'] = 'ControllerJadwal/Controller_jadwal/viewFormEdijadwal/$1';
+$route['deletejadwal/(:any)'] = 'ControllerJadwal/Controller_jadwal/deletejadwal/$1';
 
 
 $route['404_override'] = '';

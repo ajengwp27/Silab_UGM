@@ -19,9 +19,18 @@ class Login_user extends CI_Controller{
 		}
 		else
 		{
-        $this->load->view('Form_landingpage/login_mahasiswa');
+        $this->load->view('Form_landingpage/landingpage');
         }
+    
     }
+    function Viewlogin()
+    {
+   
+        $this->load->view('Form_landingpage/login_mahasiswa');
+
+    }
+
+
 
     function login()
     {

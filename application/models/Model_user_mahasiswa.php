@@ -5,7 +5,7 @@ class Model_user_mahasiswa extends CI_Model{
     {
         $this->db->select('a.*, b.Nim , b.Name');   
         $this->db->from('tb_user_mahasiswa as a');
-        $this->db->join('tb_mahasiswa as b' , 'b.Id=a.id_mahasiswa');    
+        $this->db->join('tb_mahasiswa as b' , 'b.id_mahasiswa=a.id_mahasiswa');    
         $datauser_mahasiswa = $this->db->get()->result();
         return $datauser_mahasiswa;
     }

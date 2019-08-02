@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($user as $k) { ?>
+                <?php foreach($user_mahasiswa as $k) { ?>
                     <tr>
                         <td><?= $k->iduser_mahasiswa?></td>
                         <td><?= $k->Password?></td>

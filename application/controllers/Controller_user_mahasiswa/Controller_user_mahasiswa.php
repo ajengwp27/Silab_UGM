@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class M_user_mahasiswa extends CI_Controller{
+class Controller_user_mahasiswa extends CI_Controller{
 
     /**
      * Class constructor.
@@ -13,7 +13,7 @@ class M_user_mahasiswa extends CI_Controller{
 
     function get_user_mahasiswa()
     {
-        $data['user_mahasiswa'] = $this->Model_user_mahasiswa ->get_user_mahasiswa();
+        $data['user_mahasiswa'] = $this->Model_user_mahasiswa->get_user_mahasiswa();
         $this->template->load('Template/Template_admin','Form_user_mahasiswa/Form_data_user_mahasiswa',$data);
     }
 
