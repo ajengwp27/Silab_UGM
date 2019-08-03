@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2019 at 08:58 AM
+-- Generation Time: Aug 03, 2019 at 05:35 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -37,6 +37,21 @@ CREATE TABLE `tb_alat` (
   `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tb_alat`
+--
+
+INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `Create_at`, `Update_at`) VALUES
+(3, 'Water Distillation Apparatus', 2, '001', '2019-07-09 12:17:22', '2019-07-09 19:17:22'),
+(4, 'Timbangan Analitik', 2, '002', '2019-07-09 12:18:21', '2019-07-09 19:18:21'),
+(5, 'Tanur Kecil', 1, '003', '2019-07-09 12:21:08', '2019-07-09 19:21:08'),
+(6, 'Tanur Besar', 2, '004', '2019-07-09 12:21:39', '2019-07-09 19:21:39'),
+(7, 'Kompor Serat', 1, '005', '2019-07-09 12:22:45', '2019-07-09 19:22:45'),
+(8, 'Oven', 2, '006', '2019-07-09 15:11:09', '2019-07-09 22:11:09'),
+(9, 'Waterbath kapasitas 2 Rak', 2, '007', '2019-07-09 15:19:50', '2019-07-09 22:19:50'),
+(10, 'Waterbath kapasitas 8 rak', 2, '008', '2019-07-09 15:20:49', '2019-07-09 22:20:49'),
+(11, 'Kompor Destilasi', 1, '009', '2019-07-09 15:22:09', '2019-07-09 22:22:09');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +64,14 @@ CREATE TABLE `tb_category` (
   `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_category`
+--
+
+INSERT INTO `tb_category` (`Category_id`, `Name_Category`, `Create_at`, `Update_at`) VALUES
+(1, 'Kecil', '2019-06-20 07:09:46', '2019-06-20 14:09:46'),
+(2, 'Berat', '2019-06-20 07:09:59', '2019-06-20 14:09:59');
 
 -- --------------------------------------------------------
 
@@ -109,7 +132,10 @@ CREATE TABLE `tb_karyawan` (
 --
 
 INSERT INTO `tb_karyawan` (`id_karyawan`, `Name`, `Gender`, `Address`, `Status`, `Phone`, `Create_at`, `update_at`, `email_karyawan`) VALUES
-(1, 'Ajeng', 'P', 'Baran', 'Aktif', '081', '2019-06-20 03:37:06', '2019-06-20 10:37:06', 'Ajeng300@gmail.com');
+(1, 'Ajeng', 'P', 'Baran', 'Aktif', '0819999977', '2019-07-11 07:10:24', '2019-07-11 14:10:24', 'Ajeng300@gmail.com'),
+(2, 'Sinta', 'P', 'Bandung', 'Aktif', '087666222331', '2019-06-20 07:15:12', '2019-06-20 14:15:08', 'Sinta@gmail.com'),
+(3, 'Dita', 'P', 'kalasan', 'Aktif', '0872233111', '2019-06-20 07:34:22', '2019-06-20 14:34:04', 'Dita@gmail.com'),
+(4, 'Nanang', 'L', 'Kalasan Yogyakarta', 'Aktif', '0896677743', '2019-07-11 07:11:54', '2019-07-11 14:11:50', 'nanang@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -157,6 +183,14 @@ CREATE TABLE `tb_mahasiswa` (
   `Email_mahasiswa` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_mahasiswa`
+--
+
+INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, `Phone`, `Status`, `Create_at`, `Update_at`, `Email_mahasiswa`) VALUES
+(2, '0150127895', 'Ajeng Wuriprastiwi', 'P', 'Berbah sleman', '0896575552', 'Aktif', '2019-06-21 06:48:27', NULL, 'ajeng300@gmail.com'),
+(3, '0150125556', 'Ajeng WP', 'P', 'Berbah Sleman', '08976288822', 'Aktif', '2019-07-09 12:11:42', NULL, 'Ajeng@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -192,7 +226,10 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `Username`, `Password`, `id_level`, `id_karyawan`, `Create_at`, `Update_at`, `Status`) VALUES
-(1, 'Ajeng', 'Ajeng123', 1, 1, '2019-06-20 03:03:45', '2019-06-20 10:03:45', 'Aprove');
+(1, 'Ajeng', 'Ajeng123', 1, 1, '2019-06-20 03:03:45', '2019-06-20 10:03:45', 'Aprove'),
+(2, 'Sinta', 'sinta123', 1, 2, '2019-06-20 07:32:25', '2019-06-20 14:32:25', 'Aprove'),
+(3, 'pradyta', 'Dita123', 2, 3, '2019-06-20 07:36:27', '2019-06-20 14:36:27', 'Aprove'),
+(4, 'Nanang', 'nanang123', 2, 4, '2019-07-11 07:13:05', '2019-07-11 14:13:05', 'Aprove');
 
 -- --------------------------------------------------------
 
@@ -294,13 +331,13 @@ ALTER TABLE `tb_user_mahasiswa`
 -- AUTO_INCREMENT for table `tb_alat`
 --
 ALTER TABLE `tb_alat`
-  MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_category`
 --
 ALTER TABLE `tb_category`
-  MODIFY `Category_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_detail_peminjaman`
@@ -318,7 +355,7 @@ ALTER TABLE `tb_hak_akses`
 -- AUTO_INCREMENT for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_kegiatan`
@@ -336,7 +373,7 @@ ALTER TABLE `tb_kerusakan`
 -- AUTO_INCREMENT for table `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_peminjaman_alat`
@@ -348,7 +385,7 @@ ALTER TABLE `tb_peminjaman_alat`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_user_mahasiswa`
