@@ -23,26 +23,6 @@ class Controller_user_mahasiswa extends CI_Controller{
         $this->template->load('Template/Template_admin','Form_user_mahasiswa/edit_user_mahasiswa',$data);;
     }
 
-    function adduser_mahasiswa()
-    {
-        $user_mahasiswa  = array(  
-                        'Username'     => $this->input->post('username'),
-                        'id_mahasiswa' => $this->input->post('id_mahasiswa'),
-                        'Password'     => $this->input->post('password')                 
-                    );
-        $adduser_mahasiswa = $this->Model_user_mahasiswa->add_user_mahasiswa($user_mahasiswa );
-        if($adduser_mahasiswa)
-        {   
-            $this->session->set_flashdata('Status','Input Succes');
-            redirect('Controller_landingpage/Login_user');
-        }
-        else
-        {
-            $this->session->set_flashdata('Status','Input Failed');
-            redirect('Controller_landingpage/Login_user');
-        }
-    }
-
     function editusermahasiswa()
     {
         $id = $this->input->post('submitid');

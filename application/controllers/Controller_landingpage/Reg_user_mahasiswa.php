@@ -17,22 +17,32 @@ class Reg_user_mahasiswa extends CI_Controller{
         $this->load->view('Form_landingpage/register_mahasiswa',$data);
     }
 
-    function add_admin()
-    {
-        $username    = $this->input->post('username');
-        $password    = $this->input->post('password');
-        $id_level    = $this->input->post('id_level');
-        $id_karyawan = $this->input->post('id_karyawan');
-        $dataAdmin = array(
-                           'Username'    => $username,
-                           'Password'    => $password,
-                           'id_level'    => $id_level,
-                           'id_karyawan' => $id_karyawan
-                        );
-        $reg_admin = $this->Model_admin->add_admin($dataAdmin);
-        if($reg_admin)
+    function adduser_mahasiswa()
+    {   
+        $id = $this->input->post('id');
+        $validasi = $this->Model_mahasiswa->get_mahasiswa_by_NIM($id);
+        if ($validasi)
         {
-            $this->load->view('admin/login');
+            $user_mahasiswa  = array(  
+                            'id_mahasiswa' => $validasi->id_mahasiswa,
+                            'Password'     => $this->input->post('password')                 
+                        );
+            $adduser_mahasiswa = $this->Model_user_mahasiswa->add_user_mahasiswa($user_mahasiswa);
+            if($adduser_mahasiswa)
+            {   
+                $this->session->set_flashdata('Status','Input Succes');
+                redirect('Controller_landingpage/landingpage');
+            }
+            else
+            {
+                $this->session->set_flashdata('Status','Input Failed');
+                redirect('Controller_landingpage/landingpage');
+            }
+        }
+        else
+        {
+            $this->session->set_flashdata('Status','Input Failed');
+                redirect('Controller_landingpage/Reg_user_mahasiswa');
         }
     }
 }

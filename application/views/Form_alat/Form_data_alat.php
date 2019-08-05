@@ -30,6 +30,8 @@
                     <th>Nama Alat</th>
                     <th>Kategori</th>
                     <th>Nomor Rak</th>
+                    <th>Deskripsi</th>
+                    <th>Gambar</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -39,6 +41,8 @@
                         <td><?= $k->Name?></td>
                         <td><?= $k->NamaKategori?></td>
                         <td><?= $k->Number_of_rack?></td>
+                        <td><?= $k->description?></td>
+                        <td style="width:20%;" ><img style="max-width:80px" src="<?= base_url_img().$k->image?>"></td>
                         <td class="center">
                             <a class="btn btn-info" href="<?= base_url('formeditalat/'.$k->id_alat.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>

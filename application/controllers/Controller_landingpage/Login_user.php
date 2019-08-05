@@ -8,6 +8,7 @@ class Login_user extends CI_Controller{
     function __construct() {
         parent::__construct();
         $this->load->model('Model_user_mahasiswa');
+        $this->load->model('Model_mahasiswa');
         
     }
 
@@ -29,24 +30,27 @@ class Login_user extends CI_Controller{
         $this->load->view('Form_landingpage/login_mahasiswa');
 
     }
-
-
-
     function login()
     {
-        $username = $_POST['Username'];
-        $password = $_POST['Password'];
-        $getAdmin = $this->Model_admin->get_admin_by_user_password($username,$password);
-        if($getAdmin && $getAdmin->Status== "Aprove")
-        {   
-            //$this->load->view('Template/Template_admin');
-            $this->session->set_userdata('Admin',$getAdmin);
-            //$this->template->load('Template/Template_admin','Form_admin/dashboard',$data);
-        }
-        else
+    
+        $NIM = $_POST['NIM'];
+        $password = $_POST['password'];
+        $getuserdata = $this->Model_mahasiswa->get_mahasiswa_by_NIM($NIM);
+        if($getuserdata)
         {
-            $this->session->set_flashdata('Error','Username and Password Incorect'); 
-            $this->template->load('Template/Template_admin','Form_admin/dashboard',$data);
+            $getUser = $this->Model_user_mahasiswa->get_user_mahasiswa_by_id_and_password($getuserdata->id_mahasiswa,$password);
+            if($getUser && $getuserdata->Status== "Aktif")
+            {   
+                //$this->load->view('Template/Template_admin');
+                $this->session->set_userdata('User',$getuserdata);
+                $this->load->view('Form_landingpage/landingpage');
+                //$this->template->load('Template/Template_admin','Form_admin/dashboard',$data);
+            }
+            else
+            {
+                $this->session->set_flashdata('Error','Username and Password Incorect'); 
+                $this->load->view('Form_landingpage/landingpage');
+            }
         }
     }
 

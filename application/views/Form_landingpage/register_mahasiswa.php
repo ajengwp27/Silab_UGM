@@ -21,22 +21,13 @@
                     <img src="<?= base_url('assets/Register/')?>images/signup-img.jpg" alt="">
                 </div>
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form" action="<?= base_url('Controller_user_mahasiswa/Controller_user_mahasiswa/adduser_mahasiswa')?>" >
+                    <form method="POST" class="register-form" id="register-form" action="<?= base_url('Controller_landingpage/Reg_user_mahasiswa/adduser_mahasiswa')?>" >
                         <h2>student registration form</h2>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Username :</label>
-                                <input type="text" name="username" id="username" required/>
-                            </div>
-                        </div>
                         <div class="form-group">
-                             <label for="name">Mahasiswa ID :</label>
-                                <select name="mahasiswa_id" class="form-control selectpicker" style="margin-left: 16px; margin-bottom: -20px;" data-style="btn btn-link" >
-                                <option>ID MAHASISWA</option>
-                                <?php foreach ($mahasiswa as $k) {
-                                    echo "<option value='$k->Id'>$k->NIM</option>";
-                                } ?>
-                                </select>                      
+                             <div class="form-group">
+                                <label for="idmahasiswa">Mahasiswa ID (NIM) :</label>
+                                <input type="text" name="id" id="idmahasiswa" required/>
+                            </div>                
                         </div>
                         <div class="form-group">
                             <label for="address">Password :</label>

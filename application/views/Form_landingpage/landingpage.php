@@ -106,24 +106,16 @@
 								<!-- Slide -->
 								<?php foreach ($alat as $a) { ?>
 									<div class="booking_item">
-										<div class="background_image" style="background-image:url(images/booking_1.jpg)"></div>
+										<div class="background_image" style="background-image:url(<?= base_url_img().$a->image ?>)"></div>
 										<div class="booking_overlay trans_200"></div>
 										<div class="booking_item_content">
 											<div class="booking_item_list">
 												<ul>
-													<li>27 m² Patio</li>
-													<li>Balcony with view</li>
-													<li>Garden / Mountain view</li>
-													<li>Flat-screen TV</li>
-													<li>Air conditioning</li>
-													<li>Soundproofing</li>
-													<li>Private bathroom</li>
-													<li>Free WiFi</li>
+													<li><?= $a->description ?></li>
 												</ul>
 											</div>
 										</div>
-										<div class="booking_price">$120/Night</div>
-										<div class="booking_link"><a href="booking.html">Family Room</a></div>
+										<div class="booking_link"><a href="booking.html">Pinjam</a></div>
 									</div>
 								<?php } ?>
 

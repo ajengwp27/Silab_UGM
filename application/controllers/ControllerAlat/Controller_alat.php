@@ -19,13 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function addAlat()
         {
+            $imgname = 'alat_'.get_current_date_img().'.jpg';
                 $alat = array (
                     'Name'           => $this->input->post('name'),
                     'Category_id'    => $this->input->post('Category_id'),
-                    'Number_of_rack' => $this->input->post('nomorrak')
+                    'Number_of_rack' => $this->input->post('nomorrak'),
+                    'description'    => $this->input->post('description'),
+                    'image'          => $imgname
                 );
-            $addalat= $this->Model_alat->insertDataAlat($alat);
-            if($addalat)
+            $addalat     = $this->Model_alat->insertDataAlat($alat);
+            $hasilupload = $this->aksi_upload($imgname);
+            if($hasilupload)
             {
                 $this->session->set_flashdata('Status','Input Succes');
                 redirect('alat');
@@ -73,6 +77,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 redirect('alat');
             }
         }
+
+        public function aksi_upload($imgname){
+            $config['upload_path']   = './assets/gambar_alat/';
+            $config['allowed_types'] = '*';
+            $config['file_name']     = $imgname;
+            //$config['max_size']             = 100;
+            //$config['max_width']            = 1024;
+            //$config['max_height']           = 768;
+
+            $this->load->library('upload', $config);
+
+            if ( ! $this->upload->do_upload('image')){
+                $error = array('error'       => $this->upload->display_errors());
+                echo json_encode($error);
+            }else{
+                $data  = array('upload_data' => $this->upload->data());
+                return true;
+            }
+        }
         
     }
-?>

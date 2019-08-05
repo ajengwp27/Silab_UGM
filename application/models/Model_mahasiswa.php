@@ -10,7 +10,14 @@ class Model_mahasiswa extends CI_Model{
 
     function get_mahasiswa_by_id($id_mahasiswa)
     {
-        $this->db->where("id_mahasiswa",$id_mahasiswa);
+        $this->db->where("Id_mahasiswa",$id_mahasiswa);
+        $getmahasiswaById = $this->db->get('tb_mahasiswa')->row();
+        return $getmahasiswaById;
+    }
+
+    function get_mahasiswa_by_NIM($id_mahasiswa)
+    {
+        $this->db->where("Nim",$id_mahasiswa);
         $getmahasiswaById = $this->db->get('tb_mahasiswa')->row();
         return $getmahasiswaById;
     }
