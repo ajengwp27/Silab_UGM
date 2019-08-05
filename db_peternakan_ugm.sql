@@ -140,7 +140,10 @@ CREATE TABLE `tb_karyawan` (
 --
 
 INSERT INTO `tb_karyawan` (`id_karyawan`, `Name`, `Gender`, `Address`, `Status`, `Phone`, `Create_at`, `update_at`, `email_karyawan`) VALUES
-(1, 'Ajeng', 'P', 'Baran', 'Aktif', '081', '2019-06-20 03:37:06', '2019-06-20 10:37:06', 'Ajeng300@gmail.com');
+(1, 'Ajeng', 'P', 'Baran', 'Aktif', '0819999977', '2019-07-11 07:10:24', '2019-07-11 14:10:24', 'Ajeng300@gmail.com'),
+(2, 'Sinta', 'P', 'Bandung', 'Aktif', '087666222331', '2019-06-20 07:15:12', '2019-06-20 14:15:08', 'Sinta@gmail.com'),
+(3, 'Dita', 'P', 'kalasan', 'Aktif', '0872233111', '2019-06-20 07:34:22', '2019-06-20 14:34:04', 'Dita@gmail.com'),
+(4, 'Nanang', 'L', 'Kalasan Yogyakarta', 'Aktif', '0896677743', '2019-07-11 07:11:54', '2019-07-11 14:11:50', 'nanang@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -231,7 +234,10 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `Username`, `Password`, `id_level`, `id_karyawan`, `Create_at`, `Update_at`, `Status`) VALUES
-(1, 'Ajeng', 'Ajeng123', 1, 1, '2019-06-20 03:03:45', '2019-06-20 10:03:45', 'Aprove');
+(1, 'Ajeng', 'Ajeng123', 1, 1, '2019-06-20 03:03:45', '2019-06-20 10:03:45', 'Aprove'),
+(2, 'Sinta', 'sinta123', 1, 2, '2019-06-20 07:32:25', '2019-06-20 14:32:25', 'Aprove'),
+(3, 'pradyta', 'Dita123', 2, 3, '2019-06-20 07:36:27', '2019-06-20 14:36:27', 'Aprove'),
+(4, 'Nanang', 'nanang123', 2, 4, '2019-07-11 07:13:05', '2019-07-11 14:13:05', 'Aprove');
 
 -- --------------------------------------------------------
 
@@ -378,7 +384,7 @@ ALTER TABLE `tb_jadwal`
 -- AUTO_INCREMENT for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_kegiatan`
@@ -408,7 +414,7 @@ ALTER TABLE `tb_peminjaman_alat`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_user_mahasiswa`
