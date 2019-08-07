@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2019 at 11:39 AM
+-- Generation Time: Aug 07, 2019 at 06:22 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -256,8 +256,7 @@ CREATE TABLE `tb_user_mahasiswa` (
 --
 
 INSERT INTO `tb_user_mahasiswa` (`id_user_mahasiswa`, `id_mahasiswa`, `Password`) VALUES
-(1, 1, 'jarumblack1'),
-(3, NULL, NULL);
+(1, 1, 'jarumblack1');
 
 --
 -- Indexes for dumped tables
@@ -420,7 +419,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_user_mahasiswa`
 --
 ALTER TABLE `tb_user_mahasiswa`
-  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

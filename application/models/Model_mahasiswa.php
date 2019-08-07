@@ -19,6 +19,8 @@ class Model_mahasiswa extends CI_Model{
     {
         $this->db->where("Nim",$id_mahasiswa);
         $getmahasiswaById = $this->db->get('tb_mahasiswa')->row();
+        // echo json_encode($getmahasiswaById);
+        
         return $getmahasiswaById;
     }
 

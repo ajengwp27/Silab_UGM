@@ -1,85 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login Laboraturium</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?= base_url('assets/Login/')?>images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>css/util.css">
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/Login/')?>css/main.css">
-<!--===============================================================================================-->
+    <!--
+        ===
+        This comment should NOT be removed.
+
+        Charisma v2.0.0
+
+        Copyright 2012-2014 Muhammad Usman
+        Licensed under the Apache License v2.0
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        http://usman.it
+        http://twitter.com/halalit_usman
+        ===
+    -->
+    <meta charset="utf-8">
+    <title>Laboraturium Nutrisi UGM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+
+    <!-- The styles -->
+    <!-- <link href="<?= base_url('assets/')?>css/bootstrap-cerulean.min.css" rel="stylesheet"> -->
+    <!-- <link href="<?= base_url('assets/')?>css/bootstrap-spacelab.min.css" rel="stylesheet"> -->
+    <link href="<?= base_url('assets/')?>css/bootstrap-cyborg.min.css" rel="stylesheet">
+    <!-- <link href="<?= base_url('assets/')?>css/bootstrap-slate.min.css" rel="stylesheet"> -->
+    <!-- <link href="<?= base_url('assets/')?>css/bootstrap-lumen.min.css" rel="stylesheet"> -->
+    <!-- <link href="<?= base_url('assets/')?>css/bootstrap-simplex.min.css" rel="stylesheet"> -->
+
+    <link href="<?= base_url('assets/')?>css/charisma-app.css" rel="stylesheet">
+    <link href='<?= base_url('assets/')?>bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='<?= base_url('assets/')?>bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>css/jquery.noty.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>css/noty_theme_default.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>css/elfinder.min.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>css/elfinder.theme.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>css/uploadify.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/')?>css/animate.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="<?= base_url('assets/')?>bower_components/jquery/jquery.min.js"></script>
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
 </head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('<?= base_url('assets/Login/')?>images/bg-01.jpg');">
-			<div class="wrap-login100 p-t-30 p-b-50">
-				<span class="login100-form-title p-b-41">
-					Account Login
-				</span>
-				<form method="POST" class="login100-form validate-form p-b-33 p-t-5" action="<?= base_url('Controller_landingpage/Login_user/login')?>">
-				<form method="POST" class="register-form" id="register-form" action="<?= base_url('Controller_landingpage/Reg_user_mahasiswa/adduser_mahasiswa')?>" >
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="NIM" placeholder="User name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
-					</div>
+<body style="opacity:0.9;background-image:url('<?= base_url('assets/')?>img/loginuser.jpg'); background-size: cover;background-repeat: no-repeat;background-position: inherit; overflow: hidden;">
+<div class="ch-container">
+    <div class="row">
+        
+    <div class="row">
+        <div class="col-md-12 center login-header">
+            <img src="<?= base_url('assets/img/logosilb.png') ?>">
+            <h2>LOGIN SILAB NUTRISI UGM</h2>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
 
-					<div class="container-login100-form-btn m-t-32">
-						<button type="submit" class="login100-form-btn m-r-10">
-							Login
-						</button>
-					</form>
-						<a class="login100-form-btn" href="<?= base_url('Controller_landingpage/Reg_user_mahasiswa')?>">
-							Register
-						</a>
-					</div>
+    <div class="row" style="margin-top: 48px;">
+        <div class="well col-md-5 center login-box" style="border-radius: 20px; background-color: grey;">
+            <div class="alert alert-info">
+                Please login with your NIM  and Password.
+            </div>
+            <form class="form-horizontal" action="<?= base_url('Controller_landingpage/Login_user/login')?>" method="post">
+                <fieldset>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                        <input type="text" name="NIM" class="form-control" placeholder="NIM">
+                    </div>
+                    <div class="clearfix"></div><br>
 
-			</div>
-		</div>
-	</div>
-	
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="clearfix"></div>
 
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="<?= base_url('assets/Login/')?>vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?= base_url('assets/Login/')?>vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?= base_url('assets/Login/')?>vendor/bootstrap/js/popper.js"></script>
-	<script src="<?= base_url('assets/Login/')?>vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?= base_url('assets/Login/')?>vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?= base_url('assets/Login/')?>vendor/daterangepicker/moment.min.js"></script>
-	<script src="<?= base_url('assets/Login/')?>vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="<?= base_url('assets/Login/')?>vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="<?= base_url('assets/Login/')?>js/main.js"></script>
+                  
+                    <div class="clearfix"></div>
+                    <div style="margin-top:10px;">
+                        <p class="col-md-6">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </p>
+                        <p class="col-md-6">
+                            <a href="<?= base_url('Controller_landingpage/Reg_user_mahasiswa')?>" class="btn btn-primary">Register</a>
+                        </p>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+</div><!--/fluid-row-->
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="<?= base_url('assets/')?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="<?= base_url('assets/')?>js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='<?= base_url('assets/')?>bower_components/moment/min/moment.min.js'></script>
+<script src='<?= base_url('assets/')?>bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='<?= base_url('assets/')?>js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="<?= base_url('assets/')?>bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="<?= base_url('assets/')?>bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="<?= base_url('assets/')?>js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="<?= base_url('assets/')?>bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="<?= base_url('assets/')?>bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="<?= base_url('assets/')?>js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="<?= base_url('assets/')?>js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="<?= base_url('assets/')?>js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="<?= base_url('assets/')?>js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="<?= base_url('assets/')?>js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="<?= base_url('assets/')?>js/charisma.js"></script>
+<script src="<?php echo base_url('assets/')?>js/bootstrap-notify.js"></script>
 
 <script>
 <?php if (!empty($this->session->flashdata('Error'))){?>
@@ -136,5 +198,6 @@ function setnotif(err)
 
 }
 </script>
+
 </body>
 </html>

@@ -35,7 +35,7 @@
 												echo 'Guest';
 											} ?></a></li>
 							<?php if (isset($_SESSION['User'])) { ?>
-								<li><a href="about.html">Logout</a></li>
+								<li><a href="<?= base_url('Controller_landingpage/Login_user/logout')?>">Logout</a></li>
 							<?php } else { ?>
 								<li><a href="<?= base_url('LoginMahasiswa') ?>">Login</a></li>
 							<?php } ?>
@@ -68,8 +68,8 @@
 
 		<!-- Home -->
 
-		<div class="home">
-			<div class="background_image" style="background-image:url(<?= base_url('assets/landingpage/') ?>images/booking.jpg)"></div>
+		<div class="home" style="height: 391px;">
+			<div class="background_image" style="background-image:url(<?= base_url('assets/img/ugm.png')  ?>"></div>
 			<div class="home_container">
 				<div class="container">
 					<div class="row">
