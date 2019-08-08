@@ -20,7 +20,7 @@ class Model_user_mahasiswa extends CI_Model{
     function get_user_mahasiswa_by_id_and_password($id_mahasiswa,$password)
     {   
         $this->db->where("id_user_mahasiswa",$id_mahasiswa);
-        $this->db->where("Password",$password);
+        $this->db->where("Password like BINARY",$password);
         $getuser_mahasiswaByIdNIM = $this->db->get('tb_user_mahasiswa',true)->row();
         // echo  $this->db->last_query();
         return $getuser_mahasiswaByIdNIM;

@@ -28,26 +28,16 @@
                 <tr>
                     <th>Id Mahasiswa</th>
                     <th>Password</th>
+                    <th>Action</th>
+
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($user_mahasiswa as $k) { ?>
                     <tr>
-                        <td><?= $k->iduser_mahasiswa?></td>
+                        <td><?= $k->Nim?></td>
                         <td><?= $k->Password?></td>
                         <td class="center">
-                            <?php if ($_SESSION['Admin']->id_level == 1) {?>
-                                <?php if ($k->Status == "NotAprove") {?>
-                                    <a class="btn btn-success" style="width: 94px;" href="<?= base_url('editstatususermahasiswa/'.$k->id_user_mahasiswa.'/Aprove')?>">
-                                        <i class="glyphicon glyphicon-ok icon-white"></i>
-                                        Aktif
-                                <?php } else {?>
-                                    <a class="btn btn-danger" style="width: 94px;" href="<?= base_url('editstatususermahasiswa/'.$k->id_user_mahasiswa.'/NotAprove')?>">
-                                            <i class="glyphicon glyphicon-remove icon-white"></i>
-                                        Off
-                                <?php }?>
-                                    </a>
-                            <?php }?>
                             <a class="btn btn-info" href="<?= base_url('formedituser_mahasiswa/'.$k->id_user_mahasiswa.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
