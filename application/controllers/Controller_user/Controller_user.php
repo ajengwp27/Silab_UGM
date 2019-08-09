@@ -80,4 +80,3 @@ class Controller_user extends CI_Controller{
         }
     }
 }
-?>

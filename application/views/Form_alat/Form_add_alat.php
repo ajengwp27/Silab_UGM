@@ -46,11 +46,11 @@
             </div>
             <!--/row-->
             <!-- end body -->
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Tambah data</button>
-                </form>
+            <div class=" modal-footer">
+                                    <button type="submit" class="btn btn-primary">Tambah data</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</div>

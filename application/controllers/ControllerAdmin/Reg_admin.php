@@ -1,6 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-class Reg_admin extends CI_Controller{
+defined('BASEPATH') or exit('No direct script access allowed');
+class Reg_admin extends CI_Controller
+{
     /**
      * Class constructor.
      */
@@ -14,8 +15,8 @@ class Reg_admin extends CI_Controller{
 
     function index()
     {
-        $dataRegistrasi['usergroup']=$this->Model_usergroup->get_user_group();
-        $this->load->view('Form_admin/register_admin',$dataRegistrasi);
+        $dataRegistrasi['usergroup'] = $this->Model_usergroup->get_user_group();
+        $this->load->view('Form_admin/register_admin', $dataRegistrasi);
     }
 
     function add_admin()
@@ -25,31 +26,25 @@ class Reg_admin extends CI_Controller{
         $id_level     = $this->input->post('level');
         $Email        = $this->input->post('email');
         $datakaryawan = $this->Model_karyawan->get_karyawan_by_email($Email);
-        if ($datakaryawan) 
-        {
-            if ($this->Model_admin->get_admin_by_id_karyawan($datakaryawan->id_karyawan)) 
-            {
-                $this->session->set_flashdata('Error','Email Sudah Terdaftar Jadi Admin');
+        if ($datakaryawan) {
+            if ($this->Model_admin->get_admin_by_id_karyawan($datakaryawan->id_karyawan)) {
+                $this->session->set_flashdata('Error', 'Email Sudah Terdaftar Jadi Admin');
                 redirect('regadmin');
-            }
-            else 
-            {
-                $dataAdmin = array('Username'=>$username,
-                                   'Password'=>$password,
-                                   'id_level'=>$id_level,
-                                   'id_karyawan'=>$datakaryawan->id_karyawan);
+            } else {
+                $dataAdmin = array(
+                    'Username' => $username,
+                    'Password' => $password,
+                    'id_level' => $id_level,
+                    'id_karyawan' => $datakaryawan->id_karyawan
+                );
                 $reg_admin = $this->Model_admin->add_admin($dataAdmin);
-                if($reg_admin)
-                {
+                if ($reg_admin) {
                     $this->load->view('Form_admin/login');
                 }
             }
-        }
-        else 
-        {
-            $this->session->set_flashdata('Error','Email Karyawan Salah');
+        } else {
+            $this->session->set_flashdata('Error', 'Email Karyawan Salah');
             redirect('regadmin/');
         }
     }
 }
-?>

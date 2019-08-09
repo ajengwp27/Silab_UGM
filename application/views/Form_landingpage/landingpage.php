@@ -35,7 +35,7 @@
 												echo 'Guest';
 											} ?></a></li>
 							<?php if (isset($_SESSION['User'])) { ?>
-								<li><a href="<?= base_url('Controller_landingpage/Login_user/logout')?>">Logout</a></li>
+								<li><a href="<?= base_url('Controller_landingpage/Login_user/logout') ?>">Logout</a></li>
 							<?php } else { ?>
 								<li><a href="<?= base_url('LoginMahasiswa') ?>">Login</a></li>
 							<?php } ?>
@@ -106,7 +106,7 @@
 								<!-- Slide -->
 								<?php foreach ($alat as $a) { ?>
 									<div class="booking_item">
-										<div class="background_image" style="background-image:url(<?= base_url_img().$a->image ?>)"></div>
+										<div class="background_image" style="background-image:url(<?= base_url_img() . $a->image ?>)"></div>
 										<div class="booking_overlay trans_200"></div>
 										<div class="booking_item_content">
 											<div class="booking_item_list">
