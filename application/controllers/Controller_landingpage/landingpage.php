@@ -18,4 +18,9 @@ class landingpage extends CI_Controller
         $data['alat']     = $this->Model_alat->getDataAlat();
         $this->load->view('Form_landingpage/landingpage', $data);
     }
+
+    function peminjaman()
+    {
+        $this->load->view('Form_landingpage/peminjaman_alat');
+    }
 }
