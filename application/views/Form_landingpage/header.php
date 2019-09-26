@@ -41,10 +41,15 @@
 
 		<header class="header">
 			<div class="header_content d-flex flex-row align-items-center justify-content-start">
-				<div class="logo"><a href="#">LABORATURIUM NUTRISI</a></div>
+				<div class="logo"><a href="<?= base_url("Userlanding")?>">LABORATURIUM NUTRISI</a></div>
 				<div class="ml-auto d-flex flex-row align-items-center justify-content-start">
 					<nav class="main_nav">
 						<ul class="d-flex flex-row align-items-start justify-content-start">
+						<?php if (isset($_SESSION['User'])) {?>
+							
+							<li><a href="<?php if (isset($_SESSION['pinjaman'])) {echo base_url("daftarpeminjaman"); } else {echo "#";} ?>" > Daftar Pinjaman </a><span class="badge"><?php if(isset($_SESSION["pinjaman"])) { echo count($_SESSION['pinjaman']);} else {echo 0;} ?></span>	
+						<?php }?>
+							</li>
 							<li><a href="#"><?php if (isset($_SESSION['User'])) {
 												echo $_SESSION['User']->Name;
 											} else {

@@ -21,6 +21,13 @@ class Model_alat extends CI_Model
         return $dataalat;
     }
 
+    function getDataAlatByName($key)
+    {
+        $this->db->like('Name', $key);
+        $dataalat = $this->db->get('tb_alat')->result();
+        return $dataalat;
+    }
+
     function insertDataAlat($dataAlat)
     {
         $dataAlatInsert = $this->db->insert('tb_alat', $dataAlat);

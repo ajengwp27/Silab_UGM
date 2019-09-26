@@ -13,7 +13,7 @@
                             <form name="fromaddjadwal" id="formvaliditas" action="<?= base_url('ControllerJadwal/Controller_jadwal/addjadwal') ?>" method="post">
                                 <div class="form-group">
                                     <label>Kegiatan</label>
-                                    <input required type="Text" id="Kegiatan" name="Kegiatan" class="form-control required" placeholder="Enter Kegiatan" pattern="^([0])([0-2])([0-9])([0])([1])([2])([0-9])([0-9])([0-9])([0-9])$">
+                                    <input required type="Text" id="Kegiatan" name="Kegiatan" class="form-control required" placeholder="Enter Kegiatan" >
                                 </div>
                                 <div class="form-group">
                                     <label>Jam</label>
