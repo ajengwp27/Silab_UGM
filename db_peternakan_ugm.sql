@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2019 at 08:39 AM
+-- Generation Time: Sep 27, 2019 at 10:00 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -45,7 +45,8 @@ CREATE TABLE `tb_alat` (
 --
 
 INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `image`, `description`, `stok`, `Create_at`, `Update_at`) VALUES
-(1, 'Microscope', 1, '21', 'alat_20190805104034.jpg', 'Alat pancingt', NULL, '2019-08-05 03:40:34', '2019-08-05 10:40:34');
+(1, 'Microscope', 1, '21', 'alat_20190805104034.jpg', 'Alat pancingt', NULL, '2019-08-05 03:40:34', '2019-08-05 10:40:34'),
+(2, 'skjahdkjasd', 1, '23', 'alat_20190919085028.jpg', 'sdadsadasda', NULL, '2019-09-19 01:50:28', '2019-09-19 08:50:28');
 
 -- --------------------------------------------------------
 
@@ -78,9 +79,17 @@ CREATE TABLE `tb_detail_peminjaman` (
   `id_alat` int(11) DEFAULT NULL,
   `Amount` int(11) DEFAULT NULL,
   `id_mahasiswa` int(11) DEFAULT NULL,
-  `Status` int(11) DEFAULT NULL,
-  `id_peminjaman` int(11) DEFAULT NULL
+  `Status` int(11) DEFAULT '0',
+  `id_peminjaman` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_detail_peminjaman`
+--
+
+INSERT INTO `tb_detail_peminjaman` (`id_detail_peminjaman`, `id_alat`, `Amount`, `id_mahasiswa`, `Status`, `id_peminjaman`) VALUES
+(7, 1, 10, 1, 1, '012012000220190927101847'),
+(8, 2, 9, 1, 1, '012012000220190927101847');
 
 -- --------------------------------------------------------
 
@@ -116,6 +125,13 @@ CREATE TABLE `tb_jadwal` (
   `hari` int(11) DEFAULT NULL,
   `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_jadwal`
+--
+
+INSERT INTO `tb_jadwal` (`id_jadwal`, `Kegiatan`, `jam`, `hari`, `Create_at`) VALUES
+(1, 'Praktek Nutrisi A', NULL, NULL, '2019-09-26 08:57:05');
 
 -- --------------------------------------------------------
 
@@ -206,11 +222,18 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, 
 --
 
 CREATE TABLE `tb_peminjaman_alat` (
-  `id_peminjaman` int(11) NOT NULL,
+  `id_peminjaman` varchar(40) NOT NULL,
   `id_kegiatan` int(11) DEFAULT NULL,
   `Creat_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_peminjaman_alat`
+--
+
+INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_kegiatan`, `Creat_at`, `Update_at`) VALUES
+('012012000220190927101847', 1, '2019-09-27 03:18:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -256,7 +279,7 @@ CREATE TABLE `tb_user_mahasiswa` (
 --
 
 INSERT INTO `tb_user_mahasiswa` (`id_user_mahasiswa`, `id_mahasiswa`, `Password`) VALUES
-(1, 1, 'jarumblack1');
+(1, 1, 'Pass@word5');
 
 --
 -- Indexes for dumped tables
@@ -281,8 +304,8 @@ ALTER TABLE `tb_category`
 ALTER TABLE `tb_detail_peminjaman`
   ADD PRIMARY KEY (`id_detail_peminjaman`),
   ADD KEY `id_alat` (`id_alat`),
-  ADD KEY `id_peminjaman` (`id_peminjaman`),
-  ADD KEY `id_mahasiswa` (`id_mahasiswa`);
+  ADD KEY `id_mahasiswa` (`id_mahasiswa`),
+  ADD KEY `id_peminjaman` (`id_peminjaman`);
 
 --
 -- Indexes for table `tb_hak_akses`
@@ -353,7 +376,7 @@ ALTER TABLE `tb_user_mahasiswa`
 -- AUTO_INCREMENT for table `tb_alat`
 --
 ALTER TABLE `tb_alat`
-  MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_category`
@@ -365,7 +388,7 @@ ALTER TABLE `tb_category`
 -- AUTO_INCREMENT for table `tb_detail_peminjaman`
 --
 ALTER TABLE `tb_detail_peminjaman`
-  MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_hak_akses`
@@ -377,7 +400,7 @@ ALTER TABLE `tb_hak_akses`
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_karyawan`
@@ -402,12 +425,6 @@ ALTER TABLE `tb_kerusakan`
 --
 ALTER TABLE `tb_mahasiswa`
   MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `tb_peminjaman_alat`
---
-ALTER TABLE `tb_peminjaman_alat`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
@@ -436,8 +453,8 @@ ALTER TABLE `tb_alat`
 --
 ALTER TABLE `tb_detail_peminjaman`
   ADD CONSTRAINT `tb_detail_peminjaman_ibfk_1` FOREIGN KEY (`id_alat`) REFERENCES `tb_alat` (`id_alat`),
-  ADD CONSTRAINT `tb_detail_peminjaman_ibfk_2` FOREIGN KEY (`id_peminjaman`) REFERENCES `tb_peminjaman_alat` (`id_peminjaman`),
-  ADD CONSTRAINT `tb_detail_peminjaman_ibfk_3` FOREIGN KEY (`id_mahasiswa`) REFERENCES `tb_mahasiswa` (`id_mahasiswa`);
+  ADD CONSTRAINT `tb_detail_peminjaman_ibfk_3` FOREIGN KEY (`id_mahasiswa`) REFERENCES `tb_mahasiswa` (`id_mahasiswa`),
+  ADD CONSTRAINT `tb_detail_peminjaman_ibfk_4` FOREIGN KEY (`id_peminjaman`) REFERENCES `tb_peminjaman_alat` (`id_peminjaman`);
 
 --
 -- Constraints for table `tb_kegiatan`
