@@ -67,6 +67,7 @@ $route['peminjaman/(:any)'] = 'Controller_landingpage/landingpage/peminjaman/$1'
 $route['pencarian'] = 'Controller_landingpage/landingpage/search';
 $route['pinjam'] = 'Controller_landingpage/landingpage/set_peminjaman';
 $route['daftarpeminjaman'] = 'Controller_landingpage/landingpage/dafarpeminjaman';
+$route['Checkout'] = 'Controller_landingpage/landingpage/addPeminjaantoDB';
 
 
 //Route Alat

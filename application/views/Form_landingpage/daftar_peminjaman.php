@@ -29,15 +29,17 @@
                     <?php }?>
                 </div>
             </div>
-            <div align="center">
-                <label>Pilih Kegiatan</label>
-                <select style="min-width:30%; margin-top:20px">
-                    <?php foreach($jadwal as $jdwl) {?>
-                    <option value="<?= $jdwl->id_jadwal?>"><?= $jdwl->Kegiatan?></option>
-                    <?php }?>
-                </select>
-            </div>
-            <a href="#" class="btn btn-success" style=" color:white;margin-top:10px; width:100%">Proses</a>
+            <form action="<?= base_url('Checkout')?>" method="post">
+                <div align="center">
+                    <label>Pilih Kegiatan</label>
+                    <select name="idkegiatan" style="min-width:30%; margin-top:20px">
+                        <?php foreach($jadwal as $jdwl) {?>
+                        <option value="<?= $jdwl->id_jadwal?>"><?= $jdwl->Kegiatan?></option>
+                        <?php }?>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success" style=" color:white;margin-top:10px; width:100%">Proses</button>
+            </form>>
         </div>
     </div>
 </div>

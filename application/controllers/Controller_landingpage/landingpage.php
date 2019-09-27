@@ -12,6 +12,7 @@ class landingpage extends CI_Controller
         $this->load->model('Model_user_mahasiswa');
         $this->load->model('Model_alat');
         $this->load->model('Model_jadwal');
+        $this->load->model('Model_peminjaman');
     }
 
     function index()
@@ -91,5 +92,41 @@ class landingpage extends CI_Controller
             }
         }
         redirect("Userlanding");
+    }
+
+    function addPeminjaantoDB()
+    {
+        $id_kegiatan = $this->input->post('idkegiatan');
+        $idpinjam = $_SESSION['User']->Nim.get_current_date_img();
+        foreach($_SESSION['pinjaman'] as $dataSession)
+        {
+            $dataPinjam = array(
+                                'id_alat'      => $dataSession['id_alat'],
+                                'Amount'      => $dataSession['Qty'],
+                                'id_mahasiswa' => $_SESSION['User']->id_mahasiswa
+            );
+            $datadetail = $this->Model_peminjaman->insertDataPeminjaman($dataPinjam);
+        }
+        if ($datadetail)
+        {
+            $data = array(
+                        'id_peminjaman' => $idpinjam,
+                        'id_kegiatan'   => $id_kegiatan
+            );
+            $dataPinjaman = $this->Model_peminjaman->insertPeminjaman($data);
+            if ($dataPinjaman)
+            {
+                $dataFinal = array(
+                                'id_peminjaman' => $idpinjam,
+                                'Status' => 1
+                );
+                $dataFinalInsert =  $this->Model_peminjaman->updateDetailPeminjaan($dataFinal,$_SESSION['User']->id_mahasiswa);
+                if ($dataFinalInsert)
+                {
+                    unset($_SESSION['pinjaman']);
+                    redirect('Userlanding');
+                }
+            }
+        }
     }
 }
