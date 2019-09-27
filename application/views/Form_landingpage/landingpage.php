@@ -18,17 +18,12 @@
                     <div class="home_content text-center">
                         <div class="home_title">Selamat Datang di SILAB Nutrisi</div>
                         <div class="booking_form_container">
-                            <form action="<?= base_url('pencarian')?>" method="get" class="booking_form"
-                                id="booking_form">
+                            <form action="<?= base_url('pencarian') ?>" method="get" class="booking_form" id="booking_form">
                                 <div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
-                                    <div
-                                        class="booking_input_container d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                        <div style="width:100%"><input type="text"
-                                                style="width:100%; height: 5.4vh; padding:10px" name="key"
-                                                placeholder="Pencarian Alat"></div>
+                                    <div class="booking_input_container d-flex flex-row align-items-start justify-content-start flex-wrap">
+                                        <div style="width:100%"><input type="text" style="width:100%; height: 5.4vh; padding:10px" name="key" placeholder="Pencarian Alat"></div>
                                     </div>
-                                    <div><button type="submit" class="btn btn-success"
-                                            style="height: 5.4vh;">Cari</button></div>
+                                    <div><button type="submit" class="btn btn-success" style="height: 5.4vh;">Cari</button></div>
                                 </div>
                             </form>
                         </div>
@@ -38,6 +33,45 @@
         </div>
     </div>
 </div>
+<br>
+<div>
+    <div class="container">
+        <div class="col-md-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-body" style="min-height: 25vh;">
+                    <h4 class="text-primary ">Info Laboratorium</h4>
+                    <hr>
+                    <div class="bg-primary"><i class="fa fa-info-circle"></i></div>
+                    <br>
+                    Informasi Umum tentang Laboratorium terkait. Berisi tentang profil singkat laboratorium dengan dilengkapi keterangan pengelola.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-body" style="min-height: 25vh;">
+                    <h4 class="text-info">Penggunaan Alat</h4>
+                    <hr>
+                    <div class="bg-info"><i class="fa fa-refresh"></i></div>
+                    <br>
+                    Sistem penggunaan alat atau fasilitas laboratorium bagi civitas akademika Universitas Gadjah Mada dan pengguna dari kalangan umum.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-body" style="min-height: 25vh;">
+                    <h4 class="text-success">Kunjungi Laboratorium</h4>
+                    <hr>
+                    <div class="bg-success"><i class="fa fa-check-square"></i></div>
+                    <br>
+                    Ingin tau tentang lab terkait lebih jauh? Anda dapat menghubungi kami atau lab terkait, sesuai dengan rencana kunjungan Anda.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Booking -->
 <!-- <div class="booking">
     <div class="container">
@@ -69,15 +103,7 @@
         </div>
     </div>
 </div> -->
-
-<div class="copyright">
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>
-    document.write(new Date().getFullYear());
-    </script> All rights reserved</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</div>
-</footer>
+<?php include('footer.php'); ?>
 </div>
 
 <script src="<?= base_url('assets/landingpage/') ?>js/jquery-3.3.1.min.js"></script>

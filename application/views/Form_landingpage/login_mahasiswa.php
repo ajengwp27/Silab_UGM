@@ -110,6 +110,7 @@
         <!--/fluid-row-->
 
     </div>
+    
     <!--/.fluid-container-->
 
     <!-- external javascript -->
