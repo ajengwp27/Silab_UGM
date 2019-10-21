@@ -64,7 +64,7 @@
                                 <input type="checkbox" name="analisis[]" value="Fosfor"> Fosfor
                             </div>
                             <div class="col-md-2">
-                                <input type="checkbox" name="analisis[]" value="Aminia (Nh³)" checked="checked"> Aminia (Nh³)
+                                <input type="checkbox" name="analisis[]" value="Aminia (Nh³)"> Aminia (Nh³)
                             </div>
                             <div class="col-sm-2">
                                 <input type="checkbox" name="analisis[]" value="NDF"> NDF
