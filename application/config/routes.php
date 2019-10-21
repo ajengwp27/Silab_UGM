@@ -56,6 +56,9 @@ $route['Admin'] = 'ControllerAdmin/Login';
 $route['admin'] = 'ControllerAdmin/Login';
 $route['dashboard'] = 'ControllerAdmin/Dashboard';
 $route['regadmin'] = 'ControllerAdmin/Reg_admin';
+$route['emailuser/(:any)'] = 'Controller_email/Email/sendMailUser/$1';
+$route['emailuserNon/(:any)'] = 'Controller_email/Email/sendMailUserNon/$1';
+
 
 //Route User
 $route['Userlanding'] = 'Controller_landingpage/landingpage';

@@ -1,0 +1,2 @@
+copy file "curl-ca-bundle.crt"
+ke C:\XAMPP\apache\bin

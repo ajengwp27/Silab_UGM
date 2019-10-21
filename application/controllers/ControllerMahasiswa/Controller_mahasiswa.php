@@ -78,16 +78,33 @@ class Controller_mahasiswa extends CI_Controller
 
     function editStatusmahasiswa($id_mahasiswa, $status)
     {
-        $mahasiswa = array(
-            'Status' => $status
-        );
-        $editmahasiswa = $this->Model_mahasiswa->update_mahasiswa($id_mahasiswa, $mahasiswa);
-        if ($editmahasiswa) {
-            $this->session->set_flashdata('Status', 'Edit Success');
-            redirect('mahasiswa');
-        } else {
-            $this->session->set_flashdata('Status', 'Edit Failed');
-            redirect('mahasiswa');
+        if($status=='Aktif')
+        {
+            $mahasiswa = array(
+                'Status' => $status
+            );
+            $editmahasiswa = $this->Model_mahasiswa->update_mahasiswa($id_mahasiswa, $mahasiswa);
+            if ($editmahasiswa) {
+                $this->session->set_flashdata('Status', 'Edit Success');
+                redirect('emailuser/'.$id_mahasiswa);
+            } else {
+                $this->session->set_flashdata('Status', 'Edit Failed');
+                redirect('mahasiswa');
+            }
+        }
+        else
+        {
+            $mahasiswa = array(
+                'Status' => $status
+            );
+            $editmahasiswa = $this->Model_mahasiswa->update_mahasiswa($id_mahasiswa, $mahasiswa);
+            if ($editmahasiswa) {
+                $this->session->set_flashdata('Status', 'Edit Success');
+                redirect('emailuserNon/'.$id_mahasiswa);
+            } else {
+                $this->session->set_flashdata('Status', 'Edit Failed');
+                redirect('mahasiswa');
+            }
         }
     }
 
