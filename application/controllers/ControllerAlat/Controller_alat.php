@@ -25,6 +25,7 @@ class Controller_alat extends CI_Controller
             'Category_id'    => $this->input->post('Category_id'),
             'Number_of_rack' => $this->input->post('nomorrak'),
             'description'    => $this->input->post('description'),
+            'stok'           => $this->input->post('stok'),
             'image'          => $imgname
         );
         $addalat     = $this->Model_alat->insertDataAlat($alat);

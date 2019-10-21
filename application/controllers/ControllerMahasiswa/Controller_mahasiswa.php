@@ -34,15 +34,25 @@ class Controller_mahasiswa extends CI_Controller
             'Phone'           => $this->input->post('phone'),
             'Email_mahasiswa' => $this->input->post('email'),
         );
-        $addmahasiswa = $this->Model_mahasiswa->add_mahasiswa($mahasiswa);
-        if ($addmahasiswa) {
-            $this->session->set_flashdata('Status', 'Input Success');
-            redirect('mahasiswa');
-        } else {
-            $this->session->set_flashdata('Status', 'Input Failed');
+        $validate = $this->Model_mahasiswa->get_mahasiswa_by_NIM($this->input->post('nim'));
+        if($validate)
+        {
+            $this->session->set_flashdata('Status', 'Input Failed : NIM Sudah terdaftar');
             redirect('mahasiswa');
         }
+        else
+        {
+            $addmahasiswa = $this->Model_mahasiswa->add_mahasiswa($mahasiswa);
+            if ($addmahasiswa) {
+                $this->session->set_flashdata('Status', 'Input Success');
+                redirect('mahasiswa');
+            } else {
+                $this->session->set_flashdata('Status', 'Input Failed');
+                redirect('mahasiswa');
+            }
+        }
     }
+
 
     function editmahasiswa()
     {

@@ -59,6 +59,8 @@ class landingpage extends CI_Controller
         $Id_alat = $this->input->post('idalat');
         $Qty     = $this->input->post('jml');
         $data    = $this->Model_alat->getDataAlatById($Id_alat);
+        $analisis= implode("#",$this->input->post('analisis'));
+        echo $analisis;
         $Name    = $data->Name;
         $iamge   = $data->image;
         $description = $data->description;
@@ -73,25 +75,27 @@ class landingpage extends CI_Controller
             {
             $datapinjaman = $this->session->userdata('pinjaman');
             $datapinjaman[$Id_alat] = array(
-                                        'id_alat'   => $Id_alat,
-                                        'Qty'          => $Qty,
-                                        'Name'          => $Name,
-                                        'image'        => $iamge,
-                                        'description'   => $description);
+                                        'id_alat'     => $Id_alat,
+                                        'Qty'         => $Qty,
+                                        'Name'        => $Name,
+                                        'image'       => $iamge,
+                                        'analisis'    => $analisis,
+                                        'description' => $description);
             $this->session->set_userdata('pinjaman',$datapinjaman);
             } 
             else
             {
             $datapinjaman[$Id_alat] = array(
-                                        'id_alat'   => $Id_alat,
-                                        'Qty'          => $Qty,
-                                        'Name'          => $Name,
-                                        'image'        => $iamge,
-                                        'description'   => $description);
+                                        'id_alat'     => $Id_alat,
+                                        'Qty'         => $Qty,
+                                        'Name'        => $Name,
+                                        'image'       => $iamge,
+                                        'analisis'    => $analisis,
+                                        'description' => $description);
             $this->session->set_userdata('pinjaman',$datapinjaman);
             }
         }
-        redirect("Userlanding");
+       redirect("Userlanding");
     }
 
     function addPeminjaantoDB()
@@ -103,7 +107,8 @@ class landingpage extends CI_Controller
             $dataPinjam = array(
                                 'id_alat'      => $dataSession['id_alat'],
                                 'Amount'      => $dataSession['Qty'],
-                                'id_mahasiswa' => $_SESSION['User']->id_mahasiswa
+                                'id_mahasiswa' => $_SESSION['User']->id_mahasiswa,
+                                'analisis'  => $dataSession['analisis']
             );
             $datadetail = $this->Model_peminjaman->insertDataPeminjaman($dataPinjam);
         }

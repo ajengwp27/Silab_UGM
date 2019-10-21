@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2019 at 10:00 AM
+-- Generation Time: Oct 21, 2019 at 07:48 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -45,8 +45,8 @@ CREATE TABLE `tb_alat` (
 --
 
 INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `image`, `description`, `stok`, `Create_at`, `Update_at`) VALUES
-(1, 'Microscope', 1, '21', 'alat_20190805104034.jpg', 'Alat pancingt', NULL, '2019-08-05 03:40:34', '2019-08-05 10:40:34'),
-(2, 'skjahdkjasd', 1, '23', 'alat_20190919085028.jpg', 'sdadsadasda', NULL, '2019-09-19 01:50:28', '2019-09-19 08:50:28');
+(1, 'Microscope', 1, '21', 'alat_20190805104034.jpg', 'Alat pancingt', 10, '2019-08-05 03:40:34', '2019-08-05 10:40:34'),
+(2, 'skjahdkjasd', 1, '23', 'alat_20190919085028.jpg', 'sdadsadasda', 30, '2019-09-19 01:50:28', '2019-09-19 08:50:28');
 
 -- --------------------------------------------------------
 
@@ -80,16 +80,19 @@ CREATE TABLE `tb_detail_peminjaman` (
   `Amount` int(11) DEFAULT NULL,
   `id_mahasiswa` int(11) DEFAULT NULL,
   `Status` int(11) DEFAULT '0',
-  `id_peminjaman` varchar(40) DEFAULT NULL
+  `id_peminjaman` varchar(40) DEFAULT NULL,
+  `analisis` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_detail_peminjaman`
 --
 
-INSERT INTO `tb_detail_peminjaman` (`id_detail_peminjaman`, `id_alat`, `Amount`, `id_mahasiswa`, `Status`, `id_peminjaman`) VALUES
-(7, 1, 10, 1, 1, '012012000220190927101847'),
-(8, 2, 9, 1, 1, '012012000220190927101847');
+INSERT INTO `tb_detail_peminjaman` (`id_detail_peminjaman`, `id_alat`, `Amount`, `id_mahasiswa`, `Status`, `id_peminjaman`, `analisis`) VALUES
+(7, 1, 10, 1, 1, '012012000220190927101847', NULL),
+(8, 2, 9, 1, 1, '012012000220190927101847', NULL),
+(9, 1, 3, 1, 1, '012012000220191019213715', NULL),
+(10, 1, 2, 8, 1, '012012000620191021110342', 'Air#Abu#Serat kasar#Lemak kasar#Fosfor#Aminia (Nh³)#ADF#Selulosa#Energi brutto#Kec. In-Vitro#Kec. In-Sacco#Mikrobiologi');
 
 -- --------------------------------------------------------
 
@@ -197,7 +200,7 @@ CREATE TABLE `tb_kerusakan` (
 
 CREATE TABLE `tb_mahasiswa` (
   `id_mahasiswa` int(11) NOT NULL,
-  `Nim` varchar(20) DEFAULT NULL,
+  `Nim` varchar(20) NOT NULL,
   `Name` varchar(20) DEFAULT NULL,
   `Gender` varchar(2) DEFAULT NULL,
   `Address` varchar(40) DEFAULT NULL,
@@ -213,7 +216,11 @@ CREATE TABLE `tb_mahasiswa` (
 --
 
 INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, `Phone`, `Status`, `Create_at`, `Update_at`, `Email_mahasiswa`) VALUES
-(1, '0120120002', 'Ndaru', 'L', 'Ngentak', '08125362536', 'Aktif', '2019-08-05 08:40:50', NULL, 'ndarualbert21@gmail.com');
+(1, '0120120002', 'Ndaru', 'L', 'Ngentak', '08125362536', 'Aktif', '2019-08-05 08:40:50', NULL, 'ndarualbert21@gmail.com'),
+(2, '0120120003', 'Ndaru', 'L', 'Ngentak', '08125362536', 'Aktif', '2019-10-20 06:30:44', NULL, 'noxzcents@gmail.com'),
+(8, '0120120006', 'Ndaru', 'L', 'Ngentak', '08125362536', 'Aktif', '2019-10-20 07:31:44', NULL, 'ndarualbert21@gmail.com'),
+(9, '0120120007', 'Ndaru', 'L', 'Ngentak', '08125362536', 'Aktif', '2019-10-20 07:39:05', NULL, 'ndarualbert281@gmail.com'),
+(10, '0120120009', 'jhsajdhajkdhs', 'L', 'xvxvc', '213213213213', 'Aktif', '2019-10-20 07:40:01', NULL, 'ndarualbert21@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -233,7 +240,9 @@ CREATE TABLE `tb_peminjaman_alat` (
 --
 
 INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_kegiatan`, `Creat_at`, `Update_at`) VALUES
-('012012000220190927101847', 1, '2019-09-27 03:18:47', NULL);
+('012012000220190927101847', 1, '2019-09-27 03:18:47', NULL),
+('012012000220191019213715', 1, '2019-10-19 14:37:15', NULL),
+('012012000620191021110342', 1, '2019-10-21 04:03:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,7 +288,10 @@ CREATE TABLE `tb_user_mahasiswa` (
 --
 
 INSERT INTO `tb_user_mahasiswa` (`id_user_mahasiswa`, `id_mahasiswa`, `Password`) VALUES
-(1, 1, 'Pass@word5');
+(1, 1, 'Jarumblack1'),
+(3, 8, 'Jarumblack1'),
+(4, 9, 'Jarumblack1'),
+(5, 10, 'jarumblack1');
 
 --
 -- Indexes for dumped tables
@@ -343,7 +355,8 @@ ALTER TABLE `tb_kerusakan`
 -- Indexes for table `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  ADD PRIMARY KEY (`id_mahasiswa`);
+  ADD PRIMARY KEY (`id_mahasiswa`),
+  ADD UNIQUE KEY `Nim` (`Nim`);
 
 --
 -- Indexes for table `tb_peminjaman_alat`
@@ -388,7 +401,7 @@ ALTER TABLE `tb_category`
 -- AUTO_INCREMENT for table `tb_detail_peminjaman`
 --
 ALTER TABLE `tb_detail_peminjaman`
-  MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_detail_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_hak_akses`
@@ -424,7 +437,7 @@ ALTER TABLE `tb_kerusakan`
 -- AUTO_INCREMENT for table `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
@@ -436,7 +449,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_user_mahasiswa`
 --
 ALTER TABLE `tb_user_mahasiswa`
-  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

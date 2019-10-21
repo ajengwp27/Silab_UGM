@@ -36,6 +36,10 @@
                                     <textarea required name="description" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
+                                    <label>Stok</label>
+                                    <input required type="number" min="1" name="stok" class="form-control"">
+                                </div>
+                                <div class="form-group">
                                     <label>Image</label>
                                     <input required type="file" name="image" class="form-control"">
                                 </div>

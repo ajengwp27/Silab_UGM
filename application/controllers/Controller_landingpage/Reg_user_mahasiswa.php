@@ -40,4 +40,46 @@ class Reg_user_mahasiswa extends CI_Controller
             redirect('Controller_landingpage/Reg_user_mahasiswa');
         }
     }
+
+    function addmahasiswaFromRegistrasi()
+    {
+        $mahasiswa = array(
+            'Nim'             => $this->input->post('nim'),
+            'Name'            => $this->input->post('name'),
+            'Gender'          => $this->input->post('gender'),
+            'Address'         => $this->input->post('address'),
+            'Phone'           => $this->input->post('phone'),
+            'Email_mahasiswa' => $this->input->post('email'),
+        );
+          
+          
+        $validate = $this->Model_mahasiswa->get_mahasiswa_by_NIM($this->input->post('nim'));
+        if($validate)
+        {
+            $this->session->set_flashdata('Status', 'Input Failed : NIM Sudah terdaftar');
+            redirect('Controller_landingpage/Reg_user_mahasiswa');
+        }
+        else
+        {
+            $addmahasiswa = $this->Model_mahasiswa->add_mahasiswa($mahasiswa);
+            $validasi = $this->Model_mahasiswa->get_mahasiswa_by_NIM($this->input->post('nim'));
+            if($addmahasiswa)
+            {
+
+                $user_mahasiswa  = array(
+                    'id_mahasiswa' => $validasi->id_mahasiswa,
+                    'Password'     => $this->input->post('password')
+                );
+                $adduser_mahasiswa = $this->Model_user_mahasiswa->add_user_mahasiswa($user_mahasiswa);
+                if ($adduser_mahasiswa) {
+                    $this->session->set_flashdata('Status', 'Input Success');
+                    redirect('Controller_landingpage/landingpage');
+                } else {
+                    $this->session->set_flashdata('Status', 'Input Failed');
+                    redirect('Controller_landingpage/Reg_user_mahasiswa');
+                }
+            }
+          
+        }
+    }
 }
