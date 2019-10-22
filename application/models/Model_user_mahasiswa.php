@@ -32,4 +32,11 @@ class Model_user_mahasiswa extends CI_Model
         $addmahasiswa = $this->db->insert("tb_user_mahasiswa", $datamahasiswa);
         return $addmahasiswa;
     }
+
+    function delete_user_mahasiswa($id_user_mahasiswa)
+    {
+        $this->db->where('id_user_mahasiswa', $id_user_mahasiswa);
+        $deleteusermahasiswa = $this->db->delete("tb_user_mahasiswa");
+        return $deleteusermahasiswa;
+    }
 }

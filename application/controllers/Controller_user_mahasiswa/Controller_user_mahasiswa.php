@@ -60,9 +60,9 @@ class Controller_user_mahasiswa extends CI_Controller
         }
     }
 
-    function deleteuser_mahasiswa()
+    function deleteuser_mahasiswa($id_user_mahasiswa)
     {
-        $id_user_mahasiswa = $this->input->get('id_user_mahasiswa');
+        
         $deleteuser_mahasiswa  = $this->Model_user_mahasiswa->delete_user_mahasiswa($id_user_mahasiswa);
         if ($deleteuser_mahasiswa) {
             $this->session->set_flashdata('Status', 'Delete Succes');

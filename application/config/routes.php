@@ -110,7 +110,7 @@ $route['deleteuser/(:any)'] = 'Controller_user/Controller_user/deleteuser/$1';
 $route['user_mahasiswa'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/get_user_mahasiswa';
 $route['editusermahasiswa/(:any)/(:any)'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/editusermahasiswa/$1/$2';
 $route['formedituser/(:any)'] = 'Controller_user/Controller_user/viewFormEdituser/$1';
-$route['deleteuser/(:any)'] = 'Controller_user/Controller_user/deleteuser/$1';
+$route['deleteusermahasiswa/(:any)'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/deleteuser_mahasiswa/$1';
 
 //Route Jadwal
 $route['jadwal'] = 'ControllerJadwal/Controller_jadwal/get_jadwal';
