@@ -11,7 +11,8 @@
  </div>
  <div class="row" style="margin-top:35px">
      <div class="col-md-3 col-sm-3 col-xs-6">
-         <a data-toggle="tooltip" title="<?= count($jumlahmahasiswaaktif) ?> Status Aktif." class="well top-block" href="#">
+         <a data-toggle="tooltip" title="<?= count($jumlahmahasiswaaktif) ?> Status Aktif." class="well top-block"
+             href="#">
              <i class="glyphicon glyphicon-user blue"></i>
 
              <div>Total Mahasiswa</div>
@@ -49,18 +50,58 @@
              <span class="notification red">12</span>
          </a>
      </div>
+     <div class="col-md-12 center" style="margin-bottom:20px;">
+        <img src="<?= base_url('assets/img/logosilb.png') ?>">
+     </div>
+     <div class="col-md-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-body" style="min-height: 25vh;">
+                    <h4 class="text-primary ">Info Laboratorium</h4>
+                    <hr>
+                    <div class="bg-primary"><i class="fa fa-info-circle"></i></div>
+                    <br>
+                    Informasi Umum tentang Laboratorium terkait. Berisi tentang profil singkat laboratorium dengan dilengkapi keterangan pengelola.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-body" style="min-height: 25vh;">
+                    <h4 class="text-info">Penggunaan Alat</h4>
+                    <hr>
+                    <div class="bg-info"><i class="fa fa-refresh"></i></div>
+                    <br>
+                    Sistem penggunaan alat atau fasilitas laboratorium bagi civitas akademika Universitas Gadjah Mada dan pengguna dari kalangan umum.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-body" style="min-height: 25vh;">
+                    <h4 class="text-success">Kunjungi Laboratorium</h4>
+                    <hr>
+                    <div class="bg-success"><i class="fa fa-check-square"></i></div>
+                    <br>
+                    Ingin tau tentang lab terkait lebih jauh? Anda dapat menghubungi kami atau lab terkait, sesuai dengan rencana kunjungan Anda.
+                </div>
+            </div>
+        </div>
  </div>
+ 
 
- <div class="row">
+ <!-- <div class="row">
      <div class="box col-md-12">
          <div class="box-inner">
              <div class="box-header well">
                  <h2><i class="glyphicon glyphicon-info-sign"></i> Introduction</h2>
 
                  <div class="box-icon">
-                     <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
-                     <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                     <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                     <a href="#" class="btn btn-setting btn-round btn-default"><i
+                             class="glyphicon glyphicon-cog"></i></a>
+                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                             class="glyphicon glyphicon-chevron-up"></i></a>
+                     <a href="#" class="btn btn-close btn-round btn-default"><i
+                             class="glyphicon glyphicon-remove"></i></a>
                  </div>
              </div>
              <div class="box-content row">
@@ -68,7 +109,8 @@
                      <h1>Charisma <br>
                          <small>free, premium quality, responsive, multiple skin admin template.</small>
                      </h1>
-                     <p>It's a live demo of the template. I have created Charisma to ease the repeat work I have to do on my
+                     <p>It's a live demo of the template. I have created Charisma to ease the repeat work I have to do
+                         on my
                          projects. Now I re-use Charisma as a base for my admin panel work and I am sharing it with you
                          :)</p>
 
@@ -76,8 +118,10 @@
                              followers.</b></p>
 
                      <p class="center-block download-buttons">
-                         <a href="http://usman.it/free-responsive-admin-template/" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-chevron-left glyphicon-white"></i> Back to article</a>
-                         <a href="http://usman.it/free-responsive-admin-template/" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-download-alt"></i> Download Page</a>
+                         <a href="http://usman.it/free-responsive-admin-template/" class="btn btn-primary btn-lg"><i
+                                 class="glyphicon glyphicon-chevron-left glyphicon-white"></i> Back to article</a>
+                         <a href="http://usman.it/free-responsive-admin-template/" class="btn btn-default btn-lg"><i
+                                 class="glyphicon glyphicon-download-alt"></i> Download Page</a>
                      </p>
                  </div>
 
@@ -93,9 +137,12 @@
                  <h2><i class="glyphicon glyphicon-th"></i> Tabs</h2>
 
                  <div class="box-icon">
-                     <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
-                     <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                     <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                     <a href="#" class="btn btn-setting btn-round btn-default"><i
+                             class="glyphicon glyphicon-cog"></i></a>
+                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                             class="glyphicon glyphicon-chevron-up"></i></a>
+                     <a href="#" class="btn btn-close btn-round btn-default"><i
+                             class="glyphicon glyphicon-remove"></i></a>
                  </div>
              </div>
              <div class="box-content">
@@ -114,9 +161,11 @@
                              and mobile phones.</p>
 
                          <p>Check how it looks on different devices:</p>
-                         <a href="http://www.responsinator.com/?url=usman.it%2Fthemes%2Fcharisma" target="_blank"><strong>Preview on iPhone size.</strong></a>
+                         <a href="http://www.responsinator.com/?url=usman.it%2Fthemes%2Fcharisma"
+                             target="_blank"><strong>Preview on iPhone size.</strong></a>
                          <br>
-                         <a href="http://www.responsinator.com/?url=usman.it%2Fthemes%2Fcharisma" target="_blank"><strong>Preview on iPad size.</strong></a>
+                         <a href="http://www.responsinator.com/?url=usman.it%2Fthemes%2Fcharisma"
+                             target="_blank"><strong>Preview on iPad size.</strong></a>
                      </div>
                      <div class="tab-pane" id="custom">
                          <h3>Custom
@@ -137,17 +186,19 @@
                  </div>
              </div>
          </div>
-     </div>
+     </div> -->
      <!--/span-->
 
-     <div class="box col-md-4">
+     <!-- <div class="box col-md-4">
          <div class="box-inner">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-user"></i> Member Activity</h2>
 
                  <div class="box-icon">
-                     <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                     <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                             class="glyphicon glyphicon-chevron-up"></i></a>
+                     <a href="#" class="btn btn-close btn-round btn-default"><i
+                             class="glyphicon glyphicon-remove"></i></a>
                  </div>
              </div>
              <div class="box-content">
@@ -155,7 +206,8 @@
                      <ul class="dashboard-list">
                          <li>
                              <a href="#">
-                                 <img class="dashboard-avatar" alt="Usman" src="http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50"></a>
+                                 <img class="dashboard-avatar" alt="Usman"
+                                     src="http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50"></a>
                              <strong>Name:</strong> <a href="#">Usman
                              </a><br>
                              <strong>Since:</strong> 17/05/2014<br>
@@ -163,7 +215,8 @@
                          </li>
                          <li>
                              <a href="#">
-                                 <img class="dashboard-avatar" alt="Sheikh Heera" src="http://www.gravatar.com/avatar/3232415a0380253cfffe19163d04acab.png?s=50"></a>
+                                 <img class="dashboard-avatar" alt="Sheikh Heera"
+                                     src="http://www.gravatar.com/avatar/3232415a0380253cfffe19163d04acab.png?s=50"></a>
                              <strong>Name:</strong> <a href="#">Sheikh Heera
                              </a><br>
                              <strong>Since:</strong> 17/05/2014<br>
@@ -171,7 +224,8 @@
                          </li>
                          <li>
                              <a href="#">
-                                 <img class="dashboard-avatar" alt="Abdullah" src="http://www.gravatar.com/avatar/46056f772bde7c536e2086004e300a04.png?s=50"></a>
+                                 <img class="dashboard-avatar" alt="Abdullah"
+                                     src="http://www.gravatar.com/avatar/46056f772bde7c536e2086004e300a04.png?s=50"></a>
                              <strong>Name:</strong> <a href="#">Abdullah
                              </a><br>
                              <strong>Since:</strong> 25/05/2014<br>
@@ -179,7 +233,8 @@
                          </li>
                          <li>
                              <a href="#">
-                                 <img class="dashboard-avatar" alt="Sana Amrin" src="http://www.gravatar.com/avatar/hash"></a>
+                                 <img class="dashboard-avatar" alt="Sana Amrin"
+                                     src="http://www.gravatar.com/avatar/hash"></a>
                              <strong>Name:</strong> <a href="#">Sana Amrin</a><br>
                              <strong>Since:</strong> 17/05/2014<br>
                              <strong>Status:</strong> <span class="label label-info">Updates</span>
@@ -188,56 +243,68 @@
                  </div>
              </div>
          </div>
-     </div>
+     </div> -->
      <!--/span-->
 
-     <div class="box col-md-4">
+     <!-- <div class="box col-md-4">
          <div class="box-inner homepage-box">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-list-alt"></i> Keep in touch</h2>
 
                  <div class="box-icon">
-                     <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                     <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                             class="glyphicon glyphicon-chevron-up"></i></a>
+                     <a href="#" class="btn btn-close btn-round btn-default"><i
+                             class="glyphicon glyphicon-remove"></i></a>
                  </div>
              </div>
              <div class="box-content">
                  <h3>Stay updated with my projects and blog posts</h3>
-                 <!-- Begin MailChimp Signup Form -->
+                <!-Begin MailChimp Signup Form 
                  <div class="mc_embed_signup">
-                     <form action="//halalit.us3.list-manage.com/subscribe/post?u=444b176aa3c39f656c66381f6&amp;id=eeb0c04e84" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                     <form
+                         action="//halalit.us3.list-manage.com/subscribe/post?u=444b176aa3c39f656c66381f6&amp;id=eeb0c04e84"
+                         method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                         class="validate" target="_blank" novalidate>
                          <div>
                              <label>Please enter your email</label>
-                             <input type="email" value="" name="EMAIL" class="email" placeholder="Email address" required>
+                             <input type="email" value="" name="EMAIL" class="email" placeholder="Email address"
+                                 required>
 
-                             <div class="power_field"><input type="text" name="b_444b176aa3c39f656c66381f6_eeb0c04e84" tabindex="-1" value=""></div>
-                             <div class="clear"><input type="submit" value="Subscribe" name="subscribe" class="button"></div>
+                             <div class="power_field"><input type="text" name="b_444b176aa3c39f656c66381f6_eeb0c04e84"
+                                     tabindex="-1" value=""></div>
+                             <div class="clear"><input type="submit" value="Subscribe" name="subscribe" class="button">
+                             </div>
                          </div>
                      </form>
-                 </div>
+                 </div>  -->
 
                  <!--End mc_embed_signup-->
-                 <br />
+                 <!-- <br />
 
-                 <p>You may like my other open source work, check my profile on <a href="http://github.com/usmanhalalit" target="_blank">GitHub</a>.</p>
+                 <p>You may like my other open source work, check my profile on <a href="http://github.com/usmanhalalit"
+                         target="_blank">GitHub</a>.</p>
 
              </div>
          </div>
-     </div>
+     </div> -->
      <!--/span-->
- </div>
+ <!-- </div> -->
  <!--/row-->
 
- <div class="row">
+ <!-- <div class="row">
      <div class="box col-md-4">
          <div class="box-inner">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-list"></i> Buttons</h2>
 
                  <div class="box-icon">
-                     <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
-                     <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                     <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                     <a href="#" class="btn btn-setting btn-round btn-default"><i
+                             class="glyphicon glyphicon-cog"></i></a>
+                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                             class="glyphicon glyphicon-chevron-up"></i></a>
+                     <a href="#" class="btn btn-close btn-round btn-default"><i
+                             class="glyphicon glyphicon-remove"></i></a>
                  </div>
              </div>
              <div class="box-content buttons">
@@ -247,7 +314,8 @@
                      <button class="btn btn-default">Right</button>
                  </p>
                  <p>
-                     <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-star"></i> Icon button</button>
+                     <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-star"></i> Icon
+                         button</button>
                      <button class="btn btn-primary btn-sm">Small button</button>
                      <button class="btn btn-danger btn-sm">Small button</button>
                  </p>
@@ -275,18 +343,21 @@
                  </p>
              </div>
          </div>
-     </div>
+     </div> -->
      <!--/span-->
 
-     <div class="box col-md-4">
+     <!-- <div class="box col-md-4">
          <div class="box-inner">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-list"></i> Buttons</h2>
 
                  <div class="box-icon">
-                     <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
-                     <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                     <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                     <a href="#" class="btn btn-setting btn-round btn-default"><i
+                             class="glyphicon glyphicon-cog"></i></a>
+                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                             class="glyphicon glyphicon-chevron-up"></i></a>
+                     <a href="#" class="btn btn-close btn-round btn-default"><i
+                             class="glyphicon glyphicon-remove"></i></a>
                  </div>
              </div>
              <div class="box-content  buttons">
@@ -307,7 +378,8 @@
                  </p>
                  <div class="btn-group">
                      <button class="btn btn-default btn-lg">Large Dropdown</button>
-                     <button class="btn dropdown-toggle btn-default btn-lg" data-toggle="dropdown"><span class="caret"></span></button>
+                     <button class="btn dropdown-toggle btn-default btn-lg" data-toggle="dropdown"><span
+                             class="caret"></span></button>
                      <ul class="dropdown-menu">
                          <li><a href="#"><i class="glyphicon glyphicon-star"></i> Action</a></li>
                          <li><a href="#"><i class="glyphicon glyphicon-tag"></i> Another action</a></li>
@@ -319,18 +391,21 @@
 
              </div>
          </div>
-     </div>
+     </div> -->
      <!--/span-->
 
-     <div class="box col-md-4">
+     <!-- <div class="box col-md-4">
          <div class="box-inner">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-list"></i> Weekly Stat</h2>
 
                  <div class="box-icon">
-                     <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
-                     <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                     <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                     <a href="#" class="btn btn-setting btn-round btn-default"><i
+                             class="glyphicon glyphicon-cog"></i></a>
+                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                             class="glyphicon glyphicon-chevron-up"></i></a>
+                     <a href="#" class="btn btn-close btn-round btn-default"><i
+                             class="glyphicon glyphicon-remove"></i></a>
                  </div>
              </div>
              <div class="box-content">
@@ -394,5 +469,5 @@
                  </ul>
              </div>
          </div>
-     </div>
+     </div> -->
      <!--/span-->

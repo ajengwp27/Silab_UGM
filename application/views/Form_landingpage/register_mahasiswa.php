@@ -47,7 +47,7 @@
                             <label>NIM</label>
                             <input required type="Text" onclick='validasi("NIM","NIM")' id="NIM" name="nim"
                                 class="form-control required" placeholder="Enter NIM"
-                                pattern="^([0])([0-2])([0-9])([0])([1])([2])([0-9])([0-9])([0-9])([0-9])$">
+                                pattern="^([0-2])([0-9])([/])([4])([0])([9])([7])([6])([2])([/])([P])([T])([/])([0-9])([0-9])([0-9])([0-9])([0-9])$">
                         </div>
                         <div class="form-group">
                             <label>Nama Lengkap</label>
@@ -98,13 +98,13 @@
     <script src="<?= base_url('assets/Register/') ?>js/main.js"></script>
 
     <script>
-    $('#NIM').keypress(function(event) {
+    // $('#NIM').keypress(function(event) {
 
-        if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
-            event.preventDefault(); //stop character from entering input
-        }
+    //     if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
+    //         event.preventDefault(); //stop character from entering input
+    //     }
 
-    });
+    // });
 
     $('#NAMA').keypress(function(event) {
         var charCode = window.event.keyCode;

@@ -4,7 +4,7 @@
             <a href="#">Home</a>
         </li>
         <li>
-            <a href="#">Data Alat</a>
+            <a href="#">Data Alat Dipinjam</a>
         </li>
     </ul>
 </div>

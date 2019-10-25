@@ -199,8 +199,8 @@
 
 
 
-    <footer align="center" class="row" style="padding-top:20px;">
-        <p class="col-md-12 col-sm-12 col-xs-12 copyright">&copy; <a href="http://usman.it" target="_blank">Lab-Nutrisi-Fakultas-Peternakan-UGM</a> 2018 - 2019</p>
+    <footer align="center" class="row" style="boder-style:solid ;border-style: solid;border-radius: 10px;margin: 18px;padding: 10px; padding-top:15px" >
+        <p class="col-md-12 col-sm-12 col-xs-12 copyright">&copy; <a target="_blank">Lab-Nutrisi-Fakultas-Peternakan-UGM</a> 2018 - 2019</p>
     </footer>
 
     </div>

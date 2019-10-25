@@ -17,7 +17,7 @@ class landingpage extends CI_Controller
 
     function index()
     {
-        $data['alat']     = $this->Model_alat->getDataAlat();
+        $data['alat']    = $this->Model_alat->getDataAlat();
         $this->load->view('Form_landingpage/landingpage', $data);
     }
 
@@ -41,6 +41,14 @@ class landingpage extends CI_Controller
     {
         $data["alat"]= $this->Model_alat->getDataAlatById($ID);
         $this->load->view('Form_landingpage/peminjaman_alat',$data);
+    }
+
+
+
+    function getdatariwayat($id)
+    {
+        $data['riwayat'] = $this->Model_peminjaman->getRiwayatPeminjaman($id);
+        $this->load->view('Form_landingpage/riwayat_peminjaman', $data);
     }
 
     function pencarian()

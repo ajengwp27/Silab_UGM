@@ -67,6 +67,7 @@ $route['admin'] = 'ControllerAdmin/Login';
 $route['dashboard'] = 'ControllerAdmin/Dashboard';
 $route['reguser'] = 'Controller_landingpage/Reg_user_mahasiswa';
 $route['peminjaman/(:any)'] = 'Controller_landingpage/landingpage/peminjaman/$1';
+$route['riwayatPeminjaman/(:any)'] = 'Controller_landingpage/landingpage/getdatariwayat/$1';
 $route['pencarian'] = 'Controller_landingpage/landingpage/search';
 $route['pinjam'] = 'Controller_landingpage/landingpage/set_peminjaman';
 $route['daftarpeminjaman'] = 'Controller_landingpage/landingpage/dafarpeminjaman';
