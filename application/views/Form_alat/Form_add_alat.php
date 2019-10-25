@@ -28,20 +28,16 @@
                                     <input required type="Text" name="nomorrak" class="form-control" placeholder="Enter Number">
                                 </div>
                                 <div class="form-group">
-                                    <label>Stok</label>
-                                    <input required type="number" name="stok" class="form-control">
-                                </div>
-                                <div class="form-group">
                                     <label>Deskripsi</label>
                                     <textarea required name="description" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Stok</label>
-                                    <input required type="number" min="1" name="stok" class="form-control"">
+                                    <input required type="number" min="1" name="stok" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input required type="file" name="image" class="form-control"">
+                                    <input required type="file" name="image" class="form-control">
                                 </div>
                         </div>
                     </div>
