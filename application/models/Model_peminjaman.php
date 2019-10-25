@@ -36,6 +36,7 @@ class Model_peminjaman extends CI_Model
         $this->db->select('a.*, b.Name');
         $this->db->from('tb_detail_peminjaman as a');
         $this->db->join('tb_alat as b','b.id_alat=a.id_alat');
+        $this->db->where('id_mahasiswa', $idmahasiswa);
         $dataRiwayatPeminjaman =  $this->db->get()->result();
         return $dataRiwayatPeminjaman;
     }
