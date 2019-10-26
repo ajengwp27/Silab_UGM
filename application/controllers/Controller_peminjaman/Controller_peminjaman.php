@@ -68,8 +68,9 @@ class Controller_peminjaman extends CI_Controller
         }
     }
 
-    function editStatusDetaileminjmana($id_peminjaman)
+    function editStatusDetaileminjmana()
     {
+        $id_peminjaman = urldecode($_GET['url']);
         $peminjaman = array(
             'Status' => '2'
         );
