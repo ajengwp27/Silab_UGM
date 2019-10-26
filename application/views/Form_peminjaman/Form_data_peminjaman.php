@@ -33,7 +33,7 @@
                                 <td><?= $k->id_peminjaman ?></td>
                                 <td><?= $k->Kegiatan ?></td>
                                 <td class="center">
-                                    <a class="btn btn-info" href="<?= base_url('detailPeminjaman/' . $k->id_peminjaman . '') ?>">
+                                    <a class="btn btn-info" href="<?= base_url('detailPeminjaman/' . urlencode($k->id_peminjaman) . '') ?>">
                                         <i class="glyphicon glyphicon-edit icon-white"></i>
                                         Details
                                     </a>

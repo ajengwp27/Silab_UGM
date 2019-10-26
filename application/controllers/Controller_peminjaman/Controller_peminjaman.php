@@ -20,7 +20,7 @@ class Controller_peminjaman extends CI_Controller
 
     function viewFormDetailpeminjaman($id_peminjaman)
     {
-        $data['peminjaman'] = $this->Model_peminjaman->getDetailPeminjaman($id_peminjaman);
+        $data['peminjaman'] = $this->Model_peminjaman->getDetailPeminjaman(urldecode($id_peminjaman));
         $data['id_peminjaman'] = $id_peminjaman;
         $this->template->load('Template/Template_admin', 'Form_peminjaman/Form_detail_peminjaman', $data);;
     }

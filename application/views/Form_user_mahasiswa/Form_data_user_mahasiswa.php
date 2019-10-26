@@ -37,9 +37,9 @@
                                 <td><?= $k->Nim ?></td>
                                 <td><?= $k->Password ?></td>
                                 <td class="center">
-                                    <a class="btn btn-info" href="<?= base_url('formedituser_mahasiswa/' . $k->id_user_mahasiswa . '') ?>">
+                                    <!-- <a class="btn btn-info" href="<?= base_url('formedituser_mahasiswa/' . $k->id_user_mahasiswa . '') ?>">
                                         <i class="glyphicon glyphicon-edit icon-white"></i>
-                                        Edit
+                                        Edit -->
                                         <a class="btn btn-danger" href="<?= base_url('deleteusermahasiswa/' . $k->id_user_mahasiswa . '') ?>">
                                             <i class="glyphicon glyphicon-trash icon-white"></i>
                                             Delete
