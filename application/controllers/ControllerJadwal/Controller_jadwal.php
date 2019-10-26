@@ -20,7 +20,7 @@ class Controller_jadwal extends CI_Controller
 
     function viewFormEditjadwal($id_jadwal)
     {
-        $data['editjadwal'] = $this->Model_jadwal->get_jadwal_by_id($id_jadwal);
+        $data['jadwal'] = $this->Model_jadwal->get_jadwal_by_id($id_jadwal);
         $this->template->load('Template/Template_admin', 'Form_jadwal/Form_edit_jadwal', $data);;
     }
 
@@ -28,8 +28,8 @@ class Controller_jadwal extends CI_Controller
     {
         $jadwal = array(
             'Kegiatan' => $this->input->post('Kegiatan'),
-            'Jam'      => $this->input->post('jam'),
-            'Hari'     => $this->input->post('hari'),
+            'jam'      => $this->input->post('Jam'),
+            'hari'     => $this->input->post('Hari'),
         );
         $addjadwal = $this->Model_jadwal->add_jadwal($jadwal);
         if ($addjadwal) {
@@ -45,13 +45,9 @@ class Controller_jadwal extends CI_Controller
     {
         $id_jadwal = $this->input->post('submitid');
         $jadwal = array(
-            'Nim'             => $this->input->post('nim'),
-            'Name'            => $this->input->post('name'),
-            'Gender'          => $this->input->post('gender'),
-            'Address'         => $this->input->post('address'),
-            'Phone'           => $this->input->post('phone'),
-            'Email_jadwal' => $this->input->post('email'),
-            'Update_at'       => get_current_date()
+            'Kegiatan' => $this->input->post('Kegiatan'),
+            'jam'      => $this->input->post('Jam'),
+            'hari'     => $this->input->post('Hari')
         );
         $editjadwal = $this->Model_jadwal->update_jadwal($id_jadwal, $jadwal);
         if ($editjadwal) {

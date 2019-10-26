@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="box col-md-12">
                         <div class="box-content">
-                            <form name="fromaddjadwal" id="formvaliditas" action="<?= base_url('ControllerJadwal/Controller_jadwal/addjadwal') ?>" method="post">
+                            <form name="fromaddjadwal" id="formvaliditas" action="<?= base_url('addJadwal') ?>" method="post">
                                 <div class="form-group">
                                     <label>Kegiatan</label>
                                     <input required type="Text" id="Kegiatan" name="Kegiatan" class="form-control required" placeholder="Enter Kegiatan" >

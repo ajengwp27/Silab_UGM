@@ -58,6 +58,9 @@ $route['dashboard'] = 'ControllerAdmin/Dashboard';
 $route['regadmin'] = 'ControllerAdmin/Reg_admin';
 $route['emailuser/(:any)'] = 'Controller_email/Email/sendMailUser/$1';
 $route['emailuserNon/(:any)'] = 'Controller_email/Email/sendMailUserNon/$1';
+$route['peminjaman'] = 'Controller_peminjaman/Controller_peminjaman/viewFormPeminjaman';
+$route['detailPeminjaman/(:any)'] = 'Controller_peminjaman/Controller_peminjaman/viewFormDetailpeminjaman/$1';
+$route['Pengembalian/(:any)'] = 'Controller_peminjaman/Controller_peminjaman/editStatusDetaileminjmana/$1';
 
 
 //Route User
@@ -115,9 +118,10 @@ $route['deleteusermahasiswa/(:any)'] = 'Controller_user_mahasiswa/Controller_use
 
 //Route Jadwal
 $route['jadwal'] = 'ControllerJadwal/Controller_jadwal/get_jadwal';
-$route['editstatusjadwal/(:any)/(:any)'] = 'ControllerJadwal/Controller_mahasiswa/editStatusjadwal/$1/$2';
-$route['formeditjadwal/(:any)'] = 'ControllerJadwal/Controller_jadwal/viewFormEdijadwal/$1';
+$route['formeditjadwal/(:any)'] = 'ControllerJadwal/Controller_jadwal/viewFormEditjadwal/$1';
 $route['deletejadwal/(:any)'] = 'ControllerJadwal/Controller_jadwal/deletejadwal/$1';
+$route['addJadwal'] = 'ControllerJadwal/Controller_jadwal/addjadwal';
+$route['editJadwal'] = 'ControllerJadwal/Controller_jadwal/editjadwal';
 
 
 $route['404_override'] = '';

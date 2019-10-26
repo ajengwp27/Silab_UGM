@@ -68,11 +68,11 @@
                             <div class="collapse in" id="FormData">
                                 <ul class="nav">
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>examples/pages/pricing.html">
+                                        <a class="nav-link" href="<?= base_url('peminjaman')?>">
                                         <span> Peminjaman Alat</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item ">
+                                    <!-- <li class="nav-item ">
                                         <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
                                         <span> Pengembalian Alat</span>     
                                         </a>
@@ -86,7 +86,7 @@
                                         <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
                                         <span> Kegiatan Lab</span>     
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </li>   
