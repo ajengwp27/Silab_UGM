@@ -47,7 +47,7 @@
                             <label>NIM</label>
                             <input required type="Text" onclick='validasi("NIM","NIM")' id="NIM" name="nim"
                                 class="form-control required" placeholder="Enter NIM"
-                                pattern="^([0-2])([0-9])([/])([4])([0])([9])([7])([6])([2])([/])([P])([T])([/])([0-9])([0-9])([0-9])([0-9])([0-9])$">
+                                pattern="^([0-2])([0-9])([/])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([/])([P])([T])([/])([0-9])([0-9])([0-9])([0-9])([0-9])$">
                         </div>
                         <div class="form-group">
                             <label>Nama Lengkap</label>
