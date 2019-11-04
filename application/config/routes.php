@@ -82,6 +82,15 @@ $route['alat'] = 'ControllerAlat/Controller_alat/getDataAlat';
 $route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/viewFormEditAlat/$1';
 $route['deletealat/(:any)'] = 'ControllerAlat/Controller_alat/deleteAlat/$1';
 
+//Route Paket
+$route['paket'] = 'Controller_paket/Controller_paket/get_paket';
+$route['addpaket'] = 'Controller_paket/Controller_paket/addpaket';
+$route['adddetailpaket'] = 'Controller_paket/Controller_paket/adddetailpaket';
+$route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/viewFormEditAlat/$1';
+$route['formdetail/(:any)'] = 'Controller_paket/Controller_paket/viewFormDetailpaket/$1';
+$route['deletepaket/(:any)'] = 'Controller_paket/Controller_paket/deletepaket/$1';
+$route['deleteDetailpaket/(:any)'] = 'Controller_paket/Controller_paket/deleteDetailpaket/$1';
+
 //Route Kategori
 $route['kategori'] = 'ControllerCategory/Controller_category/getDataCategory';
 $route['formeditkategori/(:any)'] = 'ControllerCategory/Controller_category/viewFormEditCategory/$1';
