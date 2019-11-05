@@ -13,10 +13,21 @@ class Model_paket extends CI_Model
     function getDataDetailpaket($id)
     {
         //mendapatkan semua data paket dari tabel tb_paket
-        $this->db->select('a.*, b.Name');
+        $this->db->select('a.*, b.Name, b.stok');
         $this->db->from('tb_detail_paket as a');
         $this->db->join('tb_alat as b','b.id_alat=a.id_alat');
         $this->db->where("a.id_paket",$id);
+        $datapaket = $this->db->get()->result();
+        return $datapaket;
+    }
+
+    function getDatajumlahDetailpaket()
+    {
+        //mendapatkan semua data paket dari tabel tb_paket
+        $this->db->select('a.id_paket, b.nama_paket');
+        $this->db->from('tb_detail_paket as a');
+        $this->db->join('tb_paket as b','b.id_paket=a.id_paket');
+        $this->db->group_by('a.id_paket');
         $datapaket = $this->db->get()->result();
         return $datapaket;
     }

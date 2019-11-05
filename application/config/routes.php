@@ -71,8 +71,9 @@ $route['dashboard'] = 'ControllerAdmin/Dashboard';
 $route['reguser'] = 'Controller_landingpage/Reg_user_mahasiswa';
 $route['peminjaman/(:any)'] = 'Controller_landingpage/landingpage/peminjaman/$1';
 $route['riwayatPeminjaman/(:any)'] = 'Controller_landingpage/landingpage/getdatariwayat/$1';
+$route['formpeminjaman'] = 'Controller_landingpage/landingpage/peminjaman';
 $route['pencarian'] = 'Controller_landingpage/landingpage/search';
-$route['pinjam'] = 'Controller_landingpage/landingpage/set_peminjaman';
+$route['pinjam'] = 'Controller_landingpage/landingpage/addPeminjaantoDB';
 $route['daftarpeminjaman'] = 'Controller_landingpage/landingpage/dafarpeminjaman';
 $route['Checkout'] = 'Controller_landingpage/landingpage/addPeminjaantoDB';
 
@@ -124,6 +125,7 @@ $route['user_mahasiswa'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/
 $route['editusermahasiswa/(:any)/(:any)'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/editusermahasiswa/$1/$2';
 $route['formedituser_mahasiswa/(:any)'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/viewFormEdituser_mahasiswa/$1';
 $route['deleteusermahasiswa/(:any)'] = 'Controller_user_mahasiswa/Controller_user_mahasiswa/deleteuser_mahasiswa/$1';
+
 
 //Route Jadwal
 $route['jadwal'] = 'ControllerJadwal/Controller_jadwal/get_jadwal';

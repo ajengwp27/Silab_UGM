@@ -19,6 +19,20 @@ class Controller_paket extends CI_Controller
         $this->template->load('Template/Template_admin', 'Form_paket/Form_data_paket', $data);
     }
 
+    function get_paketall()
+    {
+        $data = $this->Model_paket->getDatajumlahDetailpaket();
+        foreach($data as $d)
+        {
+            $detail[$d->nama_paket.'#'.$d->id_paket] = array('detail'=> $this->Model_paket->getDataDetailpaket($d->id_paket));
+        }
+        foreach($detail as $k=>$key)
+        {
+            $id= explode("#",$k);
+            echo $id[1].'='.json_encode($key['detail']).'<br>';
+        }
+    }
+
     function viewFormDetailpaket($id_paket)
     {
         $data['detailpaket'] = $this->Model_paket->getDataDetailpaket($id_paket);

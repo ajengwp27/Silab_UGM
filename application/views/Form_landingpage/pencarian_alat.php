@@ -27,7 +27,7 @@
             <div class="col-md-12" style="margin-top:20px; margin-left:40px;margin-right:40px">
                 <div class="row">
                     <?php foreach($alat as $a) { ?>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top:10px;">
                             <?php if (isset($_SESSION['User'])) {?>
                             <a href="<?= base_url('peminjaman/'.$a->id_alat.'')?>">
                         <?php } else {?>

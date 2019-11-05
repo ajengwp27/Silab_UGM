@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2019 at 07:29 AM
+-- Generation Time: Nov 05, 2019 at 08:20 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -45,9 +45,9 @@ CREATE TABLE `tb_alat` (
 --
 
 INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `image`, `description`, `stok`, `Create_at`, `Update_at`) VALUES
-(1, 'Microscope', 1, '23', 'alat_20191104095641.jpg', 'asdasdasdasd', 20, '2019-11-04 02:56:41', '2019-11-04 09:56:41'),
-(2, 'Microscope besar', 1, '23', 'alat_20191104101033.jpg', 'sdsadasd', 20, '2019-11-04 03:10:33', '2019-11-04 10:10:33'),
-(3, 'adasdsada', 1, '21', 'alat_20191104101050.jpg', 'dasdadasd', 21, '2019-11-04 03:10:50', '2019-11-04 10:10:50');
+(1, 'Microscope', 1, '23', 'alat_20191104095641.jpg', 'asdasdasdasd', 16, '2019-11-04 02:56:41', '2019-11-04 09:56:41'),
+(2, 'Microscope besar', 1, '23', 'alat_20191104101033.jpg', 'sdsadasd', 19, '2019-11-04 03:10:33', '2019-11-04 10:10:33'),
+(3, 'adasdsada', 1, '21', 'alat_20191104101050.jpg', 'dasdadasd', 17, '2019-11-04 03:10:50', '2019-11-04 10:10:50');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,10 @@ CREATE TABLE `tb_detail_paket` (
 
 INSERT INTO `tb_detail_paket` (`id_detail_paket`, `id_alat`, `jumlah`, `id_paket`, `create_at`, `update_at`) VALUES
 (6, 1, 1, 3, '2019-11-04 03:28:41', NULL),
-(8, 3, 1, 3, '2019-11-04 03:28:41', NULL);
+(8, 3, 1, 3, '2019-11-04 03:28:41', NULL),
+(9, 1, 1, 4, '2019-11-05 02:14:03', NULL),
+(10, 2, 1, 4, '2019-11-05 02:14:03', NULL),
+(11, 3, 1, 4, '2019-11-05 02:14:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -200,6 +203,13 @@ CREATE TABLE `tb_mahasiswa` (
   `Email_mahasiswa` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_mahasiswa`
+--
+
+INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, `Phone`, `Status`, `Create_at`, `Update_at`, `Email_mahasiswa`) VALUES
+(1, '17/409762/PT/07351', 'Ndaru', 'L', 'Ngentak', '08125362536', 'Aktif', '2019-11-05 01:38:04', NULL, 'ndarualbert21@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -218,7 +228,8 @@ CREATE TABLE `tb_paket` (
 --
 
 INSERT INTO `tb_paket` (`id_paket`, `nama_paket`, `create_at`, `update_at`) VALUES
-(3, 'Paket A', '2019-11-04 03:28:28', NULL);
+(3, 'Paket A', '2019-11-04 03:28:28', NULL),
+(4, 'Paket AB', '2019-11-05 02:13:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -235,6 +246,16 @@ CREATE TABLE `tb_peminjaman_alat` (
   `Creat_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_peminjaman_alat`
+--
+
+INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_paket`, `analisa`, `status`, `id_mahasiswa`, `Creat_at`, `Update_at`) VALUES
+('17/409762/PT/0735120191105134345', 4, 'Air#Abu#Serat kasar#Lemak kasar#Fosfor#Aminia (Nh³)#ADF#Selulosa#Energi brutto#Kec. In-Vitro#Kec. In-Sacco#Mikrobiologi', 1, 1, '2019-11-05 06:43:45', NULL),
+('17/409762/PT/0735120191105134819', 3, 'Air#Serat kasar#Fosfor#ADF#Energi brutto#Kec. In-Sacco', 1, 1, '2019-11-05 06:48:19', NULL),
+('17/409762/PT/0735120191105134912', 3, 'Air#Serat kasar#Fosfor', 1, 1, '2019-11-05 06:49:12', NULL),
+('17/409762/PT/0735120191105141844', 3, 'Air#Serat kasar#Fosfor#ADF#Energi brutto#Kec. In-Sacco', 1, 1, '2019-11-05 07:18:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -271,6 +292,13 @@ CREATE TABLE `tb_user_mahasiswa` (
   `id_mahasiswa` int(11) DEFAULT NULL,
   `Password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_user_mahasiswa`
+--
+
+INSERT INTO `tb_user_mahasiswa` (`id_user_mahasiswa`, `id_mahasiswa`, `Password`) VALUES
+(1, 1, 'jarumblack1');
 
 --
 -- Indexes for dumped tables
@@ -388,7 +416,7 @@ ALTER TABLE `tb_category`
 -- AUTO_INCREMENT for table `tb_detail_paket`
 --
 ALTER TABLE `tb_detail_paket`
-  MODIFY `id_detail_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_detail_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_detail_peminjaman`
@@ -424,7 +452,7 @@ ALTER TABLE `tb_kerusakan`
 -- AUTO_INCREMENT for table `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_paket`
@@ -442,7 +470,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_user_mahasiswa`
 --
 ALTER TABLE `tb_user_mahasiswa`
-  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -479,7 +507,7 @@ ALTER TABLE `tb_kerusakan`
 -- Constraints for table `tb_peminjaman_alat`
 --
 ALTER TABLE `tb_peminjaman_alat`
-  ADD CONSTRAINT `tb_peminjaman_alat_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `tb_jadwal` (`id_jadwal`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_peminjaman_alat_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `tb_paket` (`id_paket`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_user`

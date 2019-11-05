@@ -34,6 +34,7 @@ class Model_alat extends CI_Model
         return $dataAlatInsert;
     }
 
+
     function editDataAlat($id, $dataAlat)
     {
         $this->db->where('id_alat', $id);

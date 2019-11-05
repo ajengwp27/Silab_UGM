@@ -57,14 +57,13 @@
                     <nav class="main_nav">
                         <ul class="d-flex flex-row align-items-start justify-content-start">
                             <?php if (isset($_SESSION['User'])) {?>
-                            <li><a
-                                    href="<?php if (isset($_SESSION['pinjaman'])) {echo base_url("daftarpeminjaman"); } else {echo "#";} ?>">
-                                    Daftar Pinjaman </a><span
-                                    class="badge"><?php if(isset($_SESSION["pinjaman"])) { echo count($_SESSION['pinjaman']);} else {echo 0;} ?></span>
-							</li>
 							<li><a
                                     href="<?= base_url("riwayatPeminjaman/").$_SESSION['User']->id_mahasiswa; ?>">
                                     Riwayat Peminjaman </a>
+                            </li>
+                            <li><a
+                                    href="<?= base_url("formpeminjaman") ?>">
+                                    Form Peminjaman </a>
 							</li>
 						
 							<?php }?>
