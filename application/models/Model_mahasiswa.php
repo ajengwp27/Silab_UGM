@@ -25,6 +25,15 @@ class Model_mahasiswa extends CI_Model
         return $getmahasiswaById;
     }
 
+    function get_mahasiswa_by_Email($email)
+    {
+        $this->db->where("Email_mahasiswa", $email);
+        $getmahasiswaById = $this->db->get('tb_mahasiswa')->row();
+        // echo json_encode($getmahasiswaById);
+
+        return $getmahasiswaById;
+    }
+
     function get_mahasiswa_by_status()
     {
         $this->db->where("Status", 'Aktif');

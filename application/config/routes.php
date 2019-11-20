@@ -83,6 +83,12 @@ $route['alat'] = 'ControllerAlat/Controller_alat/getDataAlat';
 $route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/viewFormEditAlat/$1';
 $route['deletealat/(:any)'] = 'ControllerAlat/Controller_alat/deleteAlat/$1';
 
+//Route Bahan
+$route['bahan'] = 'Controller_bahan/Controller_bahan/getDatabahan';
+$route['addBahan'] = 'Controller_bahan/Controller_bahan/addbahan';
+$route['formeditbahan/(:any)'] = 'Controller_bahan/Controller_bahan/viewFormEdibahan/$1';
+$route['deletebahan/(:any)'] = 'Controller_bahan/Controller_bahan/deletebahan/$1';
+
 //Route Paket
 $route['paket'] = 'Controller_paket/Controller_paket/get_paket';
 $route['addpaket'] = 'Controller_paket/Controller_paket/addpaket';

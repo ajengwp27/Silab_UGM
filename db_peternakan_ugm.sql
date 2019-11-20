@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 08:20 AM
+-- Generation Time: Nov 20, 2019 at 05:14 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -48,6 +48,27 @@ INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `imag
 (1, 'Microscope', 1, '23', 'alat_20191104095641.jpg', 'asdasdasdasd', 16, '2019-11-04 02:56:41', '2019-11-04 09:56:41'),
 (2, 'Microscope besar', 1, '23', 'alat_20191104101033.jpg', 'sdsadasd', 19, '2019-11-04 03:10:33', '2019-11-04 10:10:33'),
 (3, 'adasdsada', 1, '21', 'alat_20191104101050.jpg', 'dasdadasd', 17, '2019-11-04 03:10:50', '2019-11-04 10:10:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_bahan`
+--
+
+CREATE TABLE `tb_bahan` (
+  `id_bahan` int(11) NOT NULL,
+  `nama_bahan` varchar(20) DEFAULT NULL,
+  `stok` int(11) DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_bahan`
+--
+
+INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `create_at`, `update_at`) VALUES
+(2, 'dsadsadsad', 21, '2019-11-08 04:00:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -168,7 +189,7 @@ CREATE TABLE `tb_karyawan` (
 --
 
 INSERT INTO `tb_karyawan` (`id_karyawan`, `Name`, `Gender`, `Address`, `Status`, `Phone`, `Create_at`, `update_at`, `email_karyawan`) VALUES
-(1, 'Ndaru', 'L', 'Ngentak', 'Aktif', '1', '2019-10-31 04:18:35', '2019-10-31 11:18:35', 'ndarualbert21@gmail.com');
+(4, 'Ndaru', 'L', 'Ngentak', 'Aktif', '081329040621', '2019-11-08 04:00:10', '2019-11-08 11:00:08', 'ndarualbert21@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -241,21 +262,12 @@ CREATE TABLE `tb_peminjaman_alat` (
   `id_peminjaman` varchar(40) NOT NULL,
   `id_paket` int(11) DEFAULT NULL,
   `analisa` text,
+  `bahan` text,
   `status` int(11) DEFAULT '1',
   `id_mahasiswa` int(11) DEFAULT NULL,
   `Creat_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_peminjaman_alat`
---
-
-INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_paket`, `analisa`, `status`, `id_mahasiswa`, `Creat_at`, `Update_at`) VALUES
-('17/409762/PT/0735120191105134345', 4, 'Air#Abu#Serat kasar#Lemak kasar#Fosfor#Aminia (Nh³)#ADF#Selulosa#Energi brutto#Kec. In-Vitro#Kec. In-Sacco#Mikrobiologi', 1, 1, '2019-11-05 06:43:45', NULL),
-('17/409762/PT/0735120191105134819', 3, 'Air#Serat kasar#Fosfor#ADF#Energi brutto#Kec. In-Sacco', 1, 1, '2019-11-05 06:48:19', NULL),
-('17/409762/PT/0735120191105134912', 3, 'Air#Serat kasar#Fosfor', 1, 1, '2019-11-05 06:49:12', NULL),
-('17/409762/PT/0735120191105141844', 3, 'Air#Serat kasar#Fosfor#ADF#Energi brutto#Kec. In-Sacco', 1, 1, '2019-11-05 07:18:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,7 +291,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `Username`, `Password`, `id_level`, `id_karyawan`, `Create_at`, `Update_at`, `Status`) VALUES
-(1, 'Ndaru', '12345', 1, 1, '2019-10-31 06:21:21', '2019-10-31 13:21:21', 'Aprove');
+(1, 'Ndaru', '12345', 1, NULL, '2019-10-31 06:21:21', '2019-10-31 13:21:21', 'Aprove');
 
 -- --------------------------------------------------------
 
@@ -310,6 +322,12 @@ INSERT INTO `tb_user_mahasiswa` (`id_user_mahasiswa`, `id_mahasiswa`, `Password`
 ALTER TABLE `tb_alat`
   ADD PRIMARY KEY (`id_alat`),
   ADD KEY `Categori_id` (`Category_id`);
+
+--
+-- Indexes for table `tb_bahan`
+--
+ALTER TABLE `tb_bahan`
+  ADD PRIMARY KEY (`id_bahan`);
 
 --
 -- Indexes for table `tb_category`
@@ -364,7 +382,8 @@ ALTER TABLE `tb_kerusakan`
 --
 ALTER TABLE `tb_mahasiswa`
   ADD PRIMARY KEY (`id_mahasiswa`),
-  ADD UNIQUE KEY `Nim` (`Nim`);
+  ADD UNIQUE KEY `Nim` (`Nim`),
+  ADD UNIQUE KEY `Email_mahasiswa` (`Email_mahasiswa`);
 
 --
 -- Indexes for table `tb_paket`
@@ -407,6 +426,12 @@ ALTER TABLE `tb_alat`
   MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `tb_bahan`
+--
+ALTER TABLE `tb_bahan`
+  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tb_category`
 --
 ALTER TABLE `tb_category`
@@ -440,7 +465,7 @@ ALTER TABLE `tb_jadwal`
 -- AUTO_INCREMENT for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_kerusakan`

@@ -33,7 +33,7 @@
                         <?php } else {?>
                             <a href="<?= base_url('LoginMahasiswa')?>">
                                 <?php }?>
-                                <img style="max-width:10vw; max-height:10vh; float:left; margin-right:20px"
+                                <img style="width:10vw; height:15vh; float:left; margin-right:20px"
                                     src="<?=  base_url_img() . $a->image?>">
                                 <h2><?= $a->Name?></h2>
                                 <div style='word-wrap: break-word;'>

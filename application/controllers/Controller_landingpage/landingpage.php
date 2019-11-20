@@ -14,6 +14,7 @@ class landingpage extends CI_Controller
         $this->load->model('Model_jadwal');
         $this->load->model('Model_peminjaman');
         $this->load->model('Model_paket');
+        $this->load->model('Model_bahan');
     }
 
     function index()
@@ -42,6 +43,7 @@ class landingpage extends CI_Controller
             $detail[$d->nama_paket . '#' . $d->id_paket] = array('detail' => $this->Model_paket->getDataDetailpaket($d->id_paket));
         }
         $data['details'] = $detail;
+        $data['bahan'] = $this->Model_bahan->getDatabahan();
         $this->load->view('Form_landingpage/peminjaman_alat', $data);
     }
 
@@ -119,9 +121,11 @@ class landingpage extends CI_Controller
     function addPeminjaantoDB()
     {
         $paket       = $this->input->post('paket');
+        $bahan       = $this->input->post('bahan');
         $idpinjam    = $_SESSION['User']->Nim . get_current_date_img();
         $idMahasiswa = $_SESSION['User']->id_mahasiswa;
         $analisis    = implode("#",$this->input->post('analisis'));
+        
 
         $dataPinjam = array(
                         'id_peminjaman' => $idpinjam,

@@ -54,9 +54,15 @@ class Reg_user_mahasiswa extends CI_Controller
           
           
         $validate = $this->Model_mahasiswa->get_mahasiswa_by_NIM($this->input->post('nim'));
+        $validateemail = $this->Model_mahasiswa->get_mahasiswa_by_Email($this->input->post('email'));
         if($validate)
         {
             $this->session->set_flashdata('Status', 'Input Failed : NIM Sudah terdaftar');
+            redirect('Controller_landingpage/Reg_user_mahasiswa');
+        }
+        elseif($validateemail)
+        {
+            $this->session->set_flashdata('Status', 'Input Failed : Email Sudah terdaftar');
             redirect('Controller_landingpage/Reg_user_mahasiswa');
         }
         else
@@ -79,7 +85,6 @@ class Reg_user_mahasiswa extends CI_Controller
                     redirect('Controller_landingpage/Reg_user_mahasiswa');
                 }
             }
-          
         }
     }
 }
