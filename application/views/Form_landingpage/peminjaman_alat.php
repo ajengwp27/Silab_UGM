@@ -111,7 +111,7 @@
                             <?php foreach ($bahan as $d) { ?>
                                 <div class="col-sm-2">
                                 <input type="checkbox" name="bahan[]" value="<?= $d->id_bahan ?>"><a> <?= $d->nama_bahan ?></a>
-                                <input style="width:10%" type="number" name="jumlah[<?=$d->id_bahan?>]">
+                                <input style="width:10%" type="number" min="0" value="0" name="jumlah[<?=$d->id_bahan?>]">
                                 <label><?= $d->satuan?></label>
                                 </div>
                             <?php } ?>
