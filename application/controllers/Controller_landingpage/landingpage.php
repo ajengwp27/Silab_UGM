@@ -161,7 +161,7 @@ class landingpage extends CI_Controller
                 $stokbahan = array('stok' => $databahan->stok - $jumlahbahan[$db]);
                 $this->Model_bahan->editDatabahan($db, $stokbahan);
             }
-            $this->session->set_flashdata('Status', 'Edit Succes');
+            $this->session->set_flashdata('Status', 'Peminjaman Sukses');
             redirect('Userlanding');
         } else {
             $this->session->set_flashdata('Status', 'Edit Failed');
