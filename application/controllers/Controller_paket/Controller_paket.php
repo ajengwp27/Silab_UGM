@@ -64,7 +64,7 @@ class Controller_paket extends CI_Controller
         foreach ($detail_alat as $data)
         {
             $paket = array(
-                'id_alat'  => $data['id_alat'],
+                'id_alat'  => $data,
                 'jumlah'   => 1,
                 'id_paket' => $id_paket
             );

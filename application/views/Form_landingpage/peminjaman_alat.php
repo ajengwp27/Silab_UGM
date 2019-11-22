@@ -93,7 +93,7 @@
                         <label class="control-label" style="text-align:left;">Paket</label>
                         <div class="row" id="accordion">
                             <?php foreach ($details as $d => $key) { ?>
-                                <div class="col-sm-2">
+                                <div class="col-md-3">
                                     <input <?php $id = explode("#", $d); if($id[1]) echo "checked"; ?> type="radio" name="paket" value="<?php $id = explode("#", $d); echo $id[1]; ?>"><a data-parent="#accordion" data-toggle="collapse" href="#<?php $id = explode("#", $d); echo $id[1]; ?>">  <?php $id = explode("#", $d); echo $id[0]; ?></a> <br>
                                     <div id="<?php $id = explode("#", $d); echo $id[1]; ?>" class="collapse">
                                         <label style="margin-left:16px;">Alat : </label><br>
@@ -109,9 +109,9 @@
                         <label class="control-label" style="text-align:left;">Bahan</label>
                         <div class="row" id="accordion">
                             <?php foreach ($bahan as $d) { ?>
-                                <div class="col-sm-2">
+                                <div class="col-md-3">
                                 <input type="checkbox" name="bahan[]" value="<?= $d->id_bahan ?>"><a> <?= $d->nama_bahan ?></a>
-                                <input style="width:10%" type="number" min="0" value="0" name="jumlah[<?=$d->id_bahan?>]">
+                                <input style="width:15%" type="number" min="0" max="<?= $d->stok?>" value="0" name="jumlah[<?=$d->id_bahan?>]">
                                 <label><?= $d->satuan?></label>
                                 </div>
                             <?php } ?>
