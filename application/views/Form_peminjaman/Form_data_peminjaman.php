@@ -33,10 +33,17 @@
                                 <td><?= $k->id_peminjaman ?></td>
                                 <td><?= $k->nama_paket ?></td>
                                 <td class="center">
+                                    <?php  if ($k->status == 1 ) {?>
                                     <a class="btn btn-info" <?php if ($k->status == 1 ) {echo "href=".base_url('Controller_peminjaman/Controller_peminjaman/viewFormDetailpeminjaman?url=' . urlencode($k->id_peminjaman) . '&idpaket='.$k->id_paket);} else { echo "disabled";}?>  >
                                         <i class="glyphicon glyphicon-edit icon-white"></i>
                                         Details
                                     </a>
+                                    <?php } else {?>
+                                        <a class="btn btn-danger" <?php if ($k->status == 1 ) {echo "href=".base_url('Controller_peminjaman/Controller_peminjaman/viewFormDetailpeminjaman?url=' . urlencode($k->id_peminjaman) . '&idpaket='.$k->id_paket);} else { echo "disabled";}?>  >
+                                        <i class="glyphicon glyphicon-edit icon-white"></i>
+                                        Sudah Kembali
+                                    </a>
+                                    <?php }?>
                                 </td>
                             </tr>
                         <?php $no++;} ?>

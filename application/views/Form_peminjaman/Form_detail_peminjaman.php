@@ -38,7 +38,7 @@
                     </tbody>
                 </table>
                 <div style="float: none;text-align: right;margin-right: 50px;margin-bottom: 10px;">
-                    <a class="btn btn-danger" href="<?= base_url('Controller_peminjaman/Controller_peminjaman/editStatusDetailPeminjaman?url=' . urlencode($id_peminjaman) . '') ?>">
+                    <a class="btn btn-success" href="<?= base_url('Controller_peminjaman/Controller_peminjaman/editStatusDetailPeminjaman?url=' . urlencode($id_peminjaman) . '') ?>">
                         <i class="glyphicon icon-white"></i>
                         Proses
                     </a>
