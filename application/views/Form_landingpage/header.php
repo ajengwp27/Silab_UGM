@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/landingpage/') ?>styles/booking_responsive.css">
     <link rel="stylesheet"
         href="<?= base_url('assets/landingpage/detail/') ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link href='<?= base_url('assets/') ?>css/animate.min.css' rel='stylesheet'>
     <!-- Font Awesome -->
     <link rel="stylesheet"
         href="<?= base_url('assets/landingpage/detail/') ?>bower_components/font-awesome/css/font-awesome.min.css">
@@ -42,6 +43,8 @@
     <script src="<?= base_url('assets/landingpage/detail/') ?>dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('assets/landingpage/detail/') ?>dist/js/demo.js"></script>
+
+    <script src="<?php echo base_url('assets/') ?>js/bootstrap-notify.js"></script>
 </head>
 
 <body>

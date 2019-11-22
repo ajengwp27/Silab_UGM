@@ -76,5 +76,12 @@ class Model_peminjaman extends CI_Model
         return $dataRiwayatPeminjaman;
     }
 
+    function getPeminjamanbyId($id_mahasiswa)
+    {
+        $this->db->where("status", 1);
+        $this->db->where("id_mahasiswa", $id_mahasiswa);
+       return $this->db->get('tb_peminjaman_alat')->result();
+    }
+
 }
     

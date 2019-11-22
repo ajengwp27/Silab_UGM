@@ -38,13 +38,22 @@ class landingpage extends CI_Controller
 
     function peminjaman()
     {
-        $jumlah = $this->Model_paket->getDatajumlahDetailpaket();
-        foreach ($jumlah as $d) {
-            $detail[$d->nama_paket . '#' . $d->id_paket] = array('detail' => $this->Model_paket->getDataDetailpaket($d->id_paket));
+        if($this->Model_peminjaman->getPeminjamanbyId($_SESSION['User']->id_mahasiswa))
+        {
+
+            $this->session->set_flashdata('Status', 'Masih ada Alat yang belum di kembalikan');
+            redirect("Userlanding");
         }
-        $data['details'] = $detail;
-        $data['bahan'] = $this->Model_bahan->getDatabahan();
-        $this->load->view('Form_landingpage/peminjaman_alat', $data);
+        else
+        {
+            $jumlah = $this->Model_paket->getDatajumlahDetailpaket();
+            foreach ($jumlah as $d) {
+                $detail[$d->nama_paket . '#' . $d->id_paket] = array('detail' => $this->Model_paket->getDataDetailpaket($d->id_paket));
+            }
+            $data['details'] = $detail;
+            $data['bahan'] = $this->Model_bahan->getDatabahan();
+            $this->load->view('Form_landingpage/peminjaman_alat', $data);
+        }
     }
 
 
