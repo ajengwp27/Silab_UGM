@@ -122,24 +122,35 @@ class landingpage extends CI_Controller
     {
         $paket       = $this->input->post('paket');
         $bahan       = $this->input->post('bahan');
+        $jumlahbahan = $this->input->post('jumlah');
+        $databahanpinjam = implode('#', $bahan)."-".implode('#', $jumlahbahan);
         $idpinjam    = $_SESSION['User']->Nim . get_current_date_img();
         $idMahasiswa = $_SESSION['User']->id_mahasiswa;
-        $analisis    = implode("#",$this->input->post('analisis'));
-        
+        $analisis    = implode("#", $this->input->post('analisis'));
+        $bahanname = array();
+        foreach ($bahan as $db) {
+            $databahan = $this->Model_bahan->getDatabahanById($db);
+            array_push($bahanname, $databahan->nama_bahan.'-'.$jumlahbahan[$db]);
 
+        }
         $dataPinjam = array(
-                        'id_peminjaman' => $idpinjam,
-                        'id_paket'      => $paket,
-                        'analisa'       => $analisis,
-                        'id_mahasiswa'  => $idMahasiswa,
+            'id_peminjaman' => $idpinjam,
+            'id_paket'      => $paket,
+            'analisa'       => $analisis,
+            'id_mahasiswa'  => $idMahasiswa,
+            'bahan'         => implode('#',$bahanname)
         );
         $peminjaman = $this->Model_peminjaman->insertPeminjaman($dataPinjam);
         if ($peminjaman) {
             $dataalat = $this->Model_paket->getDataDetailpaket($paket);
-            foreach($dataalat as $a) 
-            {
-                $StokAlat =array('stok' => $a->stok -  $a->jumlah);
-                $this->Model_alat->editDataAlat($a->id_alat,$StokAlat);
+            foreach ($dataalat as $a) {
+                $StokAlat = array('stok' => $a->stok -  $a->jumlah);
+                $this->Model_alat->editDataAlat($a->id_alat, $StokAlat);
+            }
+            foreach ($bahan as $db) {
+                $databahan = $this->Model_bahan->getDatabahanById($db);
+                $stokbahan = array('stok' => $databahan->stok - $jumlahbahan[$db]);
+                $this->Model_bahan->editDatabahan($db, $stokbahan);
             }
             $this->session->set_flashdata('Status', 'Edit Succes');
             redirect('Userlanding');
@@ -147,6 +158,5 @@ class landingpage extends CI_Controller
             $this->session->set_flashdata('Status', 'Edit Failed');
             redirect('Userlanding');
         }
-
     }
 }

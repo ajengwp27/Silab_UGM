@@ -15,16 +15,16 @@
                     <table class="table responsive" style="border-style: outset;">
                         <tr >
                             <th style="border-style: solid;">ID PEMINJAMAN</th>
-                            <th style="border-style: solid;">NAMA ALAT</th>
-                            <th style="border-style: solid; text-align: center;">JUMLAH</th>
+                            <th style="border-style: solid; width:15%;">NAMA PAKET</th>
+                            <th style="border-style: solid; text-align: center;">ANALISA</th>
                             <th style="border-style: solid; text-align: center">STATUS</th>
                         </tr>
                         <?php foreach($riwayat as $data) { ?>
                         <tr >
                             <td style="border-style: solid;"><?= $data->id_peminjaman?></td>
-                            <td style="border-style: solid;"><?= $data->Name?></td> 
-                            <td align="center" style="border-style: solid;"><?= $data->Amount?></td> 
-                            <td align="center" style="border-style: solid;"><?php if ($data->Status == 1 ){echo "PINJAM";}else{echo "SUDAH KEMBALI";}?></td> 
+                            <td style="border-style: solid;"><?= $data->nama_paket?></td> 
+                            <td align="center" style="border-style: solid;"><?= $data->analisa?></td> 
+                            <td align="center" style="border-style: solid;"><?php if ($data->status == 1 ){echo "PINJAM";}else{echo "SUDAH KEMBALI";}?></td> 
                         </tr>
                         <?php }?>
                     </table>

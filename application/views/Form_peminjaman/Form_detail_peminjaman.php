@@ -17,14 +17,12 @@
             </div>
             <div class="box-content">
                 <!-- <div class="alert alert-info">For help with such table please check <a href="http://datatables.net/" target="_blank">http://datatables.net/</a></div> -->
-                <table class="table responsive">
+                <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>ID Peminjaman</th>
                             <th>Nama Alat</th>
-                            <th>Jumlah</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,21 +30,15 @@
                         foreach ($peminjaman as $k) { ?>
                             <tr>
                                 <td><?= $no ?></td>
-                                <td><?= $k->id_peminjaman ?></td>
+                                <td><?= $id_peminjaman ?></td>
                                 <td><?= $k->Name ?></td>
-                                <td><?= $k->Amount ?></td>
-                                <td><?php if ($k->Status == 1) {
-                                            echo "PINJAM";
-                                        } else {
-                                            echo "SUDAH KEMBALI";
-                                        } ?></td>
                             </tr>
                         <?php $no++;
                         } ?>
                     </tbody>
                 </table>
                 <div style="float: none;text-align: right;margin-right: 50px;margin-bottom: 10px;">
-                    <a class="btn btn-danger" href="<?= base_url('Controller_peminjaman/Controller_peminjaman/editStatusDetaileminjmana?url=' . urlencode($id_peminjaman) . '') ?>">
+                    <a class="btn btn-success" href="<?= base_url('Controller_peminjaman/Controller_peminjaman/editStatusDetailPeminjaman?url=' . urlencode($id_peminjaman) . '') ?>">
                         <i class="glyphicon icon-white"></i>
                         Proses
                     </a>

@@ -19,6 +19,14 @@
                                     <label>Stok</label>
                                     <input required type="number" min="1" name="stok" class="form-control" ">
                                 </div>
+                                <div class=" form-group">
+                                    <label>Satuan</label>
+                                    <select name="satuan" class="form-control selectpicker">
+                                        <option value=''>None</option>
+                                        <option value='L'>Liter</option>
+                                        <option value='G'>Gram</option>
+                                    </select>
+                                </div>
                         </div>
                     </div>
                     <!--/span-->
