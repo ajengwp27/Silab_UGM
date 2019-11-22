@@ -20,10 +20,11 @@ class Controller_bahan extends CI_Controller
     {
         $bahan = array(
             'nama_bahan' => $this->input->post('name'),
-            'Stok'       => $this->input->post('stok'),
+            'stok'       => $this->input->post('stok'),
+            'satuan'     => $this->input->post('satuan')
         );
         $addbahan     = $this->Model_bahan->insertDatabahan($bahan);
-            if ($addbahan) {
+        if ($addbahan) {
             $this->session->set_flashdata('Status', 'Input Success');
             redirect('bahan');
         }
@@ -64,5 +65,4 @@ class Controller_bahan extends CI_Controller
             redirect('bahan');
         }
     }
-
 }

@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //ini diganti
-$config['base_url'] = 'http://192.168.1.109/Silab_UGM/';
+$config['base_url'] = 'http://localhost/Silab_UGM/';
 
 /*
 |--------------------------------------------------------------------------

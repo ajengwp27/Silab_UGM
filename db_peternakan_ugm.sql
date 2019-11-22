@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2019 at 05:14 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Nov 22, 2019 at 06:39 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,11 +33,11 @@ CREATE TABLE `tb_alat` (
   `Name` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
   `Category_id` int(11) DEFAULT NULL,
   `Number_of_rack` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `image` text,
-  `description` text,
+  `image` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Update_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -45,9 +45,9 @@ CREATE TABLE `tb_alat` (
 --
 
 INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `image`, `description`, `stok`, `Create_at`, `Update_at`) VALUES
-(1, 'Microscope', 1, '23', 'alat_20191104095641.jpg', 'asdasdasdasd', 16, '2019-11-04 02:56:41', '2019-11-04 09:56:41'),
-(2, 'Microscope besar', 1, '23', 'alat_20191104101033.jpg', 'sdsadasd', 19, '2019-11-04 03:10:33', '2019-11-04 10:10:33'),
-(3, 'adasdsada', 1, '21', 'alat_20191104101050.jpg', 'dasdadasd', 17, '2019-11-04 03:10:50', '2019-11-04 10:10:50');
+(1, 'Microscope', 1, '23', 'alat_20191104095641.jpg', 'asdasdasdasd', 19, '2019-11-04 02:56:41', '2019-11-04 09:56:41'),
+(2, 'Microscope besar', 1, '23', 'alat_20191104101033.jpg', 'sdsadasd', 21, '2019-11-04 03:10:33', '2019-11-04 10:10:33'),
+(3, 'adasdsada', 1, '21', 'alat_20191104101050.jpg', 'dasdadasd', 20, '2019-11-04 03:10:50', '2019-11-04 10:10:50');
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,8 @@ CREATE TABLE `tb_bahan` (
   `id_bahan` int(11) NOT NULL,
   `nama_bahan` varchar(20) DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `satuan` varchar(20) DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,8 +68,9 @@ CREATE TABLE `tb_bahan` (
 -- Dumping data for table `tb_bahan`
 --
 
-INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `create_at`, `update_at`) VALUES
-(2, 'dsadsadsad', 21, '2019-11-08 04:00:36', NULL);
+INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `satuan`, `create_at`, `update_at`) VALUES
+(2, 'dsadsadsad', 5, NULL, '2019-11-08 04:00:36', NULL),
+(3, 'asasasa', 0, 'L', '2019-11-22 02:16:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -79,8 +81,8 @@ INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `create_at`, `update_a
 CREATE TABLE `tb_category` (
   `Category_id` int(10) NOT NULL,
   `Name_Category` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Update_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -101,7 +103,7 @@ CREATE TABLE `tb_detail_paket` (
   `id_alat` int(11) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
   `id_paket` int(11) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -126,10 +128,10 @@ CREATE TABLE `tb_detail_peminjaman` (
   `id_detail_peminjaman` int(11) NOT NULL,
   `id_mahasiswa` int(11) DEFAULT NULL,
   `id_paket` int(11) DEFAULT NULL,
-  `Status` int(11) DEFAULT '0',
+  `Status` int(11) DEFAULT 0,
   `id_peminjaman` varchar(40) DEFAULT NULL,
-  `analisis` text,
-  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `analisis` text DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -141,7 +143,7 @@ CREATE TABLE `tb_detail_peminjaman` (
 CREATE TABLE `tb_hak_akses` (
   `id_level` int(11) NOT NULL,
   `Description` varchar(40) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `Update_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -163,7 +165,7 @@ CREATE TABLE `tb_jadwal` (
   `Kegiatan` varchar(30) DEFAULT NULL,
   `jam` time DEFAULT NULL,
   `hari` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -179,8 +181,8 @@ CREATE TABLE `tb_karyawan` (
   `Address` varchar(70) DEFAULT NULL,
   `Status` varchar(20) DEFAULT 'Off',
   `Phone` varchar(15) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `update_at` datetime NOT NULL DEFAULT current_timestamp(),
   `email_karyawan` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -201,8 +203,8 @@ CREATE TABLE `tb_kerusakan` (
   `id_kerusakan` int(11) NOT NULL,
   `id_alat` int(11) DEFAULT NULL,
   `Jumlah_kerusakan` int(50) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Update_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -219,7 +221,7 @@ CREATE TABLE `tb_mahasiswa` (
   `Address` varchar(40) DEFAULT NULL,
   `Phone` varchar(15) DEFAULT NULL,
   `Status` varchar(10) DEFAULT 'Off',
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `Update_at` datetime DEFAULT NULL,
   `Email_mahasiswa` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -240,7 +242,7 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, 
 CREATE TABLE `tb_paket` (
   `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(30) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -261,13 +263,24 @@ INSERT INTO `tb_paket` (`id_paket`, `nama_paket`, `create_at`, `update_at`) VALU
 CREATE TABLE `tb_peminjaman_alat` (
   `id_peminjaman` varchar(40) NOT NULL,
   `id_paket` int(11) DEFAULT NULL,
-  `analisa` text,
-  `bahan` text,
-  `status` int(11) DEFAULT '1',
+  `analisa` text DEFAULT NULL,
+  `bahan` text DEFAULT NULL,
+  `status` int(11) DEFAULT 1,
   `id_mahasiswa` int(11) DEFAULT NULL,
-  `Creat_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Creat_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `Update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_peminjaman_alat`
+--
+
+INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_paket`, `analisa`, `bahan`, `status`, `id_mahasiswa`, `Creat_at`, `Update_at`) VALUES
+('17/409762/PT/0735120191122094236', 3, 'Air#Serat kasar#Fosfor#ADF', '2#3-2#3', 2, 1, '2019-11-22 05:28:25', NULL),
+('17/409762/PT/0735120191122094351', 4, 'Lemak kasar#Aminia (Nh³)#Selulosa#Kec. In-Vitro#Mikrobiologi', '2#3-1#3', 2, 1, '2019-11-22 05:37:31', NULL),
+('17/409762/PT/0735120191122094458', NULL, 'Air#Serat kasar#Fosfor#ADF#Energi brutto#Kec. In-Sacco', '2#3-4#5', 1, 1, '2019-11-22 02:44:58', NULL),
+('17/409762/PT/0735120191122094616', 3, 'Air#Serat kasar#Fosfor', '2#3-4#4', 2, 1, '2019-11-22 05:37:33', NULL),
+('17/409762/PT/0735120191122104053', 3, 'Air#Serat kasar#Fosfor#ADF', 'dsadsadsad-5#asasasa-5', 1, 1, '2019-11-22 03:40:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -281,8 +294,8 @@ CREATE TABLE `tb_user` (
   `Password` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_karyawan` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Update_at` datetime NOT NULL DEFAULT current_timestamp(),
   `Status` varchar(10) CHARACTER SET latin1 DEFAULT 'NotAprove'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -291,7 +304,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `Username`, `Password`, `id_level`, `id_karyawan`, `Create_at`, `Update_at`, `Status`) VALUES
-(1, 'Ndaru', '12345', 1, NULL, '2019-10-31 06:21:21', '2019-10-31 13:21:21', 'Aprove');
+(1, 'Ndaru', '12345', 1, 4, '2019-10-31 06:21:21', '2019-10-31 13:21:21', 'Aprove');
 
 -- --------------------------------------------------------
 
@@ -429,7 +442,7 @@ ALTER TABLE `tb_alat`
 -- AUTO_INCREMENT for table `tb_bahan`
 --
 ALTER TABLE `tb_bahan`
-  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_category`

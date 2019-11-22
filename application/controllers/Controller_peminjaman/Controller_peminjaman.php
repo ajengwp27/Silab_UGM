@@ -10,6 +10,8 @@ class Controller_peminjaman extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Model_peminjaman');
+        $this->load->model('Model_paket');
+        $this->load->model('Model_alat');
     }
 
     function get_peminjaman()
@@ -21,7 +23,8 @@ class Controller_peminjaman extends CI_Controller
     function viewFormDetailpeminjaman()
     {
         $id_peminjaman = urldecode($_GET['url']);
-        $data['peminjaman'] = $this->Model_peminjaman->getDetailPeminjaman($id_peminjaman);
+        $id_paket = $_GET['idpaket'];
+        $data['peminjaman'] = $this->Model_paket->getDataDetailpaket($id_paket);
         $data['id_peminjaman'] = $id_peminjaman;
         $this->template->load('Template/Template_admin', 'Form_peminjaman/Form_detail_peminjaman', $data);;
     }
@@ -29,6 +32,7 @@ class Controller_peminjaman extends CI_Controller
     
     function viewFormPeminjaman()
     {
+        $datalengkap = $this->Model_peminjaman->getDataPeminjamanAll();
         $data['peminjaman'] = $this->Model_peminjaman->getDataPeminjamanAll();
         $this->template->load('Template/Template_admin', 'Form_peminjaman/Form_data_peminjaman', $data);;
     }
@@ -68,12 +72,21 @@ class Controller_peminjaman extends CI_Controller
         }
     }
 
-    function editStatusDetaileminjmana()
+    function editStatusDetailPeminjaman()
     {
         $id_peminjaman = urldecode($_GET['url']);
         $peminjaman = array(
-            'Status' => '2'
+            'status' => '2'
         );
+        $datapeminjaman = $this->Model_peminjaman->get_detail_peminjaman($id_peminjaman);
+        $datapaket = $this->Model_paket->getDataDetailpaket($datapeminjaman->id_paket);
+        // echo json_encode($datapaket);
+        foreach($datapaket as $dp)
+        {
+            $dataalat =  $this->Model_alat->getDataAlatById($dp->id_alat);
+            $tambahStok = array ("stok" => $dataalat->stok + 1);
+            $this->Model_alat->editDataAlat($dp->id_alat,$tambahStok);
+        }
         $editpeminjaman = $this->Model_peminjaman->updateStatusPeminjaman($id_peminjaman, $peminjaman);
         if ($editpeminjaman) {
             $this->session->set_flashdata('Status', 'Edit Success');

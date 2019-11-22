@@ -12,11 +12,11 @@ class Model_peminjaman extends CI_Model
 
     function getDataPeminjamanAll()
     {
-        $this->db->select('a.*, b.Kegiatan');
-        $this->db->from('tb_peminjaman_alat as a');
-        $this->db->join('tb_jadwal as b','b.id_jadwal=a.id_kegiatan');
-        $datapeminjamant = $this->db->get()->result();
-        return $datapeminjamant;
+        $this->db->select("a.*, b.nama_paket");
+        $this->db->from("tb_peminjaman_alat as a");
+        $this->db->join("tb_paket as b", "b.id_paket=a.id_paket");
+        $dataRiwayatPeminjaman =  $this->db->get()->result();
+        return $dataRiwayatPeminjaman;
     }
 
     function getDetailPeminjaman($id_peminjaman)
@@ -32,7 +32,7 @@ class Model_peminjaman extends CI_Model
     function get_detail_peminjaman($id_peminjaman)
     {
         $this->db->where('id_peminjaman', $id_peminjaman);
-        $datapeminjaman = $this->db->get('tb_detail_peminjaman')->result();
+        $datapeminjaman = $this->db->get('tb_peminjaman_alat')->row();
         return $datapeminjaman;
     }
 
@@ -52,7 +52,7 @@ class Model_peminjaman extends CI_Model
     {
         $this->db->where('id_peminjaman',$id_peminjaman);
         $this->db->set($datadetail);
-        $dataupdate = $this->db->update('tb_detail_peminjaman');
+        $dataupdate = $this->db->update('tb_peminjaman_alat');
         return $dataupdate;
 
     }
@@ -68,9 +68,9 @@ class Model_peminjaman extends CI_Model
 
     function getRiwayatPeminjaman($idmahasiswa)
     {
-        $this->db->select('a.*, b.Name');
-        $this->db->from('tb_detail_peminjaman as a');
-        $this->db->join('tb_alat as b','b.id_alat=a.id_alat');
+        $this->db->select("a.*, b.nama_paket");
+        $this->db->from("tb_peminjaman_alat as a");
+        $this->db->join("tb_paket as b", "b.id_paket=a.id_paket");
         $this->db->where('id_mahasiswa', $idmahasiswa);
         $dataRiwayatPeminjaman =  $this->db->get()->result();
         return $dataRiwayatPeminjaman;

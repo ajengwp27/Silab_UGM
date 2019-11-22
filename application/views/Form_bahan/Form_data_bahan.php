@@ -28,6 +28,7 @@
                         <tr>
                             <th>Nama Bahan</th>
                             <th>Stok</th>
+                            <th>Satuan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,6 +37,7 @@
                             <tr>
                                 <td><?= $k->nama_bahan ?></td>
                                 <td><?= $k->stok ?></td>
+                                <td><?= $k->satuan ?></td>
                                 <td class="center">
                                         <a class="btn btn-info" href="<?= base_url('formeditbahan/' . $k->id_bahan . '') ?>">
                                             <i class="glyphicon glyphicon-edit icon-white"></i>
