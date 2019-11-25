@@ -129,13 +129,16 @@ class landingpage extends CI_Controller
 
     function addPeminjaantoDB()
     {
-        $paket       = $this->input->post('paket');
-        $bahan       = $this->input->post('bahan');
-        $jumlahbahan = $this->input->post('jumlah');
+        $paket           = $this->input->post('paket');
+        $bahan           = $this->input->post('bahan');
+        $jumlahbahan     = $this->input->post('jumlah');
         $databahanpinjam = implode('#', $bahan)."-".implode('#', $jumlahbahan);
-        $idpinjam    = $_SESSION['User']->Nim . get_current_date_img();
-        $idMahasiswa = $_SESSION['User']->id_mahasiswa;
-        $analisis    = implode("#", $this->input->post('analisis'));
+        $idpinjam        = $_SESSION['User']->Nim . get_current_date_img();
+        $idMahasiswa     = $_SESSION['User']->id_mahasiswa;
+        $analisis        = implode("#", $this->input->post('analisis'));
+        $tanggal_penggunaan = $this->input->post('tanggal[1]');
+        $tanggal_selesai = $this->input->post('tanggal[2]');
+        // echo json_encode($tanggal_penggunaan);
         $bahanname = array();
         foreach ($bahan as $db) {
             $databahan = $this->Model_bahan->getDatabahanById($db);
@@ -143,11 +146,13 @@ class landingpage extends CI_Controller
 
         }
         $dataPinjam = array(
-            'id_peminjaman' => $idpinjam,
-            'id_paket'      => $paket,
-            'analisa'       => $analisis,
-            'id_mahasiswa'  => $idMahasiswa,
-            'bahan'         => implode('#',$bahanname)
+            'id_peminjaman'      => $idpinjam,
+            'id_paket'           => $paket,
+            'analisa'            => $analisis,
+            'id_mahasiswa'       => $idMahasiswa,
+            'bahan'              => implode('#',$bahanname),
+            'tanggal_penggunaan' => $tanggal_penggunaan,
+            'tanggal_selesai'    => $tanggal_selesai
         );
         $peminjaman = $this->Model_peminjaman->insertPeminjaman($dataPinjam);
         if ($peminjaman) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2019 at 06:39 AM
+-- Generation Time: Nov 25, 2019 at 08:45 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -45,9 +45,9 @@ CREATE TABLE `tb_alat` (
 --
 
 INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `image`, `description`, `stok`, `Create_at`, `Update_at`) VALUES
-(1, 'Microscope', 1, '23', 'alat_20191104095641.jpg', 'asdasdasdasd', 19, '2019-11-04 02:56:41', '2019-11-04 09:56:41'),
-(2, 'Microscope besar', 1, '23', 'alat_20191104101033.jpg', 'sdsadasd', 21, '2019-11-04 03:10:33', '2019-11-04 10:10:33'),
-(3, 'adasdsada', 1, '21', 'alat_20191104101050.jpg', 'dasdadasd', 20, '2019-11-04 03:10:50', '2019-11-04 10:10:50');
+(1, 'Microscope', 1, '23', 'alat_20191104095641.jpg', 'asdasdasdasd', 10, '2019-11-04 02:56:41', '2019-11-04 09:56:41'),
+(2, 'Microscope besar', 1, '23', 'alat_20191104101033.jpg', 'sdsadasd', 20, '2019-11-04 03:10:33', '2019-11-04 10:10:33'),
+(3, 'adasdsada', 1, '21', 'alat_20191104101050.jpg', 'dasdadasd', 10, '2019-11-04 03:10:50', '2019-11-04 10:10:50');
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE `tb_bahan` (
 --
 
 INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `satuan`, `create_at`, `update_at`) VALUES
-(2, 'dsadsadsad', 5, NULL, '2019-11-08 04:00:36', NULL),
+(2, 'dsadsadsad', 0, NULL, '2019-11-08 04:00:36', NULL),
 (3, 'asasasa', 0, 'L', '2019-11-22 02:16:09', NULL);
 
 -- --------------------------------------------------------
@@ -207,6 +207,15 @@ CREATE TABLE `tb_kerusakan` (
   `Update_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_kerusakan`
+--
+
+INSERT INTO `tb_kerusakan` (`id_kerusakan`, `id_alat`, `Jumlah_kerusakan`, `Create_at`, `Update_at`) VALUES
+(1, 1, 8, '2019-11-25 07:33:29', '2019-11-25 14:33:29'),
+(2, 2, 1, '2019-11-25 07:33:59', '2019-11-25 14:33:59'),
+(3, 3, 9, '2019-11-25 07:34:15', '2019-11-25 14:34:15');
+
 -- --------------------------------------------------------
 
 --
@@ -267,20 +276,23 @@ CREATE TABLE `tb_peminjaman_alat` (
   `bahan` text DEFAULT NULL,
   `status` int(11) DEFAULT 1,
   `id_mahasiswa` int(11) DEFAULT NULL,
-  `Creat_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `Update_at` datetime DEFAULT NULL
+  `tanggal_penggunaan` date DEFAULT NULL,
+  `tanggal_selesai` date DEFAULT NULL,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Update_at` datetime DEFAULT NULL,
+  `tanggal_pengembalian` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_peminjaman_alat`
 --
 
-INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_paket`, `analisa`, `bahan`, `status`, `id_mahasiswa`, `Creat_at`, `Update_at`) VALUES
-('17/409762/PT/0735120191122094236', 3, 'Air#Serat kasar#Fosfor#ADF', '2#3-2#3', 2, 1, '2019-11-22 05:28:25', NULL),
-('17/409762/PT/0735120191122094351', 4, 'Lemak kasar#Aminia (Nh³)#Selulosa#Kec. In-Vitro#Mikrobiologi', '2#3-1#3', 2, 1, '2019-11-22 05:37:31', NULL),
-('17/409762/PT/0735120191122094458', NULL, 'Air#Serat kasar#Fosfor#ADF#Energi brutto#Kec. In-Sacco', '2#3-4#5', 1, 1, '2019-11-22 02:44:58', NULL),
-('17/409762/PT/0735120191122094616', 3, 'Air#Serat kasar#Fosfor', '2#3-4#4', 2, 1, '2019-11-22 05:37:33', NULL),
-('17/409762/PT/0735120191122104053', 3, 'Air#Serat kasar#Fosfor#ADF', 'dsadsadsad-5#asasasa-5', 1, 1, '2019-11-22 03:40:53', NULL);
+INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_paket`, `analisa`, `bahan`, `status`, `id_mahasiswa`, `tanggal_penggunaan`, `tanggal_selesai`, `Create_at`, `Update_at`, `tanggal_pengembalian`) VALUES
+('17/409762/PT/0735120191122094236', 3, 'Air#Serat kasar#Fosfor#ADF', '2#3-2#3', 2, 1, NULL, NULL, '2019-11-22 05:28:25', NULL, NULL),
+('17/409762/PT/0735120191122094351', 4, 'Lemak kasar#Aminia (Nh³)#Selulosa#Kec. In-Vitro#Mikrobiologi', '2#3-1#3', 2, 1, NULL, NULL, '2019-11-22 05:37:31', NULL, NULL),
+('17/409762/PT/0735120191122094616', 3, 'Air#Serat kasar#Fosfor', '2#3-4#4', 2, 1, NULL, NULL, '2019-11-22 05:37:33', NULL, NULL),
+('17/409762/PT/0735120191125115520', 3, 'Air#Serat kasar#Fosfor#Energi brutto#Kec. In-Sacco', 'dsadsadsad-3', 2, 1, NULL, NULL, '2019-11-25 05:10:21', NULL, NULL),
+('17/409762/PT/0735120191125121618', 3, 'Air#Serat kasar#Fosfor#ADF', 'dsadsadsad-2', 1, 1, '2019-11-25', '2019-12-24', '2019-11-25 05:16:18', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -484,7 +496,7 @@ ALTER TABLE `tb_karyawan`
 -- AUTO_INCREMENT for table `tb_kerusakan`
 --
 ALTER TABLE `tb_kerusakan`
-  MODIFY `id_kerusakan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kerusakan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_mahasiswa`

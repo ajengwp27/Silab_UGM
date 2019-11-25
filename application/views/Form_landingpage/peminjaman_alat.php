@@ -117,6 +117,12 @@
                             <?php } ?>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label" style="text-align:left;">Tanggal Penggunaan</label><br>
+                        <input style="text-align:left" type="date"  name="tanggal[1]">
+                        -
+                        <input style="text-align:left" type="date" name="tanggal[2]">
+                    </div>
                 </div>
                 <!-- /.box-body -->
                 <div>

@@ -1,9 +1,9 @@
 <?php
-function get_current_date()
+function get_current_date($format = null)
 {
     $date = new DateTime();
     $date->setTimezone(new DateTimeZone('Asia/Jakarta'));
-    if (isset($format))
+    if (!is_null($format))
         return $date->format($format);
     return $date->format('Y-m-d H:i:s ');
 }

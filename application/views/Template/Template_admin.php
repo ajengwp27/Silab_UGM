@@ -35,6 +35,7 @@
     <link href='<?= base_url('assets/') ?>bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
     <link href='<?= base_url('assets/') ?>bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
     <link href='<?= base_url('assets/') ?>bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='<?= base_url('assets/') ?>css/bootstrap-select.min.css' rel='stylesheet'>
     <link href='<?= base_url('assets/') ?>css/jquery.noty.css' rel='stylesheet'>
     <link href='<?= base_url('assets/') ?>css/noty_theme_default.css' rel='stylesheet'>
     <link href='<?= base_url('assets/') ?>css/elfinder.min.css' rel='stylesheet'>
@@ -42,6 +43,7 @@
     <link href='<?= base_url('assets/') ?>css/jquery.iphone.toggle.css' rel='stylesheet'>
     <link href='<?= base_url('assets/') ?>css/uploadify.css' rel='stylesheet'>
     <link href='<?= base_url('assets/') ?>css/animate.min.css' rel='stylesheet'>
+    
 
     <!-- jQuery -->
     <script src="<?= base_url('assets/') ?>bower_components/jquery/jquery.min.js"></script>
@@ -55,6 +57,7 @@
 
 
     <script src="<?= base_url('assets/') ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url('assets/') ?>js/bootstrap-select.min.js"></script>
 
     <!-- library for cookie management -->
     <script src="<?= base_url('assets/') ?>js/jquery.cookie.js"></script>
@@ -88,6 +91,7 @@
     <script src="<?= base_url('assets/') ?>js/charisma.js"></script>
     <script src="<?php echo base_url('assets/') ?>js/bootstrap-notify.js"></script>
     <script src="<?php echo base_url('assets/') ?>js/jquery.validate.pack.js"></script>
+
 
 
 

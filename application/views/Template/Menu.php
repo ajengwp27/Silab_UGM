@@ -82,16 +82,17 @@
                                         <span> Peminjaman Alat</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="<?= base_url('kerusakan')?>">
+                                        <span> Kerusakan Alat </span>
+                                        </a>
+                                    </li>
                                     <!-- <li class="nav-item ">
                                         <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
                                         <span> Pengembalian Alat</span>     
                                         </a>
                                     </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>examples/pages/pricing.html">
-                                        <span> Kerusakan ALat </span>
-                                        </a>
-                                    </li>
+                                 
                                     <li class="nav-item ">
                                         <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
                                         <span> Kegiatan Lab</span>     

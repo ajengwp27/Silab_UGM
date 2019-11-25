@@ -68,10 +68,11 @@ class Model_peminjaman extends CI_Model
 
     function getRiwayatPeminjaman($idmahasiswa)
     {
-        $this->db->select("a.*, b.nama_paket");
+        $this->db->select("a.*, b.nama_paket, c.Name, c.Nim");
         $this->db->from("tb_peminjaman_alat as a");
+        $this->db->join("tb_mahasiswa as c", "c.id_mahasiswa=a.id_mahasiswa");
         $this->db->join("tb_paket as b", "b.id_paket=a.id_paket");
-        $this->db->where('id_mahasiswa', $idmahasiswa);
+        $this->db->where('a.id_mahasiswa', $idmahasiswa);
         $dataRiwayatPeminjaman =  $this->db->get()->result();
         return $dataRiwayatPeminjaman;
     }
