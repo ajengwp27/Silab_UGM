@@ -12,8 +12,9 @@ class Model_peminjaman extends CI_Model
 
     function getDataPeminjamanAll()
     {
-        $this->db->select("a.*, b.nama_paket");
+        $this->db->select("a.*, b.nama_paket, c.Name");
         $this->db->from("tb_peminjaman_alat as a");
+        $this->db->join('tb_mahasiswa as c', 'c.id_mahasiswa=a.id_mahasiswa');
         $this->db->join("tb_paket as b", "b.id_paket=a.id_paket");
         $dataRiwayatPeminjaman =  $this->db->get()->result();
         return $dataRiwayatPeminjaman;
