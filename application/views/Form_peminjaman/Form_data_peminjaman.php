@@ -57,6 +57,14 @@
                                             <i class="glyphicon glyphicon-edit icon-white"></i>
                                             Details
                                         </a>
+                                        <a class="btn btn-warning" <?php if ($k->status == 1) {
+                                                                            echo "target='_blank' href=" . base_url('Controller_report/Controller_report/cetakReportPeminjamanbyId?url='.urlencode($k->id_peminjaman));
+                                                                        } else {
+                                                                            echo "disabled";
+                                                                        } ?>>
+                                            <i class="glyphicon glyphicon-edit icon-white"></i>
+                                            Cetak
+                                        </a>
                                     <?php } else { ?>
                                         <a class="btn btn-success" <?php if ($k->status == 1) {
                                                                                 echo "href=" . base_url('Controller_peminjaman/Controller_peminjaman/viewFormDetailpeminjaman?url=' . urlencode($k->id_peminjaman) . '&idpaket=' . $k->id_paket);

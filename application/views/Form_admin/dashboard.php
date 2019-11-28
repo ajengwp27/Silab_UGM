@@ -11,8 +11,7 @@
  </div>
  <div class="row" style="margin-top:35px">
      <div class="col-md-3 col-sm-3 col-xs-6">
-         <a data-toggle="tooltip" title="<?= count($jumlahmahasiswaaktif) ?> Status Aktif." class="well top-block"
-             href="#">
+         <a data-toggle="tooltip" title="<?= count($jumlahmahasiswaaktif) ?> Status Aktif." class="well top-block" href="#">
              <i class="glyphicon glyphicon-user blue"></i>
 
              <div>Total Mahasiswa</div>
@@ -25,9 +24,8 @@
          <a data-toggle="tooltip" title="4 new pro members." class="well top-block" href="#">
              <i class="glyphicon glyphicon-star green"></i>
 
-             <div>Pro Members</div>
-             <div>228</div>
-             <span class="notification green">4</span>
+             <div>Total Alat</div>
+             <div><?= count($jumlahalat)?></div>
          </a>
      </div>
 
@@ -35,59 +33,57 @@
          <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="#">
              <i class="glyphicon glyphicon-shopping-cart yellow"></i>
 
-             <div>Sales</div>
-             <div>$13320</div>
-             <span class="notification yellow">$34</span>
+             <div>Total Peminjaman</div>
+             <div><?= count($jumlahpeminjaman)?></div>
          </a>
      </div>
 
      <div class="col-md-3 col-sm-3 col-xs-6">
          <a data-toggle="tooltip" title="12 new messages." class="well top-block" href="#">
-             <i class="glyphicon glyphicon-envelope red"></i>
+             <i class="glyphicon glyphicon-wrench red"></i>
 
-             <div>Messages</div>
-             <div>25</div>
-             <span class="notification red">12</span>
+             <div>Total Kerusakan Alat</div>
+             <div><?= $jumlahkerusakan?></div>
          </a>
      </div>
      <div class="col-md-12 center" style="margin-bottom:20px;">
-        <img src="<?= base_url('assets/img/logosilb.png') ?>">
+         <img src="<?= base_url('assets/img/logosilb.png') ?>">
      </div>
      <div class="col-md-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-body" style="min-height: 25vh;">
-                    <h4 class="text-primary ">Info Laboratorium</h4>
-                    <hr>
-                    <div class="bg-primary"><i class="fa fa-info-circle"></i></div>
-                    <br>
-                    Informasi Umum tentang Laboratorium terkait. Berisi tentang profil singkat laboratorium dengan dilengkapi keterangan pengelola.
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-body" style="min-height: 25vh;">
-                    <h4 class="text-info">Penggunaan Alat</h4>
-                    <hr>
-                    <div class="bg-info"><i class="fa fa-refresh"></i></div>
-                    <br>
-                    Sistem penggunaan alat atau fasilitas laboratorium bagi civitas akademika Universitas Gadjah Mada dan pengguna dari kalangan umum.
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-body" style="min-height: 25vh;">
-                    <h4 class="text-success">Kunjungi Laboratorium</h4>
-                    <hr>
-                    <div class="bg-success"><i class="fa fa-check-square"></i></div>
-                    <br>
-                    Ingin tau tentang lab terkait lebih jauh? Anda dapat menghubungi kami atau lab terkait, sesuai dengan rencana kunjungan Anda.
-                </div>
-            </div>
-        </div>
+         <div class="panel panel-default text-center">
+             <div class="panel-body" style="min-height: 25vh;">
+                 <h4 class="text-primary ">Info Laboratorium</h4>
+                 <hr>
+                 <div class="bg-primary"><i class="fa fa-info-circle"></i></div>
+                 <br>
+                 Informasi Umum tentang Laboratorium terkait. Berisi tentang profil singkat laboratorium dengan dilengkapi keterangan pengelola.
+             </div>
+         </div>
+     </div>
+     <div class="col-md-4">
+         <div class="panel panel-default text-center">
+             <div class="panel-body" style="min-height: 25vh;">
+                 <h4 class="text-info">Penggunaan Alat</h4>
+                 <hr>
+                 <div class="bg-info"><i class="fa fa-refresh"></i></div>
+                 <br>
+                 Sistem penggunaan alat atau fasilitas laboratorium bagi civitas akademika Universitas Gadjah Mada dan pengguna dari kalangan umum.
+             </div>
+         </div>
+     </div>
+     <div class="col-md-4">
+         <div class="panel panel-default text-center">
+             <div class="panel-body" style="min-height: 25vh;">
+                 <h4 class="text-success">Kunjungi Laboratorium</h4>
+                 <hr>
+                 <div class="bg-success"><i class="fa fa-check-square"></i></div>
+                 <br>
+                 Ingin tau tentang lab terkait lebih jauh? Anda dapat menghubungi kami atau lab terkait, sesuai dengan rencana kunjungan Anda.
+             </div>
+         </div>
+     </div>
  </div>
- 
+
 
  <!-- <div class="row">
      <div class="box col-md-12">
@@ -187,9 +183,9 @@
              </div>
          </div>
      </div> -->
-     <!--/span-->
+ <!--/span-->
 
-     <!-- <div class="box col-md-4">
+ <!-- <div class="box col-md-4">
          <div class="box-inner">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-user"></i> Member Activity</h2>
@@ -244,9 +240,9 @@
              </div>
          </div>
      </div> -->
-     <!--/span-->
+ <!--/span-->
 
-     <!-- <div class="box col-md-4">
+ <!-- <div class="box col-md-4">
          <div class="box-inner homepage-box">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-list-alt"></i> Keep in touch</h2>
@@ -279,8 +275,8 @@
                      </form>
                  </div>  -->
 
-                 <!--End mc_embed_signup-->
-                 <!-- <br />
+ <!--End mc_embed_signup-->
+ <!-- <br />
 
                  <p>You may like my other open source work, check my profile on <a href="http://github.com/usmanhalalit"
                          target="_blank">GitHub</a>.</p>
@@ -288,7 +284,7 @@
              </div>
          </div>
      </div> -->
-     <!--/span-->
+ <!--/span-->
  <!-- </div> -->
  <!--/row-->
 
@@ -344,9 +340,9 @@
              </div>
          </div>
      </div> -->
-     <!--/span-->
+ <!--/span-->
 
-     <!-- <div class="box col-md-4">
+ <!-- <div class="box col-md-4">
          <div class="box-inner">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-list"></i> Buttons</h2>
@@ -392,9 +388,9 @@
              </div>
          </div>
      </div> -->
-     <!--/span-->
+ <!--/span-->
 
-     <!-- <div class="box col-md-4">
+ <!-- <div class="box col-md-4">
          <div class="box-inner">
              <div class="box-header well" data-original-title="">
                  <h2><i class="glyphicon glyphicon-list"></i> Weekly Stat</h2>
@@ -470,4 +466,4 @@
              </div>
          </div>
      </div> -->
-     <!--/span-->
+ <!--/span-->
