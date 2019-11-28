@@ -117,6 +117,11 @@
                                         <span> Katalog Bahan </span>
                                         </a>
                                     </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="<?= base_url('ReportKerusakan')?>" target="_blank">
+                                        <span> Kerusakan </span>
+                                        </a>
+                                    </li>
                                     <!-- <li class="nav-item ">
                                         <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
                                         <span> Pengembalian Alat</span>     

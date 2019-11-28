@@ -41,4 +41,14 @@ class Controller_report extends CI_Controller{
         $mpdf->Output();
     }
 
+    function cetakReportKerusakan()
+    {
+        $data['record']=  $this->Model_report->getDataKerusakan();
+        $config = array('format' => 'Folio');
+        $mpdf   = new \Mpdf\Mpdf($config);
+        $html   = $this->load->view('Form_report/Form_report_kerusakan',$data,true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
+    }
+
 }

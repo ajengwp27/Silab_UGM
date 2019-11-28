@@ -29,4 +29,12 @@ class Model_report extends CI_Model
         return $dataRiwayatPeminjaman;
     }
 
+    function getDataKerusakan()
+    {
+        $this->db->select("a.*, b.Name");
+        $this->db->from("tb_kerusakan as a");
+        $this->db->join('tb_alat as b', 'b.id_alat=a.id_alat');
+        return $this->db->get()->result();
+    }
+
 }

@@ -10,7 +10,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="<?= base_url('pinjam') ?>" method="post">
+            <form target="_blank" action="<?= base_url('pinjam') ?>" method="post">
                 <div style="padding-bottom:0px" class="box-body">
                     <div class="form-group">
                         <label class="control-label" style="text-align:left;">Nama Lengkap</label>
@@ -120,9 +120,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" style="text-align:left;">Tanggal Penggunaan</label><br>
-                        <input style="text-align:left" id="tgl1" onchange="datevalidation()" type="date" min=<?= date('Y-m-d')?>  name="tanggal[1]">
+                        <input required style="text-align:left" id="tgl1" onchange="datevalidation()" type="date" min=<?= date('Y-m-d')?>  name="tanggal[1]">
                         -
-                        <input disabled style="text-align:left" id="tgl2" type="date" name="tanggal[2]">
+                        <input required disabled style="text-align:left" id="tgl2" type="date" name="tanggal[2]">
                     </div>
                 </div>
                 <!-- /.box-body -->
