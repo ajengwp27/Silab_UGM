@@ -10,7 +10,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="<?= base_url('pinjam') ?>" method="post">
+            <form target="_blank" action="<?= base_url('pinjam') ?>" method="post">
                 <div style="padding-bottom:0px" class="box-body">
                     <div class="form-group">
                         <label class="control-label" style="text-align:left;">Nama Lengkap</label>
@@ -110,18 +110,19 @@
                         <div class="row" id="accordion">
                             <?php foreach ($bahan as $d) { ?>
                                 <div class="col-md-3">
-                                <input type="checkbox" name="bahan[]" value="<?= $d->id_bahan ?>"><a> <?= $d->nama_bahan ?></a>
-                                <input style="width:15%" type="number" min="0" max="<?= $d->stok?>" value="0" name="jumlah[<?=$d->id_bahan?>]">
+                                <input type="checkbox" <?php if($d->stok==0) {echo "disabled";}?>  id="cb<?=  $d->id_bahan ?>" onclick="ceklist(<?= $d->id_bahan ?>)" name="bahan[]" value="<?= $d->id_bahan ?>"><a> <?= $d->nama_bahan ?></a>
+                                <input style="width:15%" <?php if($d->stok==0) {echo "disabled";}?> disabled id="inputb<?= $d->id_bahan ?>"  type="number" min="0" max="<?= $d->stok?>" value="0" name="jumlah[<?=$d->id_bahan?>]">
                                 <label><?= $d->satuan?></label>
+                                <?php if($d->stok==0) {echo "<label style='color:red' >(Stok Abis)</label>";}?> 
                                 </div>
                             <?php } ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" style="text-align:left;">Tanggal Penggunaan</label><br>
-                        <input style="text-align:left" type="date"  name="tanggal[1]">
+                        <input required style="text-align:left" id="tgl1" onchange="datevalidation()" type="date" min=<?= date('Y-m-d')?>  name="tanggal[1]">
                         -
-                        <input style="text-align:left" type="date" name="tanggal[2]">
+                        <input required disabled style="text-align:left" id="tgl2" type="date" name="tanggal[2]">
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -134,5 +135,32 @@
     </div>
 </div>
 </div>
+<script>
+    function datevalidation()
+    {
+        var x = document.getElementById("tgl1").value;
+        $('#tgl2').removeAttr('disabled');
+        document.getElementById('tgl2').min= x;
+        console.log(x);
+        if (x=="")
+        {
+
+            $('#tgl2').attr('disabled','true');
+            document.getElementById('tgl2').value="";
+        }
+    }
+
+    function ceklist(id)
+    {
+        var checkBox = document.getElementById("cb"+id);
+
+        if (checkBox.checked == true){
+            $("#inputb"+id).removeAttr('disabled');
+        } else {
+            $("#inputb"+id).attr('disabled','true');
+        }
+    }
+
+</script>
 <?php include('footer.php'); ?>
 </body>

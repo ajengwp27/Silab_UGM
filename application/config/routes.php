@@ -144,6 +144,11 @@ $route['deletejadwal/(:any)'] = 'ControllerJadwal/Controller_jadwal/deletejadwal
 $route['addJadwal'] = 'ControllerJadwal/Controller_jadwal/addjadwal';
 $route['editJadwal'] = 'ControllerJadwal/Controller_jadwal/editjadwal';
 
+//Route Report
+$route['ReportAlat'] = 'Controller_report/Controller_report/cetakAlatAll';
+$route['ReportBahan'] = 'Controller_report/Controller_report/cetakBahanAll';
+$route['ReportPeminjaman/(:any)'] = 'Controller_report/Controller_report/cetakReportPeminjamanbyId/$1';
+$route['ReportKerusakan'] = 'Controller_report/Controller_report/cetakReportKerusakan';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

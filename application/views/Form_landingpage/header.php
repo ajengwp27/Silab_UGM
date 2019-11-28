@@ -1,7 +1,7 @@
 <head>
-    <title>Booking</title>
+    <title>LABORATURIUM UGM</title>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="190;URL='<?= base_url("Userlanding")?>'" />
+    <!-- <meta http-equiv="refresh" content="190;URL='<?= base_url("Userlanding")?>'" /> -->
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="description" content="The River template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,13 +54,13 @@
         <!-- Header -->
 
         <header class="header">
-            <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                <div class="logo"><a href="<?= base_url("Userlanding")?>">LABORATURIUM NUTRISI</a></div>
-                <div class="ml-auto d-flex flex-row align-items-center justify-content-start">
+            <div class="header_content d-flex flex-row align-items-center justify-content-start" style="padding-left:0px; padding-right:0px ;background-color: rgb(82, 81, 97); " >
+                <div class="logo" style="margin-left: 62px;"><a href="<?= base_url("Userlanding")?>">LABORATURIUM NUTRISI</a></div>
+                <div style="padding-right:62px;"class="ml-auto d-flex flex-row align-items-center justify-content-start">
                     <nav class="main_nav">
                         <ul class="d-flex flex-row align-items-start justify-content-start">
                             <?php if (isset($_SESSION['User'])) {?>
-							<li><a
+							<li><a style="color:white;"
                                     href="<?= base_url("riwayatPeminjaman/").$_SESSION['User']->id_mahasiswa; ?>">
                                     Riwayat Peminjaman </a>
                             </li>

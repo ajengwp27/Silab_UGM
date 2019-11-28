@@ -41,7 +41,7 @@ class landingpage extends CI_Controller
         if($this->Model_peminjaman->getPeminjamanbyId($_SESSION['User']->id_mahasiswa))
         {
 
-            $this->session->set_flashdata('Status', 'Masih ada Alat yang belum di kembalikan');
+            $this->session->set_flashdata('Status', 'Status Anda Masih Dalam Peminjaman');
             redirect("Userlanding");
         }
         else
@@ -129,48 +129,56 @@ class landingpage extends CI_Controller
 
     function addPeminjaantoDB()
     {
-        $paket           = $this->input->post('paket');
-        $bahan           = $this->input->post('bahan');
-        $jumlahbahan     = $this->input->post('jumlah');
-        $databahanpinjam = implode('#', $bahan)."-".implode('#', $jumlahbahan);
-        $idpinjam        = $_SESSION['User']->Nim . get_current_date_img();
-        $idMahasiswa     = $_SESSION['User']->id_mahasiswa;
-        $analisis        = implode("#", $this->input->post('analisis'));
-        $tanggal_penggunaan = $this->input->post('tanggal[1]');
-        $tanggal_selesai = $this->input->post('tanggal[2]');
-        // echo json_encode($tanggal_penggunaan);
-        $bahanname = array();
-        foreach ($bahan as $db) {
-            $databahan = $this->Model_bahan->getDatabahanById($db);
-            array_push($bahanname, $databahan->nama_bahan.'-'.$jumlahbahan[$db]);
-
+        if($this->Model_peminjaman->getPeminjamanbyId($_SESSION['User']->id_mahasiswa))
+        {
+            $this->session->set_flashdata('Status', 'Peminjaman Sudah di Proses');
+            redirect("Userlanding");
         }
-        $dataPinjam = array(
-            'id_peminjaman'      => $idpinjam,
-            'id_paket'           => $paket,
-            'analisa'            => $analisis,
-            'id_mahasiswa'       => $idMahasiswa,
-            'bahan'              => implode('#',$bahanname),
-            'tanggal_penggunaan' => $tanggal_penggunaan,
-            'tanggal_selesai'    => $tanggal_selesai
-        );
-        $peminjaman = $this->Model_peminjaman->insertPeminjaman($dataPinjam);
-        if ($peminjaman) {
-            $dataalat = $this->Model_paket->getDataDetailpaket($paket);
-            foreach ($dataalat as $a) {
-                $StokAlat = array('stok' => $a->stok -  $a->jumlah);
-                $this->Model_alat->editDataAlat($a->id_alat, $StokAlat);
-            }
+        else
+        {
+            $paket           = $this->input->post('paket');
+            $bahan           = $this->input->post('bahan');
+            $jumlahbahan     = $this->input->post('jumlah');
+            $databahanpinjam = implode('#', $bahan)."-".implode('#', $jumlahbahan);
+            $idpinjam        = $_SESSION['User']->Nim . get_current_date_img();
+            $idMahasiswa     = $_SESSION['User']->id_mahasiswa;
+            $analisis        = implode("#", $this->input->post('analisis'));
+            $tanggal_penggunaan = $this->input->post('tanggal[1]');
+            $tanggal_selesai = $this->input->post('tanggal[2]');
+            // echo json_encode($tanggal_penggunaan);
+            $bahanname = array();
             foreach ($bahan as $db) {
                 $databahan = $this->Model_bahan->getDatabahanById($db);
-                $stokbahan = array('stok' => $databahan->stok - $jumlahbahan[$db]);
-                $this->Model_bahan->editDatabahan($db, $stokbahan);
+                array_push($bahanname, $databahan->nama_bahan.'-'.$jumlahbahan[$db]);
+    
             }
-            $this->session->set_flashdata('Status', 'Peminjaman Sukses');
-            redirect('Userlanding');
-        } else {
-            $this->session->set_flashdata('Status', 'Edit Failed');
-            redirect('Userlanding');
+            $dataPinjam = array(
+                'id_peminjaman'      => $idpinjam,
+                'id_paket'           => $paket,
+                'analisa'            => $analisis,
+                'id_mahasiswa'       => $idMahasiswa,
+                'bahan'              => implode('#',$bahanname),
+                'tanggal_penggunaan' => $tanggal_penggunaan,
+                'tanggal_selesai'    => $tanggal_selesai
+            );
+            $peminjaman = $this->Model_peminjaman->insertPeminjaman($dataPinjam);
+            if ($peminjaman) {
+                $dataalat = $this->Model_paket->getDataDetailpaket($paket);
+                foreach ($dataalat as $a) {
+                    $StokAlat = array('stok' => $a->stok -  $a->jumlah);
+                    $this->Model_alat->editDataAlat($a->id_alat, $StokAlat);
+                }
+                foreach ($bahan as $db) {
+                    $databahan = $this->Model_bahan->getDatabahanById($db);
+                    $stokbahan = array('stok' => $databahan->stok - $jumlahbahan[$db]);
+                    $this->Model_bahan->editDatabahan($db, $stokbahan);
+                }
+                $this->session->set_flashdata('Status', 'Peminjaman Sukses');
+                redirect('Controller_report/Controller_report/cetakReportPeminjamanbyId?url='.urlencode($idpinjam));
+            } else {
+                $this->session->set_flashdata('Status', 'Edit Failed');
+                redirect('Userlanding');
+            }
         }
     }
 }

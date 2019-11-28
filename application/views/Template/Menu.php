@@ -92,7 +92,41 @@
                                         <span> Pengembalian Alat</span>     
                                         </a>
                                     </li>
-                                 
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
+                                        <span> Kegiatan Lab</span>     
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </li>   
+
+                        <li class="nav-item ">
+                                <a class="nav-link collapsed" data-toggle="collapse" data-target="#" >
+                                    <i class="glyphicon glyphicon-hdd"></i><span> Laporan</span>
+                                </a>
+                            <div class="collapse in" id="FormData">
+                                <ul class="nav">
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="<?= base_url('ReportAlat')?>" target="_blank">
+                                        <span> Katalog Alat</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="<?= base_url('ReportBahan')?>" target="_blank">
+                                        <span> Katalog Bahan </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="<?= base_url('ReportKerusakan')?>" target="_blank">
+                                        <span> Kerusakan </span>
+                                        </a>
+                                    </li>
+                                    <!-- <li class="nav-item ">
+                                        <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
+                                        <span> Pengembalian Alat</span>     
+                                        </a>
+                                    </li>                                
                                     <li class="nav-item ">
                                         <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
                                         <span> Kegiatan Lab</span>     

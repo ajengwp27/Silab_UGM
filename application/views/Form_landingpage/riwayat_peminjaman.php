@@ -1,6 +1,6 @@
 <?php include('header.php') ?>
 <div class="home" style="height: 120px;">
-    <div class="background_image" style="background-image:url(<?= base_url('assets/img/ugm.png')  ?>"></div>
+    <!-- <div class="background_image" style="background-image:url(<?= base_url('assets/img/ugm.png')  ?>"></div> -->
 </div>
 <div class="row">
     <div class="col-md-12" style="margin-top:20px;">

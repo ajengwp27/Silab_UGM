@@ -17,7 +17,7 @@ class Model_admin extends CI_Model
 
     function get_admin_by_user_password($username, $password)
     {
-        $this->db->select('tb_user.*,tb_karyawan.Status as StatusKaryawan');
+        $this->db->select('tb_user.*,tb_karyawan.Name as namakaryawan,tb_karyawan.Status as StatusKaryawan');
         $this->db->from('tb_user');
         $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan=tb_user.id_karyawan');
         $this->db->where("tb_user.Username", $username);
