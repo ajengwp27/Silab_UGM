@@ -41,7 +41,7 @@ class landingpage extends CI_Controller
         if($this->Model_peminjaman->getPeminjamanbyId($_SESSION['User']->id_mahasiswa))
         {
 
-            $this->session->set_flashdata('Status', 'Masih ada Alat yang belum di kembalikan');
+            $this->session->set_flashdata('Status', 'Status Anda Masih Dalam Peminjaman');
             redirect("Userlanding");
         }
         else
