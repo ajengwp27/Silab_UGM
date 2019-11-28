@@ -13,8 +13,7 @@
                             <form name="fromaddmahasiswa" id="formvaliditas" action="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/addmahasiswa') ?>" method="post">
                                 <div class="form-group">
                                     <label>NIM</label>
-                                    <input required type="Text" onclick='validasi("NIM","NIM")' id="NIM" name="nim" class="form-control required" placeholder="Enter NIM" pattern="^([0-2])([0-9])([/])([4])([0])([9])([7])([6])([2])([/])([P])([T])([/])([0-9])([0-9])([0-9])([0-9])([0-9])$">
-                                </div>
+                                    <input required type="Text" onclick='validasi("NIM","NIM")' id="NIM" name="nim" class="form-control required" placeholder="Enter NIM">
                                 <div class="form-group">
                                     <label>Nama</label>
                                     <input required type="Text" onclick='validasi("NAMA","NAMA")' id="NAMA" name="name" class="form-control" placeholder="Enter Name">
