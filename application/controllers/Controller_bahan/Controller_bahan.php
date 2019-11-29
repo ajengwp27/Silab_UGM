@@ -40,13 +40,14 @@ class Controller_bahan extends CI_Controller
     {
         $id_bahan = $this->input->post('submitid');
         $bahan = array(
-            'nama_bahan'           => $this->input->post('name'),
-            'Stok'    => $this->input->post('Category_id'),
-            'update_at' => get_current_date()
+            'nama_bahan' => $this->input->post('name'),
+            'satuan'     => $this->input->post('satuan'),
+            'Stok'       => $this->input->post('stok'),
+            'update_at'  => get_current_date()
         );
         $editbahan = $this->Model_bahan->editDatabahan($id_bahan, $bahan);
         if ($editbahan) {
-            $this->session->set_flashdata('Status', 'Edit Succes');
+            $this->session->set_flashdata('Status', 'Edit Success');
             redirect('bahan');
         } else {
             $this->session->set_flashdata('Status', 'Edit Failed');
@@ -56,8 +57,12 @@ class Controller_bahan extends CI_Controller
 
     function deletebahan($id)
     {
-        $deletebahan = $this->Model_bahan->deleteDatabahan($id);
-        if ($deletebahan) {
+        $bahan = array(
+            'deleted' => 1,
+            'update_at' => get_current_date()
+        );
+        $editbahan = $this->Model_bahan->editDatabahan($id, $bahan);
+        if ($editbahan) {
             $this->session->set_flashdata('Status', 'Delete Success');
             redirect('bahan');
         } else {

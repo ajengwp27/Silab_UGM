@@ -6,6 +6,7 @@ class Model_category extends CI_Model
     function getDataCategory()
     {
         //mendapatkan semua data Category dari tabel tb_Category
+        $this->db->where('deleted',0);
         $dataCategory = $this->db->get("tb_category")->result();
         return $dataCategory;
     }
@@ -14,6 +15,7 @@ class Model_category extends CI_Model
     {
         //mendapatkan semua data Category dari tabel tb_Category
         $this->db->where('Category_id', $id);
+        $this->db->where('deleted',0);
         $dataCategory = $this->db->get('tb_category')->row();
         return $dataCategory;
     }

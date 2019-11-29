@@ -29,6 +29,10 @@
                         <label>Nomer Rak</label>
                         <input required type="Text" name="nomorrak" class="form-control" value=<?= $editalat->Number_of_rack ?>>
                     </div>
+                    <div class="form-group">
+                        <label>Stok</label>
+                        <input required type="Text" name="stok" class="form-control" value=<?= $editalat->stok ?>>
+                    </div>
                     <button type="submit" name="submitid" value=<?= $editalat->id_alat ?> class="btn btn-default">Update</button>
                 </form>
 

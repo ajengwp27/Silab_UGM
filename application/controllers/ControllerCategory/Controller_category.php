@@ -39,7 +39,8 @@ class Controller_category extends CI_Controller
     {
         $id_Category = $this->input->post('submitid');
         $Category = array(
-            'Name_category' => $this->input->post('name')
+            'Name_category' => $this->input->post('name'),
+            'Update_at' => get_current_date()
         );
         $editCategory = $this->Model_category->editDataCategory($id_Category, $Category);
         if ($editCategory) {
@@ -54,8 +55,12 @@ class Controller_category extends CI_Controller
     function deleteCategory($id_Category)
     {
 
-        $deleteCategory  = $this->Model_category->deleteDataCategory($id_Category);
-        if ($deleteCategory) {
+        $Category = array(
+            'deleted' => 1 ,
+            'Update_at' => get_current_date()
+        );
+        $editCategory = $this->Model_category->editDataCategory($id_Category, $Category);
+        if ($editCategory) {
             $this->session->set_flashdata('Status', 'Delete Succes');
             redirect('kategori');
         } else {

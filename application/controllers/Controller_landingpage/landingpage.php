@@ -15,6 +15,7 @@ class landingpage extends CI_Controller
         $this->load->model('Model_peminjaman');
         $this->load->model('Model_paket');
         $this->load->model('Model_bahan');
+        $this->load->model('Model_mahasiswa');
     }
 
     function index()
@@ -35,6 +36,38 @@ class landingpage extends CI_Controller
             $this->load->view('Form_landingpage/pencarian_alat', $data);
         }
     }
+
+    function viewReset()
+    {
+        $this->load->view('Form_landingpage/lupapassword');
+    }
+    function viewResetOTP()
+    {
+        $this->load->view('Form_landingpage/emailpassword');
+    }
+
+    function resetpassword()
+    {
+        $id = $_SESSION['User']->id_mahasiswa;
+        $PL= $this->input->post('passwordlama');
+        $PB= $this->input->post('passwordbaru');
+        $data = array('password'=>$PB);
+        $validasi = $this->Model_user_mahasiswa->get_user_mahasiswa_by_id_and_password($id,$PL);
+        if($validasi)
+        {
+            $this->Model_user_mahasiswa->editUserMahasiswa($id,$data);
+            $this->session->set_flashdata('Status', 'Sukses Memperbaharui Password');
+            redirect('Controller_landingpage/landingpage');
+        }
+        else
+        {
+            $this->session->set_flashdata('Status', 'Password Lama Salah');
+            redirect('Userlanding');
+        }
+
+    }
+
+
 
     function peminjaman()
     {

@@ -6,6 +6,7 @@ class Model_paket extends CI_Model
     function getDatapaket()
     {
         //mendapatkan semua data paket dari tabel tb_paket
+        $this->db->where('deleted',0);
         $datapaket = $this->db->get('tb_paket')->result();
         return $datapaket;
     }
@@ -28,6 +29,7 @@ class Model_paket extends CI_Model
         $this->db->from('tb_detail_paket as a');
         $this->db->join('tb_paket as b','b.id_paket=a.id_paket');
         $this->db->group_by('a.id_paket');
+        $this->db->where('b.deleted',0);
         $datapaket = $this->db->get()->result();
         return $datapaket;
     }
@@ -36,6 +38,7 @@ class Model_paket extends CI_Model
     {
         //mendapatkan semua data paket dari tabel tb_paket
         $this->db->where('id_paket', $id);
+        $this->db->where('deleted',0);
         $datapaket = $this->db->get('tb_paket')->row();
         return $datapaket;
     }
@@ -43,6 +46,7 @@ class Model_paket extends CI_Model
     function getDatapaketByName($key)
     {
         $this->db->like('nama', $key);
+        $this->db->where('deleted',0);
         $datapaket = $this->db->get('tb_paket')->result();
         return $datapaket;
     }

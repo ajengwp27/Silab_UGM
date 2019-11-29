@@ -9,6 +9,7 @@ class Model_alat extends CI_Model
         $this->db->select('a.*, b.Name_Category as NamaKategori');
         $this->db->from('tb_alat as a');
         $this->db->join('tb_category as b', 'b.Category_id = a.Category_id');
+        $this->db->where('a.deleted',0);
         $dataalat = $this->db->get()->result();
         return $dataalat;
     }
@@ -17,6 +18,7 @@ class Model_alat extends CI_Model
     {
         //mendapatkan semua data alat dari tabel tb_alat
         $this->db->where('id_alat', $id);
+        $this->db->where('deleted',0);
         $dataalat = $this->db->get('tb_alat')->row();
         return $dataalat;
     }
@@ -24,6 +26,7 @@ class Model_alat extends CI_Model
     function getDataAlatByName($key)
     {
         $this->db->like('Name', $key);
+        $this->db->where('deleted',0);
         $dataalat = $this->db->get('tb_alat')->result();
         return $dataalat;
     }

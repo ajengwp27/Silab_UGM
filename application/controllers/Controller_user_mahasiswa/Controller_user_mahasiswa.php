@@ -63,13 +63,16 @@ class Controller_user_mahasiswa extends CI_Controller
     function deleteuser_mahasiswa($id_user_mahasiswa)
     {
         
-        $deleteuser_mahasiswa  = $this->Model_user_mahasiswa->delete_user_mahasiswa($id_user_mahasiswa);
-        if ($deleteuser_mahasiswa) {
+        $user_mahasiswa  = array(
+            'Status' => 0
+        );
+        $edituser_mahasiswa = $this->Model_user_mahasiswa->update_user_mahasiswa($id_user_mahasiswa, $user_mahasiswa);
+        if ($edituser_mahasiswa) {
             $this->session->set_flashdata('Status', 'Delete Succes');
-            redirect('Controller_user_mahasiswa/Controller_user_mahasiswa/get_user_mahasiswa ');
+            redirect('Controller_user_mahasiswa/Controller_user_mahasiswa/get_user_mahasiswa');
         } else {
             $this->session->set_flashdata('Status', 'Delete Failed');
-            redirect('Controller_user_mahasiswa/Controller_user_mahasiswa/get_user_mahasiswa ');
+            redirect('Controller_user_mahasiswa/Controller_user_mahasiswa/get_user_mahasiswa');
         }
     }
 }

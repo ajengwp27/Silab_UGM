@@ -57,6 +57,7 @@ $route['admin'] = 'ControllerAdmin/Login';
 $route['dashboard'] = 'ControllerAdmin/Dashboard';
 $route['regadmin'] = 'ControllerAdmin/Reg_admin';
 $route['emailuser/(:any)'] = 'Controller_email/Email/sendMailUser/$1';
+$route['emailPassword'] = 'Controller_email/Email/sendMailUserPassword';
 $route['emailuserNon/(:any)'] = 'Controller_email/Email/sendMailUserNon/$1';
 $route['peminjaman'] = 'Controller_peminjaman/Controller_peminjaman/viewFormPeminjaman';
 $route['detailPeminjaman/(:any)'] = 'Controller_peminjaman/Controller_peminjaman/viewFormDetailpeminjaman/$1';
@@ -76,12 +77,16 @@ $route['pencarian'] = 'Controller_landingpage/landingpage/search';
 $route['pinjam'] = 'Controller_landingpage/landingpage/addPeminjaantoDB';
 $route['daftarpeminjaman'] = 'Controller_landingpage/landingpage/dafarpeminjaman';
 $route['Checkout'] = 'Controller_landingpage/landingpage/addPeminjaantoDB';
+$route['Reset'] = 'Controller_landingpage/landingpage/viewReset';
+$route['ResetOTP'] = 'Controller_landingpage/landingpage/viewResetOTP';
+$route['ResetPassword'] = 'Controller_landingpage/landingpage/resetpassword';
 
 
 //Route Alat
 $route['alat'] = 'ControllerAlat/Controller_alat/getDataAlat';
 $route['formeditalat/(:any)'] = 'ControllerAlat/Controller_alat/viewFormEditAlat/$1';
 $route['deletealat/(:any)'] = 'ControllerAlat/Controller_alat/deleteAlat/$1';
+$route['alatId'] = 'ControllerAlat/Controller_alat/getalatById';
 
 //Route Kerusakan
 $route['kerusakan'] = 'Controller_kerusakan/Controller_kerusakan/getData';
@@ -90,7 +95,7 @@ $route['addKerusakan'] = 'Controller_kerusakan/Controller_kerusakan/addKerusakan
 //Route Bahan
 $route['bahan'] = 'Controller_bahan/Controller_bahan/getDatabahan';
 $route['addBahan'] = 'Controller_bahan/Controller_bahan/addbahan';
-$route['formeditbahan/(:any)'] = 'Controller_bahan/Controller_bahan/viewFormEdibahan/$1';
+$route['formeditbahan/(:any)'] = 'Controller_bahan/Controller_bahan/viewFormEditbahan/$1';
 $route['deletebahan/(:any)'] = 'Controller_bahan/Controller_bahan/deletebahan/$1';
 
 //Route Paket

@@ -116,9 +116,12 @@ class Controller_mahasiswa extends CI_Controller
 
     function deletemahasiswa($id_mahasiswa)
     {
-        $deletemahasiswa = $this->Model_mahasiswa->delete_mahasiswa($id_mahasiswa);
-        if ($deletemahasiswa) {
-            $this->session->set_flashdata('Status', 'Delete Succes');
+        $mahasiswa = array(
+            'deleted' => 1
+        );
+        $editmahasiswa = $this->Model_mahasiswa->update_mahasiswa($id_mahasiswa, $mahasiswa);
+        if ($editmahasiswa) {
+            $this->session->set_flashdata('Status', 'Delete Success');
             redirect('mahasiswa');
         } else {
             $this->session->set_flashdata('Status', 'Delete Failed');

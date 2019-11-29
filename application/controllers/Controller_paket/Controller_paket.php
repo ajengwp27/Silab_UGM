@@ -85,7 +85,8 @@ class Controller_paket extends CI_Controller
         $paket = array(
             'Kegiatan' => $this->input->post('Kegiatan'),
             'jam'      => $this->input->post('Jam'),
-            'hari'     => $this->input->post('Hari')
+            'hari'     => $this->input->post('Hari'),
+            'update_at' => get_current_date()
         );
         $editpaket = $this->Model_paket->update_paket($id_paket, $paket);
         if ($editpaket) {
@@ -116,7 +117,8 @@ class Controller_paket extends CI_Controller
     function editStatuspaket($id_paket, $status)
     {
         $paket = array(
-            'Status' => $status
+            'Status' => $status,
+            'update_at' => get_current_date()
         );
         $editpaket = $this->Model_paket->update_paket($id_paket, $paket);
         if ($editpaket) {
@@ -130,8 +132,12 @@ class Controller_paket extends CI_Controller
 
     function deletepaket($id_paket)
     {
-        $deletepaket = $this->Model_paket->deleteDatapaket($id_paket);
-        if ($deletepaket) {
+        $paket = array(
+            'deleted' => 1,
+            'update_at' => get_current_date()
+        );
+        $editpaket = $this->Model_paket->editDatapaket($id_paket, $paket);
+        if ($editpaket) {
             $this->session->set_flashdata('Status', 'Delete Success');
             redirect('paket');
         } else {

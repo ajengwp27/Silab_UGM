@@ -60,18 +60,23 @@
                     <nav class="main_nav">
                         <ul class="d-flex flex-row align-items-start justify-content-start">
                             <?php if (isset($_SESSION['User'])) {?>
-							<li><a style="color:white;"
+							<li><a 
                                     href="<?= base_url("riwayatPeminjaman/").$_SESSION['User']->id_mahasiswa; ?>">
                                     Riwayat Peminjaman </a>
                             </li>
                             <li><a
                                     href="<?= base_url("formpeminjaman") ?>">
                                     Form Peminjaman </a>
+                            </li>
+
+                            <li><a
+                                    href="<?= base_url("Reset") ?>">
+                                    Reset Password </a>
 							</li>
 						
 							<?php }?>
 							
-                            <li><a href="#"><?php if (isset($_SESSION['User'])) {
+                            <li><a href="#" ><?php if (isset($_SESSION['User'])) {
 												echo $_SESSION['User']->Name;
 											} else {
 												echo 'Guest';

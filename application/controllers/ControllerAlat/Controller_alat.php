@@ -17,6 +17,13 @@ class Controller_alat extends CI_Controller
         $this->template->load('Template/Template_admin', 'Form_alat/Form_data_alat', $data);
     }
 
+    function getalatById()
+    {
+        $id = $this->input->post('id');
+        $alat = $this->Model_alat->getDataAlatById($id);
+        echo json_encode($alat);
+    }
+
     function addAlat()
     {
         $imgname = 'alat_' . get_current_date_img() . '.jpg';
@@ -48,11 +55,13 @@ class Controller_alat extends CI_Controller
         $alat = array(
             'Name'           => $this->input->post('name'),
             'Category_id'    => $this->input->post('Category_id'),
+            'stok'           => $this->input->post('stok'),
             'Number_of_rack' => $this->input->post('nomorrak'),
+            'Update_at' => get_current_date() 
         );
         $editalat = $this->Model_alat->editDataAlat($id_alat, $alat);
         if ($editalat) {
-            $this->session->set_flashdata('Status', 'Edit Succes');
+            $this->session->set_flashdata('Status', 'Edit Success');
             redirect('alat');
         } else {
             $this->session->set_flashdata('Status', 'Edit Failed');
@@ -62,8 +71,12 @@ class Controller_alat extends CI_Controller
 
     function deleteAlat($id)
     {
-        $deletealat = $this->Model_alat->deleteDataAlat($id);
-        if ($deletealat) {
+        $alat = array(
+            'deleted' => 1,
+            'Update_at' => get_current_date()
+        );
+        $editalat = $this->Model_alat->editDataAlat($id, $alat);
+        if ($editalat) {
             $this->session->set_flashdata('Status', 'Delete Success');
             redirect('alat');
         } else {

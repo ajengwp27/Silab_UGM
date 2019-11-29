@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-md-12 center login-header">
                     <img src="<?= base_url('assets/img/logosilb.png') ?>">
-                    <h2>LOGIN SILAB NUTRISI UGM</h2>
+                    <h2>SILAB NUTRISI UGM</h2>
                 </div>
                 <!--/span-->
             </div>
@@ -74,33 +74,18 @@
             <div class="row" style="margin-top: 48px;">
                 <div class="well col-md-5 center login-box" style="border-radius: 20px; background-color: grey;">
                     <div class="alert alert-info">
-                        Please login with your NIM and Password.
+                        RESET PASSWORD
                     </div>
-                    <form class="form-horizontal" action="<?= base_url('Controller_landingpage/Login_user/login') ?>" method="post">
+                    <form class="form-horizontal" action="<?= base_url('emailPassword') ?>" method="post">
                         <fieldset>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
                                 <input type="text" name="NIM" class="form-control" placeholder="NIM">
                             </div>
                             <div class="clearfix"></div><br>
-
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
-                                <input type="password" name="password" class="form-control" placeholder="Password">
-                            </div>
-                            <div class="clearfix"></div>
-
-
-                            <div class="clearfix"></div>
                             <div style="margin-top:10px;">
-                                <p class="col-md-4">
+                                <p class="col-md-12">
                                     <button type="submit" class="btn btn-primary">Login</button>
-                                </p>
-                                <p class="col-md-4">
-                                    <a href="<?= base_url('Controller_landingpage/Reg_user_mahasiswa') ?>" class="btn btn-primary">Register</a>
-                                </p>
-                                <p class="col-md-4">
-                                    <a href="<?= base_url('ResetOTP') ?>" class="btn btn-primary">Reset Password</a>
                                 </p>
                             </div>
                         </fieldset>
@@ -113,7 +98,7 @@
         <!--/fluid-row-->
 
     </div>
-    
+
     <!--/.fluid-container-->
 
     <!-- external javascript -->

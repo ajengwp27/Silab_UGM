@@ -5,6 +5,7 @@ class Model_mahasiswa extends CI_Model
     function get_mahasiswa()
     {
 
+        $this->db->where('deleted',0);
         $datamahasiswa = $this->db->get('tb_mahasiswa')->result();
         return $datamahasiswa;
     }
@@ -12,6 +13,7 @@ class Model_mahasiswa extends CI_Model
     function get_mahasiswa_by_id($id_mahasiswa)
     {
         $this->db->where("Id_mahasiswa", $id_mahasiswa);
+        $this->db->where('deleted',0);
         $getmahasiswaById = $this->db->get('tb_mahasiswa')->row();
         return $getmahasiswaById;
     }
@@ -19,6 +21,7 @@ class Model_mahasiswa extends CI_Model
     function get_mahasiswa_by_NIM($id_mahasiswa)
     {
         $this->db->where("Nim", $id_mahasiswa);
+        $this->db->where('deleted',0);
         $getmahasiswaById = $this->db->get('tb_mahasiswa')->row();
         // echo json_encode($getmahasiswaById);
 
@@ -28,6 +31,7 @@ class Model_mahasiswa extends CI_Model
     function get_mahasiswa_by_Email($email)
     {
         $this->db->where("Email_mahasiswa", $email);
+        $this->db->where('deleted',0);
         $getmahasiswaById = $this->db->get('tb_mahasiswa')->row();
         // echo json_encode($getmahasiswaById);
 
@@ -37,6 +41,7 @@ class Model_mahasiswa extends CI_Model
     function get_mahasiswa_by_status()
     {
         $this->db->where("Status", 'Aktif');
+        $this->db->where('deleted',0);
         $getmahasiswaByStatus = $this->db->get('tb_mahasiswa')->result();
         return $getmahasiswaByStatus;
     }

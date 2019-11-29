@@ -16,7 +16,7 @@
 
 
     function setnotifstatus(err) {
-        if (err == 'Input Success' || err == 'Peminjaman Sukses' || err == 'Delete Succes') {
+        if (err == 'Input Success' || err == 'Peminjaman Sukses' || err == 'Delete Succes' || err=='Reset Success, Cek Email' || err== 'Sukses Memperbaharui Password') {
             ttp = 'success';
         } else {
             ttp = 'danger';

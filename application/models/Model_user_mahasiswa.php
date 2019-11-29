@@ -27,6 +27,12 @@ class Model_user_mahasiswa extends CI_Model
         return $getuser_mahasiswaByIdNIM;
     }
 
+    function editUserMahasiswa($id,$data)
+    {
+        $this->db->where('id_mahasiswa', $id);
+        return $this->db->update('tb_user_mahasiswa',$data);
+    }
+
     function add_user_mahasiswa($datamahasiswa)
     {
         $addmahasiswa = $this->db->insert("tb_user_mahasiswa", $datamahasiswa);

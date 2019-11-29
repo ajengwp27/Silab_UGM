@@ -6,6 +6,7 @@ class Model_bahan extends CI_Model
     function getDatabahan()
     {
         //mendapatkan semua data bahan dari tabel tb_bahan
+        $this->db->where('deleted',0);
         $databahan = $this->db->get('tb_bahan')->result();
         return $databahan;
     }
@@ -14,6 +15,7 @@ class Model_bahan extends CI_Model
     {
         //mendapatkan semua data bahan dari tabel tb_bahan
         $this->db->where('id_bahan', $id);
+        $this->db->where('deleted',0);
         $databahan = $this->db->get('tb_bahan')->row();
         return $databahan;
     }
@@ -21,6 +23,7 @@ class Model_bahan extends CI_Model
     function getDatabahanByName($key)
     {
         $this->db->like('Name', $key);
+        $this->db->where('deleted',0);
         $databahan = $this->db->get('tb_bahan')->result();
         return $databahan;
     }
