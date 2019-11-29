@@ -60,9 +60,9 @@ class Controller_user extends CI_Controller
         }
     }
 
-    function deleteuser()
+    function deleteuser($id_user)
     {
-        $id_user = $this->input->get('id');
+      
         $user = array(
             'deleted' => 1
         );

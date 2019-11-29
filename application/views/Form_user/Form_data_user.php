@@ -52,15 +52,17 @@
                                                     <i class="glyphicon glyphicon-remove icon-white"></i>
                                                     Off
                                                 <?php } ?>
+                                                </a>
+                                            <?php } ?>
+                                            <a class="btn btn-info" href="<?= base_url('formedituser/' . $k->id_user . '') ?>">
+                                                <i class="glyphicon glyphicon-edit icon-white"></i>
+                                                Edit
                                             </a>
-                                        <?php } ?>
-                                        <a class="btn btn-info" href="<?= base_url('formedituser/' . $k->id_user . '') ?>">
-                                            <i class="glyphicon glyphicon-edit icon-white"></i>
-                                            Edit
                                             <a class="btn btn-danger" href="<?= base_url('deleteuser/' . $k->id_user . '') ?>">
                                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                                 Delete
                                             </a>
+
                                 </td>
                             </tr>
                         <?php } ?>
@@ -83,7 +85,7 @@
 
 
     function setnotifstatus(err) {
-        if (err == 'Input Success' || err == 'Edit Success' || err == 'Delete Succes') {
+        if (err == 'Input Success' || err == 'Edit Success' || err == 'Delete Success') {
             ttp = 'success';
         } else {
             ttp = 'danger';

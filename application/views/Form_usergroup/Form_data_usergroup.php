@@ -41,10 +41,10 @@
                                         <i class="glyphicon glyphicon-edit icon-white"></i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger" href="<?= base_url('deleteusergroup/' . $k->id_level . '') ?>">
+                                    <!-- <a class="btn btn-danger" href="<?= base_url('deleteusergroup/' . $k->id_level . '') ?>">
                                         <i class="glyphicon glyphicon-trash icon-white"></i>
                                         Delete
-                                    </a>
+                                    </a> -->
                                 </td>
                             </tr>
                         <?php } ?>

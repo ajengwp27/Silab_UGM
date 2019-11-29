@@ -8,6 +8,7 @@ class Model_user extends CI_Model
         $this->db->from('tb_user as a');
         $this->db->join('tb_hak_akses as b', 'b.id_level = a.id_level');
         $this->db->join('tb_karyawan as c', 'c.id_karyawan = a.id_karyawan');
+        $this->db->where('a.deleted',0);
         $datauser = $this->db->get()->result();
         return $datauser;
     }
@@ -15,6 +16,7 @@ class Model_user extends CI_Model
     function get_user_by_status()
     {
         $this->db->where("Status", 'Approve');
+        $this->db->where('deleted',0);
         $getuserByStatus = $this->db->get('tb_user')->result();
         return $getuserByStatus;
     }
@@ -22,6 +24,7 @@ class Model_user extends CI_Model
     function get_user_by_id($id_user)
     {
         $this->db->where("id_user", $id_user);
+        $this->db->where('deleted',0);
         $getuserById = $this->db->get('tb_user')->row();
         return $getuserById;
     }
