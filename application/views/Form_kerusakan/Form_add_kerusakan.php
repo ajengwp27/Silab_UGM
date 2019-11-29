@@ -13,7 +13,7 @@
                             <form name="fromaddkaryawan" action="<?= base_url('addKerusakan') ?>" method="post">
                                 <div class="form-group">
                                     <label>Nama Alat</label>
-                                    <select name="alat"  id='alat' onchange="setMaxValue()"  class="form-control selectpicker " data-live-search="true">
+                                    <select required name="alat"  id='alat' onchange="setMaxValue()"  class="form-control selectpicker " data-live-search="true">
                                         <option value="">Pilih Alat</option>
                                         <?php foreach($alat as $a) { ?>
                                         <option value="<?= $a->id_alat?>"><?= $a->Name?></option>
@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Jumlah</label>
-                                    <input required type="number" id="jmlrusak" name="jml" class="form-control" placeholder="Jumlah Kerusakan">
+                                    <input required type="number" id="jmlrusak" min="1" name="jml" class="form-control" placeholder="Jumlah Kerusakan">
                                 </div>
                         </div>
                     </div>
