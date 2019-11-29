@@ -64,9 +64,9 @@ class Controller_user_mahasiswa extends CI_Controller
     {
         
         $user_mahasiswa  = array(
-            'Status' => 0
+            'deleted' => 1
         );
-        $edituser_mahasiswa = $this->Model_user_mahasiswa->update_user_mahasiswa($id_user_mahasiswa, $user_mahasiswa);
+        $edituser_mahasiswa = $this->Model_user_mahasiswa->editUserMahasiswa($id_user_mahasiswa, $user_mahasiswa);
         if ($edituser_mahasiswa) {
             $this->session->set_flashdata('Status', 'Delete Succes');
             redirect('Controller_user_mahasiswa/Controller_user_mahasiswa/get_user_mahasiswa');
