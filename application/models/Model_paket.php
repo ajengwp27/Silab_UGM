@@ -18,6 +18,7 @@ class Model_paket extends CI_Model
         $this->db->from('tb_detail_paket as a');
         $this->db->join('tb_alat as b','b.id_alat=a.id_alat');
         $this->db->where("a.id_paket",$id);
+        $this->db->where('b.deleted',0);
         $datapaket = $this->db->get()->result();
         return $datapaket;
     }

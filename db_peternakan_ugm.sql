@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2019 at 02:57 PM
+-- Generation Time: Nov 29, 2019 at 03:11 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -46,8 +46,8 @@ CREATE TABLE `tb_alat` (
 --
 
 INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `image`, `description`, `stok`, `Create_at`, `Update_at`, `deleted`) VALUES
-(5, 'Oven', 1, '012', 'alat_20191122221316.jpg', 'Untuk memamaskan atau mengeringkan alat-alat laboratorium atau objek-objek lainnya. Biasanya digunakan untuk mengeringkan peralatan gelas laboratorium, zat-zat kimia maupun pelarut organik.', 4, '2019-11-22 15:13:16', '2019-11-22 22:13:16', 0),
-(6, 'Hotplate', 1, '002', 'alat_20191122221420.jpg', 'Alat di laboratorium kimia yang digunakan untuk memanaskan campuran/sampel.', -46, '2019-11-22 15:14:20', '2019-11-29 16:30:48', 1),
+(5, 'Oven', 1, '012', 'alat_20191122221316.jpg', 'Untuk memamaskan atau mengeringkan alat-alat laboratorium atau objek-objek lainnya. Biasanya digunakan untuk mengeringkan peralatan gelas laboratorium, zat-zat kimia maupun pelarut organik.', 4, '2019-11-22 15:13:16', '2019-11-29 21:06:07', 0),
+(6, 'Hotplate', 1, '002', 'alat_20191122221420.jpg', 'Alat di laboratorium kimia yang digunakan untuk memanaskan campuran/sampel.', 0, '2019-11-22 15:14:20', '2019-11-29 21:04:00', 0),
 (7, 'Tanur Besar', 1, '001', 'alat_20191122230404.jpg', 'Suatu alat sejenis oven berukuran besar, berupa ruangan dengan penyekat termal yang dapat dipanaskan hingga mencapai suhu tertentu, untuk menyelesaikan tugas atau proses tertentu seperti pengeringan, pengerasan, atau perubahan kimiawi.', 5, '2019-11-22 16:04:04', '2019-11-22 23:04:04', 0),
 (8, 'Neraca Analitik', 1, '003', 'alat_20191122230521.jpg', 'Neraca Analitik merupakan alat untuk mengukur berat (terutama yang berukuran kecil) atau alat untuk menimbang suatu zat. alat ini biasanya diletakkan di laboratorium sebagai alat ukur dalam kegiatan penelitian', 29, '2019-11-22 16:05:21', '2019-11-22 23:05:21', 0),
 (9, 'Jar Fermentor MBF', 1, '004', 'alat_20191122230827.jpg', 'Sebuah peralatan atau sistem yang mampu menyediakan sebuah lingkungan biologis yang dapat menunjang terjadinya reaksi biokimia dari bahan mentah menjadi bahan yang dikehendaki.', 5, '2019-11-22 16:08:27', '2019-11-22 23:08:27', 0),
@@ -124,29 +124,29 @@ CREATE TABLE `tb_detail_paket` (
 --
 
 INSERT INTO `tb_detail_paket` (`id_detail_paket`, `id_alat`, `jumlah`, `id_paket`, `create_at`, `update_at`, `deleted`) VALUES
-(15, 5, 1, 6, '2019-11-22 16:12:26', NULL, NULL),
-(16, 6, 1, 6, '2019-11-22 16:12:26', NULL, NULL),
-(17, 7, 1, 6, '2019-11-22 16:12:27', NULL, NULL),
-(18, 5, 1, 7, '2019-11-22 16:13:03', NULL, NULL),
-(19, 8, 1, 7, '2019-11-22 16:13:03', NULL, NULL),
-(20, 9, 1, 7, '2019-11-22 16:13:03', NULL, NULL),
-(22, 6, 1, 8, '2019-11-22 16:14:01', NULL, NULL),
-(23, 7, 1, 8, '2019-11-22 16:14:02', NULL, NULL),
-(24, 8, 1, 8, '2019-11-22 16:14:02', NULL, NULL),
-(25, 5, 1, 10, '2019-11-22 16:14:59', NULL, NULL),
-(26, 8, 1, 10, '2019-11-22 16:14:59', NULL, NULL),
-(27, 9, 1, 10, '2019-11-22 16:14:59', NULL, NULL),
-(55, 8, 1, 11, '2019-11-22 16:48:22', NULL, NULL),
-(56, 9, 1, 11, '2019-11-22 16:48:22', NULL, NULL),
-(57, 10, 1, 11, '2019-11-22 16:48:22', NULL, NULL),
-(58, 6, 1, 12, '2019-11-22 17:35:57', NULL, NULL),
-(59, 10, 1, 12, '2019-11-22 17:35:57', NULL, NULL),
-(60, 11, 1, 12, '2019-11-22 17:35:57', NULL, NULL),
-(61, 12, 1, 12, '2019-11-22 17:35:57', NULL, NULL),
-(62, 5, 1, 14, '2019-11-22 17:36:43', NULL, NULL),
-(63, 7, 1, 14, '2019-11-22 17:36:43', NULL, NULL),
-(64, 9, 1, 14, '2019-11-22 17:36:43', NULL, NULL),
-(65, 10, 1, 14, '2019-11-22 17:36:43', NULL, NULL);
+(15, 5, 1, 6, '2019-11-22 16:12:26', NULL, 0),
+(16, 6, 1, 6, '2019-11-22 16:12:26', NULL, 0),
+(17, 7, 1, 6, '2019-11-22 16:12:27', NULL, 0),
+(18, 5, 1, 7, '2019-11-22 16:13:03', NULL, 0),
+(19, 8, 1, 7, '2019-11-22 16:13:03', NULL, 0),
+(20, 9, 1, 7, '2019-11-22 16:13:03', NULL, 0),
+(22, 6, 1, 8, '2019-11-22 16:14:01', NULL, 0),
+(23, 7, 1, 8, '2019-11-22 16:14:02', NULL, 0),
+(24, 8, 1, 8, '2019-11-22 16:14:02', NULL, 0),
+(25, 5, 1, 10, '2019-11-22 16:14:59', NULL, 0),
+(26, 8, 1, 10, '2019-11-22 16:14:59', NULL, 0),
+(27, 9, 1, 10, '2019-11-22 16:14:59', NULL, 0),
+(55, 8, 1, 11, '2019-11-22 16:48:22', NULL, 0),
+(56, 9, 1, 11, '2019-11-22 16:48:22', NULL, 0),
+(57, 10, 1, 11, '2019-11-22 16:48:22', NULL, 0),
+(58, 6, 1, 12, '2019-11-22 17:35:57', NULL, 0),
+(59, 10, 1, 12, '2019-11-22 17:35:57', NULL, 0),
+(60, 11, 1, 12, '2019-11-22 17:35:57', NULL, 0),
+(61, 12, 1, 12, '2019-11-22 17:35:57', NULL, 0),
+(62, 5, 1, 14, '2019-11-22 17:36:43', NULL, 0),
+(63, 7, 1, 14, '2019-11-22 17:36:43', NULL, 0),
+(64, 9, 1, 14, '2019-11-22 17:36:43', NULL, 0),
+(65, 10, 1, 14, '2019-11-22 17:36:43', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -347,7 +347,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `Username`, `Password`, `id_level`, `id_karyawan`, `Create_at`, `Update_at`, `Status`, `deleted`) VALUES
-(1, 'Ndaru', '12345', 1, NULL, '2019-10-31 06:21:21', '2019-10-31 13:21:21', 'Aprove', 0),
+(1, 'Ndaru', '12345', 1, 5, '2019-10-31 06:21:21', '2019-10-31 13:21:21', 'Aprove', 0),
 (2, 'Ajeng', '12345', 1, 5, '2019-11-22 17:38:07', '2019-11-23 00:38:07', 'Aprove', 0),
 (3, 'AjengW', '12345', 2, 6, '2019-11-24 17:32:11', '2019-11-25 00:32:11', 'Aprove', 0);
 
