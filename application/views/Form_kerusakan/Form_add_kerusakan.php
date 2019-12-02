@@ -24,6 +24,14 @@
                                     <label>Jumlah</label>
                                     <input required type="number" id="jmlrusak" name="jml" class="form-control" placeholder="Jumlah Kerusakan">
                                 </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="status"  id='kerusakan' class="form-control selectpicker ">
+                                        <option value="1">Dalam Perbaikan</option>
+                                        <option value="2">Rusak Parah</option>
+                                    </select>
+                                </div>
+
                         </div>
                     </div>
                     <!--/span-->

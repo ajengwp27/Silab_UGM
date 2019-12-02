@@ -36,27 +36,38 @@ class Controller_kerusakan extends CI_Controller
         }
     }
 
-    function viewFormEditAlat($id)
+    function viewFormEditkerusakan($id)
     {
-        $data['editalat'] = $this->Model_alat->getDataAlatById($id);
-        $this->template->load('Template/Template_admin', 'Form_alat/Form_edit_alat', $data);;
+        $data['k'] = $this->Model_kerusakan->getDataKerusakanbyId($id);
+        $this->template->load('Template/Template_admin', 'Form_kerusakan/Form_edit_kerusakan', $data);;
     }
 
-    function editAlat()
+    function editKeruskan()
     {
-        $id_alat = $this->input->post('submitid');
-        $alat = array(
-            'Name'           => $this->input->post('name'),
-            'Category_id'    => $this->input->post('Category_id'),
-            'Number_of_rack' => $this->input->post('nomorrak'),
-        );
-        $editalat = $this->Model_alat->editDataAlat($id_alat, $alat);
-        if ($editalat) {
-            $this->session->set_flashdata('Status', 'Edit Succes');
-            redirect('alat');
+        $id_alat = $this->input->post('idalat');
+        $id_kerusakan = $this->input->post('id_kerusakan');
+        $status = $this->input->post('status');
+        $jmlold = $this->input->post('jmlold');
+        $jml = $this->input->post('jml');
+        if($status == "2")
+        {
+            $editrusak    = array('Status' => "2");
+            $hasil =$this->Model_kerusakan->editStatusKerusakan($id_kerusakan,$editrusak);
+        }
+        if($status == "3")
+        {
+            $dataAlatbyId = $this->Model_alat->getDataAlatById($id_alat);
+            $editalat     = array('stok'             => $dataAlatbyId->stok + $jml);
+            $editrusak    = array('Status' => "3");
+            $this->Model_kerusakan->editStatusKerusakan($id_kerusakan,$editrusak);
+            $hasil = $this->Model_alat->editDataAlat($id_alat,$editalat);
+        }
+        if ($hasil) {
+            $this->session->set_flashdata('Status', 'Edit Success');
+            redirect('kerusakan');
         } else {
             $this->session->set_flashdata('Status', 'Edit Failed');
-            redirect('alat');
+            redirect('kerusakan');
         }
     }
 

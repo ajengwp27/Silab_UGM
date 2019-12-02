@@ -91,6 +91,8 @@ $route['alatId'] = 'ControllerAlat/Controller_alat/getalatById';
 //Route Kerusakan
 $route['kerusakan'] = 'Controller_kerusakan/Controller_kerusakan/getData';
 $route['addKerusakan'] = 'Controller_kerusakan/Controller_kerusakan/addKerusakan';
+$route['editKerusakan'] = 'Controller_kerusakan/Controller_kerusakan/editKeruskan';
+$route['viewFormEditKerusakan/(:any)'] = 'Controller_kerusakan/Controller_kerusakan/viewFormEditkerusakan/$1';
 
 //Route Bahan
 $route['bahan'] = 'Controller_bahan/Controller_bahan/getDatabahan';

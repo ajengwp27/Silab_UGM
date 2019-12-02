@@ -4,7 +4,7 @@
             <a href="#">Home</a>
         </li>
         <li>
-            <a href="#">Edit Karyawan</a>
+            <a href="#">Edit Kerusakan</a>
         </li>
     </ul>
 </div>
@@ -16,36 +16,25 @@
                 <h2><i class="glyphicon glyphicon-edit"></i> Edit</h2>
             </div>
             <div class="box-content">
-                <form name="fromeditkaryawan" action="<?= base_url('ControllerKaryawan/Controller_karyawan/editKaryawan') ?>" method="post">
+                <form name="fromeditkaryawan" action="<?= base_url('editKerusakan') ?>" method="post">
                     <div class="form-group">
-                        <label>Nama</label>
-                        <input required type="Text" name="name" class="form-control" value="<?= $editkaryawan->Name ?>">
+                        <label>Nama Alat</label>
+                        <input required type="Text" name="name" class="form-control" value="<?= $k->NamaAlat ?>">
                     </div>
                     <div class="form-group">
-                        <label>Alamat</label>
-                        <input required type="Text" name="address" class="form-control" value="<?= $editkaryawan->Address ?>">
+                        <label>Jumlah rusak</label>
+                        <input required readonly type="Text" name="jml" class="form-control" value="<?= $k->Jumlah_kerusakan ?>">
                     </div>
+                    <input name="idalat" value="<?= $k->id_alat?>" hidden>
+                    <input name="id_kerusakan" value="<?= $k->id_kerusakan?>" hidden>
                     <div class="form-group">
-                        <label>Nomer Telepon</label>
-                        <input required type="Text" name="phone" class="form-control" value="<?= $editkaryawan->Phone ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Email Karyawan</label>
-                        <input required type="Text" name="email_karyawan" class="form-control" value="<?= $editkaryawan->email_karyawan ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Jenis Kelamin</label>
-                        <select name="gender" class="form-control selectpicker">
-                            <option>Choose Gender</option>
-                            <option value="L" <?php if ($editkaryawan->Gender == "L") {
-                                                    echo 'selected';
-                                                } ?>>Laki-Laki</option>
-                            <option value="P" <?php if ($editkaryawan->Gender == "P") {
-                                                    echo 'selected';
-                                                } ?>>Perempuan</option>
+                        <label>Status</label>
+                        <select name="status" id='kerusakanstatus' class="form-control selectpicker ">
+                        <option value="2">Rusak Parah</option>
+                        <option value="3">Selesai Perbaikan</option> 
                         </select>
                     </div>
-                    <button type="submit" name="submitid" value=<?= $editkaryawan->id_karyawan ?> class="btn btn-default">Update</button>
+                    <button type="submit" name="submitid"  class="btn btn-default">Update</button>
                 </form>
 
             </div>

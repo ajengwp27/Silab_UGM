@@ -28,8 +28,9 @@
                         <tr>
                             <th>Nama Alat</th>
                             <th>Jumlah Rusak</th>
+                            <th>Status</th>
                             <th>Tanggal Input</th>
-                            <!-- <th>Action</th> -->
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,13 +38,17 @@
                             <tr>
                                 <td><?= $k->NamaAlat ?></td>
                                 <td><?= $k->Jumlah_kerusakan ?></td>
+                                <td><?= $k->Status ?></td>
                                 <td><?= $k->Create_at ?></td>
-                                <!-- <td class="center">
-                                        <a class="btn btn-info" href="<?= base_url('') ?>">
+                                <td class="center">
+                                <?php if($k->Status == "Dalam Perbaikan") {?>
+                                        <a class="btn btn-info" href="<?= base_url('viewFormEditKerusakan/'.$k->id_kerusakan) ?>">
                                             <i class="glyphicon glyphicon-trash icon-white"></i>
                                             Edit
                                         </a>
-                                </td> -->
+                                        <?php }?>
+                                </td>
+                            
                             </tr>
                         <?php } ?>
                     </tbody>
