@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2019 at 03:11 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Dec 02, 2019 at 08:25 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,12 +33,12 @@ CREATE TABLE `tb_alat` (
   `Name` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
   `Category_id` int(11) DEFAULT NULL,
   `Number_of_rack` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `image` text,
-  `description` text,
+  `image` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Update_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `deleted` int(11) DEFAULT '0'
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Update_at` datetime DEFAULT current_timestamp(),
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -66,9 +66,9 @@ CREATE TABLE `tb_bahan` (
   `nama_bahan` varchar(20) DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
   `satuan` varchar(20) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime DEFAULT NULL,
-  `deleted` int(11) DEFAULT '0'
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,9 +91,9 @@ INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `satuan`, `create_at`,
 CREATE TABLE `tb_category` (
   `Category_id` int(10) NOT NULL,
   `Name_Category` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted` int(11) DEFAULT '0'
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Update_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -114,9 +114,9 @@ CREATE TABLE `tb_detail_paket` (
   `id_alat` int(11) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
   `id_paket` int(11) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime DEFAULT NULL,
-  `deleted` int(11) DEFAULT '0'
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -157,7 +157,7 @@ INSERT INTO `tb_detail_paket` (`id_detail_paket`, `id_alat`, `jumlah`, `id_paket
 CREATE TABLE `tb_hak_akses` (
   `id_level` int(11) NOT NULL,
   `Description` varchar(40) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `Update_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -180,7 +180,7 @@ CREATE TABLE `tb_jadwal` (
   `Kegiatan` varchar(30) DEFAULT NULL,
   `jam` time DEFAULT NULL,
   `hari` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -196,10 +196,10 @@ CREATE TABLE `tb_karyawan` (
   `Address` varchar(70) DEFAULT NULL,
   `Status` varchar(20) DEFAULT 'Off',
   `Phone` varchar(15) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `update_at` datetime NOT NULL DEFAULT current_timestamp(),
   `email_karyawan` varchar(30) DEFAULT NULL,
-  `deleted` int(11) DEFAULT '0'
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -220,19 +220,20 @@ CREATE TABLE `tb_kerusakan` (
   `id_kerusakan` int(11) NOT NULL,
   `id_alat` int(11) DEFAULT NULL,
   `Jumlah_kerusakan` int(50) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Status` enum('Dalam Perbaikan','Rusak Parah','Selesai Perbaikan') DEFAULT NULL,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Update_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_kerusakan`
 --
 
-INSERT INTO `tb_kerusakan` (`id_kerusakan`, `id_alat`, `Jumlah_kerusakan`, `Create_at`, `Update_at`) VALUES
-(1, 8, 1, '2019-11-25 13:21:06', '2019-11-25 20:21:06'),
-(2, 6, 1, '2019-11-25 13:21:50', '2019-11-25 20:21:50'),
-(3, 7, 1, '2019-11-28 08:38:14', '2019-11-28 15:38:14'),
-(8, 5, 14, '2019-11-29 11:56:04', '2019-11-29 18:56:04');
+INSERT INTO `tb_kerusakan` (`id_kerusakan`, `id_alat`, `Jumlah_kerusakan`, `Status`, `Create_at`, `Update_at`) VALUES
+(1, 8, 1, 'Dalam Perbaikan', '2019-12-02 07:24:09', '2019-11-25 20:21:06'),
+(2, 6, 1, 'Dalam Perbaikan', '2019-12-02 07:24:11', '2019-11-25 20:21:50'),
+(3, 7, 1, 'Dalam Perbaikan', '2019-12-02 07:24:13', '2019-11-28 15:38:14'),
+(8, 5, 14, 'Dalam Perbaikan', '2019-12-02 07:24:17', '2019-11-29 18:56:04');
 
 -- --------------------------------------------------------
 
@@ -248,10 +249,10 @@ CREATE TABLE `tb_mahasiswa` (
   `Address` varchar(40) DEFAULT NULL,
   `Phone` varchar(15) DEFAULT NULL,
   `Status` varchar(10) DEFAULT 'Off',
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `Update_at` datetime DEFAULT NULL,
   `Email_mahasiswa` varchar(50) DEFAULT NULL,
-  `deleted` int(11) DEFAULT '0'
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -270,9 +271,9 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, 
 CREATE TABLE `tb_paket` (
   `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(30) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `update_at` datetime DEFAULT NULL,
-  `deleted` int(11) DEFAULT '0'
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -300,13 +301,13 @@ INSERT INTO `tb_paket` (`id_paket`, `nama_paket`, `create_at`, `update_at`, `del
 CREATE TABLE `tb_peminjaman_alat` (
   `id_peminjaman` varchar(40) NOT NULL,
   `id_paket` int(11) DEFAULT NULL,
-  `analisa` text,
-  `bahan` text,
-  `status` int(11) DEFAULT '1',
+  `analisa` text DEFAULT NULL,
+  `bahan` text DEFAULT NULL,
+  `status` int(11) DEFAULT 1,
   `id_mahasiswa` int(11) DEFAULT NULL,
   `tanggal_penggunaan` date DEFAULT NULL,
   `tanggal_selesai` date DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `Update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -336,10 +337,10 @@ CREATE TABLE `tb_user` (
   `Password` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_karyawan` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Update_at` datetime NOT NULL DEFAULT current_timestamp(),
   `Status` varchar(10) CHARACTER SET latin1 DEFAULT 'NotAprove',
-  `deleted` int(11) DEFAULT '0'
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -361,7 +362,7 @@ CREATE TABLE `tb_user_mahasiswa` (
   `id_user_mahasiswa` int(11) NOT NULL,
   `id_mahasiswa` int(11) DEFAULT NULL,
   `Password` varchar(20) DEFAULT NULL,
-  `deleted` int(11) DEFAULT '0'
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
