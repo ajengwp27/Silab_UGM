@@ -44,10 +44,10 @@ class Controller_kerusakan extends CI_Controller
 
     function editKeruskan()
     {
-        $id_alat = $this->input->post('idalat');
+        $id_alat      = $this->input->post('idalat');
         $id_kerusakan = $this->input->post('id_kerusakan');
-        $status = $this->input->post('status');
-        $jmlold = $this->input->post('jmlold');
+        $status       = $this->input->post('status');
+        $jmlold       = $this->input->post('jmlold');
         $jml = $this->input->post('jml');
         if($status == "2")
         {
@@ -57,8 +57,8 @@ class Controller_kerusakan extends CI_Controller
         if($status == "3")
         {
             $dataAlatbyId = $this->Model_alat->getDataAlatById($id_alat);
-            $editalat     = array('stok'             => $dataAlatbyId->stok + $jml);
-            $editrusak    = array('Status' => "3");
+            $editalat  = array('stok'   => $dataAlatbyId->stok + $jml);
+            $editrusak = array('Status' => "3");
             $this->Model_kerusakan->editStatusKerusakan($id_kerusakan,$editrusak);
             $hasil = $this->Model_alat->editDataAlat($id_alat,$editalat);
         }
