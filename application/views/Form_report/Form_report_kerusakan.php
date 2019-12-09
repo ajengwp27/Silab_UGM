@@ -26,6 +26,7 @@
                                                 <th>No.</th>
                                                 <th>Nama Alat</th>
                                                 <th>Jumlah Kerusakan</th>
+                                                <th>Status</th>
                                                 <th>Tanggal Input</th>
                                             </tr>
                                         </thead>
@@ -35,6 +36,7 @@
                                                 <td align="center"><?php echo $no ?></td>
                                                 <td align="left"><?php echo $r->Name ?></td>
                                                 <td align="center"><?php echo $r->Jumlah_kerusakan ?></td>
+                                                <td align="center"><?php echo $r->Status ?></td>
                                                 <td align="center"><?php echo $r->Create_at ?></td>  
                                             </tr>
                                         <?php $no++; } ?>
