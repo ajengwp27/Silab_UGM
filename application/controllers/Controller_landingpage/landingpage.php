@@ -206,8 +206,8 @@ class landingpage extends CI_Controller
                     $stokbahan = array('stok' => $databahan->stok - $jumlahbahan[$db]);
                     $this->Model_bahan->editDatabahan($db, $stokbahan);
                 }
-                $this->session->set_flashdata('Status', 'Peminjaman Sukses');
-                redirect('Controller_report/Controller_report/cetakReportPeminjamanbyId?url='.urlencode($idpinjam));
+                $this->session->set_flashdata('Status', 'Peminjaman Sukses Harap Cetak Peminjaman di Riwayat Peminjaman');
+                redirect('Userlanding');
             } else {
                 $this->session->set_flashdata('Status', 'Edit Failed');
                 redirect('Userlanding');

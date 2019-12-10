@@ -1,6 +1,6 @@
 <?php include('header.php') ?>
 <div class="home" style="height: 120px;">
-    <div class="background_image" style="background-image:url(<?= base_url('assets/img/ugm.png')  ?>"></div>
+    <div class="background_image" style="background-image:url(<?= base_url('assets/img/ugm.png')?>)"></div>
 </div>
 <div class="row">
     <div class="col-md-9" style="margin:auto;">
@@ -10,7 +10,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form target="_blank" action="<?= base_url('pinjam') ?>" method="post">
+            <form action="<?= base_url('pinjam') ?>" method="post">
                 <div style="padding-bottom:0px" class="box-body">
                     <div class="form-group">
                         <label class="control-label" style="text-align:left;">Nama Lengkap</label>

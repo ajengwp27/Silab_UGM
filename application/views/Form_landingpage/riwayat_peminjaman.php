@@ -38,7 +38,7 @@
                             
                             </td> 
                             <td style="border-style: solid; text-align: center;"><?= $data->Create_at?></td> 
-                            <td align="center" style="border-style: solid; text-align: center;"><?php if ($data->status == 1 ){echo "PINJAM";}else{echo "SUDAH KEMBALI";}?></td> 
+                            <td align="center" style="border-style: solid; text-align: center;"><?php if ($data->status == 1 ){echo "PINJAM"; echo "<a class='btn btn-primary' href=".base_url()."Controller_report/Controller_report/cetakReportPeminjamanbyId?url=".urlencode($data->id_peminjaman)."> CETAK</a>" ;} else{echo "SUDAH KEMBALI";}?></td> 
                         </tr>
                         <?php }?>
                     </table>
