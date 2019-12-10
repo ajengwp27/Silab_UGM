@@ -94,7 +94,7 @@
                         <div class="row" id="accordion">
                             <?php foreach ($details as $d => $key) { ?>
                                 <div class="col-md-3">
-                                    <input <?php $id = explode("#", $d); if($id[1]) echo "checked"; ?> type="radio" name="paket" value="<?php $id = explode("#", $d); echo $id[1]; ?>"><a data-parent="#accordion" data-toggle="collapse" href="#<?php $id = explode("#", $d); echo $id[1]; ?>">  <?php $id = explode("#", $d); echo $id[0]; ?></a> <br>
+                                    <input <?php $id = explode("#", $d); ?> type="radio" name="paket" value="<?php $id = explode("#", $d); echo $id[1]; ?>"><a data-parent="#accordion" data-toggle="collapse" href="#<?php $id = explode("#", $d); echo $id[1]; ?>">  <?php $id = explode("#", $d); echo $id[0]; ?></a> <br>
                                     <div id="<?php $id = explode("#", $d); echo $id[1]; ?>" class="collapse">
                                         <label style="margin-left:16px;">Alat : </label><br>
                                         <?php $no=1 ; foreach ($key['detail'] as $k) { ?>
