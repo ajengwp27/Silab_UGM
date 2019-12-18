@@ -62,11 +62,6 @@
                                         <span> User Mahasiswa</span>     
                                         </a>
                                     </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('jadwal')?>">
-                                        <span> Jadwal Lab</span>     
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
