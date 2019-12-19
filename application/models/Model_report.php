@@ -12,18 +12,6 @@ class Model_report extends CI_Model
         return $dataalat;
     }
 
-    function getDataPeminjamanBydate($date1,$date2)
-    {
-        $this->db->select("a.*, b.nama_paket, c.Name");
-        $this->db->from("tb_peminjaman_alat as a");
-        $this->db->join('tb_mahasiswa as c', 'c.id_mahasiswa=a.id_mahasiswa');
-        $this->db->join("tb_paket as b", "b.id_paket=a.id_paket");
-        $this->db->where('date(a.tanggal_penggunaan) >=',$date1);
-        $this->db->where('date(a.tanggal_penggunaan) <=',$date2);
-        $dataRiwayatPeminjaman =  $this->db->get()->result();
-        return $dataRiwayatPeminjaman;
-    }
-
     function getBahanAll()
     {
         $datasbahan = $this->db->get('tb_bahan')->result();
