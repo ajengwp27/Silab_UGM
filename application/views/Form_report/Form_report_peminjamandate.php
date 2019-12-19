@@ -40,7 +40,7 @@ include APPPATH . 'views/Form_report/laporan.php';
                                     <td align="left"><?php echo $r->id_peminjaman ?></td>
                                     <td align="center"><?php echo $r->nama_paket ?></td>
                                     <td align="center">
-                                        <?php $dataanalisis = explode("#", $k->analisa);
+                                        <?php $dataanalisis = explode("#", $r->analisa);
                                             $i = 1;
                                             foreach ($dataanalisis as $da) {
                                                 echo $i . "." . $da . "<br>";
