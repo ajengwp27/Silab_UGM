@@ -20,6 +20,18 @@ class Controller_report extends CI_Controller{
         $mpdf->Output();
     }
 
+    function cetakAlatPeminjamanbyDate()
+    {
+        $date1= $_POST['tanggal1'];
+        $date2= $_POST['tanggal2'];
+        $data['record']=  $this->Model_report->getDataPeminjamanBydate($date1,$date2);
+        $config = array('format' => 'Folio','orientation' => 'L');
+        $mpdf   = new \Mpdf\Mpdf($config);
+        $html   = $this->load->view('Form_report/Form_report_peminjamandate',$data,true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
+    }
+
     function cetakBahanAll()
     {
         $data['record']=  $this->Model_report->getBahanAll();
