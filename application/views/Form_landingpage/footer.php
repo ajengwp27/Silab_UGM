@@ -16,7 +16,7 @@
 
 
     function setnotifstatus(err) {
-        if (err == 'Input Success' || err == 'Peminjaman Sukses' || err == 'Delete Succes' || err=='Reset Success, Cek Email' || err== 'Sukses Memperbaharui Password') {
+        if (err == 'Input Success' || err == 'Peminjaman Sukses' || err == 'Delete Succes' || err=='Reset Success, Cek Email' || err== 'Sukses Memperbaharui Password' || err=='Peminjaman Sukses Harap Cetak Peminjaman di Riwayat Peminjaman') {
             ttp = 'success';
         } else {
             ttp = 'danger';

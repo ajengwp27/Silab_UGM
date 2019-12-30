@@ -22,9 +22,11 @@ class Controller_kerusakan extends CI_Controller
     {
         $id_alat = $this->input->post('alat');
         $jml = $this->input->post('jml');
+        $status = $this->input->post('status');
         $alat = array(
             'id_alat'          => $id_alat,
-            'Jumlah_kerusakan' => $jml
+            'Jumlah_kerusakan' => $jml,
+            'Status'           => $status
         );
         $dataAlatbyId     = $this->Model_alat->getDataAlatById($id_alat);
         $edialat = array('stok' => $dataAlatbyId->stok - $jml);
