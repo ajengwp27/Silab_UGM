@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2019 at 08:25 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Jan 09, 2020 at 03:58 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,12 +33,12 @@ CREATE TABLE `tb_alat` (
   `Name` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
   `Category_id` int(11) DEFAULT NULL,
   `Number_of_rack` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `image` text DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `image` text,
+  `description` text,
   `stok` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `Update_at` datetime DEFAULT current_timestamp(),
-  `deleted` int(11) DEFAULT 0
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Update_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -46,13 +46,13 @@ CREATE TABLE `tb_alat` (
 --
 
 INSERT INTO `tb_alat` (`id_alat`, `Name`, `Category_id`, `Number_of_rack`, `image`, `description`, `stok`, `Create_at`, `Update_at`, `deleted`) VALUES
-(5, 'Oven', 1, '012', 'alat_20191122221316.jpg', 'Untuk memamaskan atau mengeringkan alat-alat laboratorium atau objek-objek lainnya. Biasanya digunakan untuk mengeringkan peralatan gelas laboratorium, zat-zat kimia maupun pelarut organik.', 4, '2019-11-22 15:13:16', '2019-11-29 21:06:07', 0),
-(6, 'Hotplate', 1, '002', 'alat_20191122221420.jpg', 'Alat di laboratorium kimia yang digunakan untuk memanaskan campuran/sampel.', 0, '2019-11-22 15:14:20', '2019-11-29 21:04:00', 0),
-(7, 'Tanur Besar', 1, '001', 'alat_20191122230404.jpg', 'Suatu alat sejenis oven berukuran besar, berupa ruangan dengan penyekat termal yang dapat dipanaskan hingga mencapai suhu tertentu, untuk menyelesaikan tugas atau proses tertentu seperti pengeringan, pengerasan, atau perubahan kimiawi.', 5, '2019-11-22 16:04:04', '2019-11-22 23:04:04', 0),
+(5, 'Oven', 1, '012', 'alat_20191122221316.jpg', 'Untuk memamaskan atau mengeringkan alat-alat laboratorium atau objek-objek lainnya. Biasanya digunakan untuk mengeringkan peralatan gelas laboratorium, zat-zat kimia maupun pelarut organik.', 16, '2019-11-22 15:13:16', '2019-11-29 21:06:07', 0),
+(6, 'Hotplate', 1, '002', 'alat_20191122221420.jpg', 'Alat di laboratorium kimia yang digunakan untuk memanaskan campuran/sampel.', 13, '2019-11-22 15:14:20', '2019-12-07 21:02:44', 0),
+(7, 'Tanur Besar', 1, '001', 'alat_20191122230404.jpg', 'Suatu alat sejenis oven berukuran besar, berupa ruangan dengan penyekat termal yang dapat dipanaskan hingga mencapai suhu tertentu, untuk menyelesaikan tugas atau proses tertentu seperti pengeringan, pengerasan, atau perubahan kimiawi.', 3, '2019-11-22 16:04:04', '2019-11-22 23:04:04', 0),
 (8, 'Neraca Analitik', 1, '003', 'alat_20191122230521.jpg', 'Neraca Analitik merupakan alat untuk mengukur berat (terutama yang berukuran kecil) atau alat untuk menimbang suatu zat. alat ini biasanya diletakkan di laboratorium sebagai alat ukur dalam kegiatan penelitian', 29, '2019-11-22 16:05:21', '2019-11-22 23:05:21', 0),
-(9, 'Jar Fermentor MBF', 1, '004', 'alat_20191122230827.jpg', 'Sebuah peralatan atau sistem yang mampu menyediakan sebuah lingkungan biologis yang dapat menunjang terjadinya reaksi biokimia dari bahan mentah menjadi bahan yang dikehendaki.', 5, '2019-11-22 16:08:27', '2019-11-22 23:08:27', 0),
-(10, 'Water Still Distillation', 1, '005', 'alat_20191122231140.jpg', 'Untuk memurnikan air adalah dengan proses distilasi. Proses ini dilakukan dengan merebus air dan uap panasnya dikondensasikan menggunakan condenser', 10, '2019-11-22 16:11:40', '2019-11-22 23:11:40', 0),
-(11, 'Kompor Destruksi', 1, '006', 'alat_20191123003155.jpg', 'Untuk perombakan logam organik dengan menggunakan asam kuat, baik tunggal maupun campuran, kemudian dioksidasi menggunakan zat oksidator sehingga dihasilkan logam anorganik bebas', 7, '2019-11-22 17:31:55', '2019-11-23 00:31:55', 0),
+(9, 'Jar Fermentor MBF', 1, '004', 'alat_20191122230827.jpg', 'Sebuah peralatan atau sistem yang mampu menyediakan sebuah lingkungan biologis yang dapat menunjang terjadinya reaksi biokimia dari bahan mentah menjadi bahan yang dikehendaki.', 3, '2019-11-22 16:08:27', '2019-11-22 23:08:27', 0),
+(10, 'Water Still Distillation', 1, '005', 'alat_20191122231140.jpg', 'Untuk memurnikan air adalah dengan proses distilasi. Proses ini dilakukan dengan merebus air dan uap panasnya dikondensasikan menggunakan condenser', 9, '2019-11-22 16:11:40', '2019-11-22 23:11:40', 0),
+(11, 'Kompor Destruksi', 1, '006', 'alat_20191123003155.jpg', 'Untuk perombakan logam organik dengan menggunakan asam kuat, baik tunggal maupun campuran, kemudian dioksidasi menggunakan zat oksidator sehingga dihasilkan logam anorganik bebas', 6, '2019-11-22 17:31:55', '2019-11-23 00:31:55', 0),
 (12, 'Mikroskop', 1, '007', 'alat_20191123003535.jpg', 'Melihat obyek yang tidak dapat dilihat dengan kasat mata karena ukurannya sangat kecil (mikroskopis), terutama mikroorganisme.', 20, '2019-11-22 17:35:35', '2019-11-23 00:35:35', 0);
 
 -- --------------------------------------------------------
@@ -66,9 +66,9 @@ CREATE TABLE `tb_bahan` (
   `nama_bahan` varchar(20) DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
   `satuan` varchar(20) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
-  `deleted` int(11) DEFAULT 0
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -76,11 +76,11 @@ CREATE TABLE `tb_bahan` (
 --
 
 INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `satuan`, `create_at`, `update_at`, `deleted`) VALUES
-(4, 'Cairan Rumen', 3, 'L', '2019-11-22 15:05:17', NULL, 0),
-(6, 'Benih/biji', 50, '', '2019-11-22 15:08:45', NULL, 0),
-(7, 'Ternak Fistula', 50, '', '2019-11-22 15:09:09', NULL, 0),
+(4, 'Cairan Rumen', 8, 'L', '2019-11-22 15:05:17', '2019-12-19 17:13:20', 0),
+(6, 'Benih/biji', 48, '', '2019-11-22 15:08:45', NULL, 0),
+(7, 'Ternak Fistula', 47, '', '2019-11-22 15:09:09', NULL, 0),
 (8, 'Inokulum', 55, '', '2019-11-22 15:09:24', NULL, 0),
-(9, 'Pols', 46, '', '2019-11-22 15:09:37', NULL, 0);
+(9, 'Pols', 44, '', '2019-11-22 15:09:37', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -91,9 +91,9 @@ INSERT INTO `tb_bahan` (`id_bahan`, `nama_bahan`, `stok`, `satuan`, `create_at`,
 CREATE TABLE `tb_category` (
   `Category_id` int(10) NOT NULL,
   `Name_Category` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `Update_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `deleted` int(11) DEFAULT 0
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -101,7 +101,8 @@ CREATE TABLE `tb_category` (
 --
 
 INSERT INTO `tb_category` (`Category_id`, `Name_Category`, `Create_at`, `Update_at`, `deleted`) VALUES
-(1, 'Besar', '2019-11-04 02:56:11', '2019-11-04 09:56:11', 0);
+(1, 'Besar', '2019-11-04 02:56:11', '2019-11-04 09:56:11', 0),
+(2, 'Kecil', '2019-12-10 18:50:16', '2019-12-11 01:50:16', 0);
 
 -- --------------------------------------------------------
 
@@ -114,9 +115,9 @@ CREATE TABLE `tb_detail_paket` (
   `id_alat` int(11) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
   `id_paket` int(11) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
-  `deleted` int(11) DEFAULT 0
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -146,7 +147,9 @@ INSERT INTO `tb_detail_paket` (`id_detail_paket`, `id_alat`, `jumlah`, `id_paket
 (62, 5, 1, 14, '2019-11-22 17:36:43', NULL, 0),
 (63, 7, 1, 14, '2019-11-22 17:36:43', NULL, 0),
 (64, 9, 1, 14, '2019-11-22 17:36:43', NULL, 0),
-(65, 10, 1, 14, '2019-11-22 17:36:43', NULL, 0);
+(65, 10, 1, 14, '2019-11-22 17:36:43', NULL, 0),
+(66, 9, 1, 17, '2019-12-10 20:24:45', NULL, 0),
+(67, 11, 1, 17, '2019-12-10 20:24:45', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,7 @@ INSERT INTO `tb_detail_paket` (`id_detail_paket`, `id_alat`, `jumlah`, `id_paket
 CREATE TABLE `tb_hak_akses` (
   `id_level` int(11) NOT NULL,
   `Description` varchar(40) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Update_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -166,22 +169,8 @@ CREATE TABLE `tb_hak_akses` (
 --
 
 INSERT INTO `tb_hak_akses` (`id_level`, `Description`, `Create_at`, `Update_at`) VALUES
-(1, 'SuperAdmin', '2019-10-31 04:17:17', '0000-00-00 00:00:00'),
-(2, 'Admin', '2019-11-24 17:30:44', '0000-00-00 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_jadwal`
---
-
-CREATE TABLE `tb_jadwal` (
-  `id_jadwal` int(11) NOT NULL,
-  `Kegiatan` varchar(30) DEFAULT NULL,
-  `jam` time DEFAULT NULL,
-  `hari` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1, 'Admin', '2019-10-31 04:17:17', '2019-12-10 21:19:25'),
+(2, 'Karyawan', '2019-12-12 06:54:39', '2019-12-12 13:57:06');
 
 -- --------------------------------------------------------
 
@@ -196,10 +185,10 @@ CREATE TABLE `tb_karyawan` (
   `Address` varchar(70) DEFAULT NULL,
   `Status` varchar(20) DEFAULT 'Off',
   `Phone` varchar(15) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `update_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `email_karyawan` varchar(30) DEFAULT NULL,
-  `deleted` int(11) DEFAULT 0
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -208,7 +197,9 @@ CREATE TABLE `tb_karyawan` (
 
 INSERT INTO `tb_karyawan` (`id_karyawan`, `Name`, `Gender`, `Address`, `Status`, `Phone`, `Create_at`, `update_at`, `email_karyawan`, `deleted`) VALUES
 (5, 'Ajeng', 'P', 'Baran Kalitirto', 'Aktif', '089608000446', '2019-11-22 17:37:28', '2019-11-23 00:37:24', 'ajeng300@gmail.com', 0),
-(6, 'Ajeng WP', 'P', 'baran berbah sleman', 'Aktif', '08766662222', '2019-11-24 17:31:44', '2019-11-25 00:31:42', 'ajengpraswi@gmail.com', 0);
+(6, 'Ajeng WP', 'P', 'baran berbah sleman', 'Aktif', '08766662222', '2019-11-24 17:31:44', '2019-11-25 00:31:42', 'ajengpraswi@gmail.com', 0),
+(7, 'Rina Isptasari', 'P', 'Baran Kalitirto Berbah Sleman Yogyakarta', 'Aktif', '081804172238', '2019-12-10 14:26:54', '2019-12-10 21:26:42', 'rinaispitasari@gmail.com', 0),
+(8, 'Faris', 'L', 'GK', 'Aktif', '089608000449', '2019-12-12 06:56:26', '2019-12-12 13:56:24', 'ikhsanfarishy@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -221,8 +212,8 @@ CREATE TABLE `tb_kerusakan` (
   `id_alat` int(11) DEFAULT NULL,
   `Jumlah_kerusakan` int(50) DEFAULT NULL,
   `Status` enum('Dalam Perbaikan','Rusak Parah','Selesai Perbaikan') DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `Update_at` datetime NOT NULL DEFAULT current_timestamp()
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -230,10 +221,13 @@ CREATE TABLE `tb_kerusakan` (
 --
 
 INSERT INTO `tb_kerusakan` (`id_kerusakan`, `id_alat`, `Jumlah_kerusakan`, `Status`, `Create_at`, `Update_at`) VALUES
-(1, 8, 1, 'Dalam Perbaikan', '2019-12-02 07:24:09', '2019-11-25 20:21:06'),
-(2, 6, 1, 'Dalam Perbaikan', '2019-12-02 07:24:11', '2019-11-25 20:21:50'),
+(1, 8, 1, 'Selesai Perbaikan', '2019-12-13 16:36:05', '2019-11-25 20:21:06'),
+(2, 6, 1, 'Selesai Perbaikan', '2019-12-07 14:03:17', '2019-11-25 20:21:50'),
 (3, 7, 1, 'Dalam Perbaikan', '2019-12-02 07:24:13', '2019-11-28 15:38:14'),
-(8, 5, 14, 'Dalam Perbaikan', '2019-12-02 07:24:17', '2019-11-29 18:56:04');
+(16, 10, 1, 'Dalam Perbaikan', '2019-12-21 03:00:14', '2019-12-21 10:00:14'),
+(17, 6, 1, 'Selesai Perbaikan', '2019-12-21 03:01:00', '2019-12-21 10:00:39'),
+(18, 11, 1, 'Selesai Perbaikan', '2019-12-21 04:24:07', '2019-12-21 11:23:55'),
+(19, 8, 1, 'Selesai Perbaikan', '2019-12-21 04:29:24', '2019-12-21 11:28:44');
 
 -- --------------------------------------------------------
 
@@ -249,10 +243,10 @@ CREATE TABLE `tb_mahasiswa` (
   `Address` varchar(40) DEFAULT NULL,
   `Phone` varchar(15) DEFAULT NULL,
   `Status` varchar(10) DEFAULT 'Off',
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Update_at` datetime DEFAULT NULL,
   `Email_mahasiswa` varchar(50) DEFAULT NULL,
-  `deleted` int(11) DEFAULT 0
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -260,7 +254,9 @@ CREATE TABLE `tb_mahasiswa` (
 --
 
 INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, `Phone`, `Status`, `Create_at`, `Update_at`, `Email_mahasiswa`, `deleted`) VALUES
-(6, '17/414826/PT/07515', 'Ajeng Wuriprastiwi', 'P', 'baran berbah sleman', '089608000446', 'Aktif', '2019-11-29 09:44:20', NULL, 'ajeng300@gmail.com', 0);
+(6, '17/414826/PT/07515', 'Ajeng Wuriprastiwi', 'P', 'baran berbah sleman', '089608000446', 'Aktif', '2019-11-29 09:44:20', NULL, 'ajeng300@gmail.com', 0),
+(7, '17/414799/PT/07488', 'Achmad Ezar Abdillah', 'L', 'Yogyakarta', '0876543218', 'Aktif', '2019-12-09 07:21:04', NULL, 'Achmad@gmail.com', 0),
+(8, '15/383820/PT/07093', 'Kartika Tasya', 'P', 'yogyakarta', '085800278473', 'Aktif', '2019-12-17 10:26:05', NULL, 'ktsyaa12@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -271,9 +267,9 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `Nim`, `Name`, `Gender`, `Address`, 
 CREATE TABLE `tb_paket` (
   `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(30) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
-  `deleted` int(11) DEFAULT 0
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -290,7 +286,8 @@ INSERT INTO `tb_paket` (`id_paket`, `nama_paket`, `create_at`, `update_at`, `del
 (14, 'Wiley Mill', '2019-11-22 17:20:13', NULL, 0),
 (15, 'Hammer Mill', '2019-11-22 17:20:26', NULL, 0),
 (16, 'Mesin Giling', '2019-11-22 17:20:35', NULL, 0),
-(17, 'Chopper', '2019-11-22 17:20:51', NULL, 0);
+(17, 'Chopper', '2019-11-22 17:20:51', NULL, 0),
+(18, 'Paket OP', '2019-12-10 18:41:54', '2019-12-11 01:41:54', 1);
 
 -- --------------------------------------------------------
 
@@ -301,13 +298,13 @@ INSERT INTO `tb_paket` (`id_paket`, `nama_paket`, `create_at`, `update_at`, `del
 CREATE TABLE `tb_peminjaman_alat` (
   `id_peminjaman` varchar(40) NOT NULL,
   `id_paket` int(11) DEFAULT NULL,
-  `analisa` text DEFAULT NULL,
-  `bahan` text DEFAULT NULL,
-  `status` int(11) DEFAULT 1,
+  `analisa` text,
+  `bahan` text,
+  `status` int(11) DEFAULT '1',
   `id_mahasiswa` int(11) DEFAULT NULL,
   `tanggal_penggunaan` date DEFAULT NULL,
   `tanggal_selesai` date DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -316,8 +313,17 @@ CREATE TABLE `tb_peminjaman_alat` (
 --
 
 INSERT INTO `tb_peminjaman_alat` (`id_peminjaman`, `id_paket`, `analisa`, `bahan`, `status`, `id_mahasiswa`, `tanggal_penggunaan`, `tanggal_selesai`, `Create_at`, `Update_at`) VALUES
+('15/383820/PT/0709320191217173121', 6, 'Air#Abu#Protein kasar#Serat kasar#Lemak kasar', '', 2, 8, '2019-12-18', '2019-12-19', '2019-12-17 10:33:52', NULL),
+('15/383820/PT/0709320191219171249', 7, 'Energi brutto', 'Cairan Rumen-2', 2, 8, '2019-12-20', '2019-12-21', '2019-12-21 03:03:17', NULL),
+('15/383820/PT/0709320191221100355', 11, 'Fosfor#ADF', 'Cairan Rumen-1', 2, 8, '2019-12-21', '2019-12-23', '2019-12-21 03:08:06', NULL),
+('15/383820/PT/0709320191221100834', 7, 'Abu#Lignin', 'Benih/biji-2', 2, 8, '2019-12-23', '2019-12-25', '2019-12-21 03:10:31', NULL),
+('15/383820/PT/0709320191221101058', 17, 'Derivat Purin', 'Ternak Fistula-3', 1, 8, '2019-12-26', '2019-12-27', '2019-12-21 03:10:58', NULL),
 ('17/409737/PT/0732620191128233142', 6, 'Serat kasar#ADF', 'Pols-5', 2, 3, '2019-11-29', '2019-12-03', '2019-11-28 16:33:54', NULL),
 ('17/409737/PT/0732620191128234329', 6, 'Kalsium#NDF', 'Cairan Rumen-3', 2, 3, '2019-12-17', '2019-12-17', '2019-11-28 16:46:00', NULL),
+('17/414799/PT/0748820191210153340', 14, NULL, '', 2, 7, '2019-12-19', '2019-12-25', '2019-12-10 08:37:22', NULL),
+('17/414799/PT/0748820191210160524', 8, 'Air#Abu#Protein kasar#Serat kasar#Lemak kasar#Kec. In-Vitro', 'Cairan Rumen-1', 2, 7, '2019-12-11', '2020-01-11', '2019-12-10 09:31:04', NULL),
+('17/414799/PT/0748820191212000302', 11, 'Serat kasar#ADF', 'Pols-1', 2, 7, '2019-12-13', '2019-12-14', '2019-12-13 16:35:54', NULL),
+('17/414799/PT/0748820191216021321', 6, 'Air#Serat kasar', 'Pols-1', 1, 7, '2019-12-17', '2019-12-18', '2019-12-15 19:13:21', NULL),
 ('17/414826/PT/0751520191123004216', 6, 'Mikrobiologi', '', 2, 2, NULL, NULL, '2019-11-22 17:45:00', NULL),
 ('17/414826/PT/0751520191123111601', 6, 'Air#ADF', 'Pols-5', 2, 2, NULL, NULL, '2019-11-23 04:17:15', NULL),
 ('17/414826/PT/0751520191125200323', 12, 'Fosfor#Aminia (Nh³)#ADF#Selulosa', '', 2, 2, '2019-12-24', '2019-11-30', '2019-11-25 13:04:47', NULL),
@@ -337,10 +343,10 @@ CREATE TABLE `tb_user` (
   `Password` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL,
   `id_level` int(11) DEFAULT NULL,
   `id_karyawan` int(11) DEFAULT NULL,
-  `Create_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `Update_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `Create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Update_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Status` varchar(10) CHARACTER SET latin1 DEFAULT 'NotAprove',
-  `deleted` int(11) DEFAULT 0
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -350,7 +356,8 @@ CREATE TABLE `tb_user` (
 INSERT INTO `tb_user` (`id_user`, `Username`, `Password`, `id_level`, `id_karyawan`, `Create_at`, `Update_at`, `Status`, `deleted`) VALUES
 (1, 'Ndaru', '12345', 1, 5, '2019-10-31 06:21:21', '2019-10-31 13:21:21', 'Aprove', 0),
 (2, 'Ajeng', '12345', 1, 5, '2019-11-22 17:38:07', '2019-11-23 00:38:07', 'Aprove', 0),
-(3, 'AjengW', '12345', 2, 6, '2019-11-24 17:32:11', '2019-11-25 00:32:11', 'Aprove', 0);
+(3, 'AjengW', '12345', 2, 6, '2019-11-24 17:32:11', '2019-11-25 00:32:11', 'Aprove', 0),
+(4, 'Rina Ispitasari', '12345', 2, 7, '2019-12-10 14:27:26', '2019-12-10 21:27:26', 'Aprove', 0);
 
 -- --------------------------------------------------------
 
@@ -362,7 +369,7 @@ CREATE TABLE `tb_user_mahasiswa` (
   `id_user_mahasiswa` int(11) NOT NULL,
   `id_mahasiswa` int(11) DEFAULT NULL,
   `Password` varchar(20) DEFAULT NULL,
-  `deleted` int(11) DEFAULT 0
+  `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -370,7 +377,9 @@ CREATE TABLE `tb_user_mahasiswa` (
 --
 
 INSERT INTO `tb_user_mahasiswa` (`id_user_mahasiswa`, `id_mahasiswa`, `Password`, `deleted`) VALUES
-(4, 6, '12345', 0);
+(4, 6, '12345', 0),
+(5, 7, '12345', 0),
+(6, 8, 'malitasari', 0);
 
 --
 -- Indexes for dumped tables
@@ -408,12 +417,6 @@ ALTER TABLE `tb_detail_paket`
 --
 ALTER TABLE `tb_hak_akses`
   ADD PRIMARY KEY (`id_level`);
-
---
--- Indexes for table `tb_jadwal`
---
-ALTER TABLE `tb_jadwal`
-  ADD PRIMARY KEY (`id_jadwal`);
 
 --
 -- Indexes for table `tb_karyawan`
@@ -486,13 +489,13 @@ ALTER TABLE `tb_bahan`
 -- AUTO_INCREMENT for table `tb_category`
 --
 ALTER TABLE `tb_category`
-  MODIFY `Category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_detail_paket`
 --
 ALTER TABLE `tb_detail_paket`
-  MODIFY `id_detail_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_detail_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tb_hak_akses`
@@ -501,46 +504,40 @@ ALTER TABLE `tb_hak_akses`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tb_jadwal`
---
-ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_kerusakan`
 --
 ALTER TABLE `tb_kerusakan`
-  MODIFY `id_kerusakan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kerusakan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_paket`
 --
 ALTER TABLE `tb_paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_user_mahasiswa`
 --
 ALTER TABLE `tb_user_mahasiswa`
-  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
