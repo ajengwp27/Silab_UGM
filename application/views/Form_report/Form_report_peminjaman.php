@@ -42,77 +42,112 @@ include APPPATH . 'views/Form_report/laporan.php';
             <td style="width: 50%">Analisis yang dikerjakan</td>
         </tr>
     </table>
-    <?php $dataanalisis = explode('#', $data->analisa) ; 
-     foreach($dataanalisis as $a)
-     {
-         $datas[$a]= $a;
-     }
+    <?php $dataanalisis = explode('#', $data->analisa);
+    foreach ($dataanalisis as $a) {
+        $datas[$a] = $a;
+    }
     ?>
     <table style="width: 100%">
         <tr>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Air'])) {echo 'checked=true';}?> value="Air"> Air
+                <input type="checkbox" <?php if (isset($datas['Air'])) {
+                                            echo 'checked=true';
+                                        } ?> value="Air"> Air
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Abu'])) {echo 'checked=true';}?> name="analisis[]" value="Abu"> Abu
+                <input type="checkbox" <?php if (isset($datas['Abu'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Abu"> Abu
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Protein kasar'])) {echo 'checked=true';}?>  name="analisis[]" value="Protein kasar"> Protein kasar
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox"  <?php if(isset($datas['Serat kasar'])) {echo 'checked=true';}?>  name="analisis[]" value="Serat kasar"> Serat kasar
-            </td>
-            <td>
-                <input type="checkbox"  <?php if(isset($datas['Lemak kasar'])) {echo 'checked=true';}?>  name="analisis[]" value="Lemak kasar"> Lemak kasar
-            </td>
-            <td>
-                <input type="checkbox"  <?php if(isset($datas['Kalsium'])) {echo 'checked=true';}?>  name="analisis[]" value="Kalsium"> Kalsium
+                <input type="checkbox" <?php if (isset($datas['Protein kasar'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Protein kasar"> Protein kasar
             </td>
         </tr>
         <tr>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Fosfor'])) {echo 'checked=true';}?>  name="analisis[]" value="Fosfor"> Fosfor
+                <input type="checkbox" <?php if (isset($datas['Serat kasar'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Serat kasar"> Serat kasar
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Aminia (Nh³)'])) {echo 'checked=true';}?> name="analisis[]" value="Aminia (Nh³)"> Aminia (Nh³)
+                <input type="checkbox" <?php if (isset($datas['Lemak kasar'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Lemak kasar"> Lemak kasar
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['NDF'])) {echo 'checked=true';}?> name="analisis[]" value="NDF"> NDF
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="checkbox"  <?php if(isset($datas['ADF'])) {echo 'checked=true';}?>  name="analisis[]" value="ADF"> ADF
-            </td>
-            <td>
-                <input type="checkbox"  <?php if(isset($datas['Selulosa'])) {echo 'checked=true';}?> name="analisis[]" value="Selulosa"> Selulosa
-            </td>
-            <td>
-                <input type="checkbox"  <?php if(isset($datas['Lignin'])) {echo 'checked=true';}?> name="analisis[]" value="Lignin"> Lignin
+                <input type="checkbox" <?php if (isset($datas['Kalsium'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Kalsium"> Kalsium
             </td>
         </tr>
         <tr>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Energi brutto'])) {echo 'checked=true';}?>  name="analisis[]" value="Energi brutto"> Energi brutto
+                <input type="checkbox" <?php if (isset($datas['Fosfor'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Fosfor"> Fosfor
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Kec. In-Vitro'])) {echo 'checked=true';}?>  name="analisis[]" value="Kec. In-Vitro"> Kec. In-Vitro
+                <input type="checkbox" <?php if (isset($datas['Aminia (Nh³)'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Aminia (Nh³)"> Aminia (Nh³)
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Kec. In-Vivo'])) {echo 'checked=true';}?>  name="analisis[]" value="Kec. In-Vivo"> Kec. In-Vivo
+                <input type="checkbox" <?php if (isset($datas['NDF'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="NDF"> NDF
             </td>
         </tr>
         <tr>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Kec. In-Sacco'])) {echo 'checked=true';}?> name="analisis[]" value="Energi brutto"> Kec. In-Sacco
+                <input type="checkbox" <?php if (isset($datas['ADF'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="ADF"> ADF
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Mikrobiologi'])) {echo 'checked=true';}?> name="analisis[]" value="Kec. In-Vitro"> Mikrobiologi
+                <input type="checkbox" <?php if (isset($datas['Selulosa'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Selulosa"> Selulosa
             </td>
             <td>
-                <input type="checkbox" <?php if(isset($datas['Derivat Purin'])) {echo 'checked=true';}?> name="analisis[]" value="Kec. In-Vivo"> Derivat Purin
+                <input type="checkbox" <?php if (isset($datas['Lignin'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Lignin"> Lignin
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" <?php if (isset($datas['Energi brutto'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Energi brutto"> Energi brutto
+            </td>
+            <td>
+                <input type="checkbox" <?php if (isset($datas['Kec. In-Vitro'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Kec. In-Vitro"> Kec. In-Vitro
+            </td>
+            <td>
+                <input type="checkbox" <?php if (isset($datas['Kec. In-Vivo'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Kec. In-Vivo"> Kec. In-Vivo
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" <?php if (isset($datas['Kec. In-Sacco'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Energi brutto"> Kec. In-Sacco
+            </td>
+            <td>
+                <input type="checkbox" <?php if (isset($datas['Mikrobiologi'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Kec. In-Vitro"> Mikrobiologi
+            </td>
+            <td>
+                <input type="checkbox" <?php if (isset($datas['Derivat Purin'])) {
+                                            echo 'checked=true';
+                                        } ?> name="analisis[]" value="Kec. In-Vivo"> Derivat Purin
             </td>
         </tr>
     </table>
@@ -131,34 +166,65 @@ include APPPATH . 'views/Form_report/laporan.php';
     </div>
 
     <div>
-    <table style="width: 75%">
-    <?php $databahan =explode("-",$data->bahan); ?>
+        <table style="width: 75%">
+            <?php $databahan = explode("-", $data->bahan); ?>
             <tbody>
                 <tr class="gradeU">
                     <td style="width: 25%">Bahan </td>
                     <td style="width:3%">:</td>
-                    <td align="left"> <?= $databahan[0]?> 
+                    <td align="left"> <?= $databahan[0] ?>
                 </tr>
             </tbody>
         </table>
     </div>
     <div>
         <br><br><br><br>
-        <table style="width: 100%; margin-left: 75%;">
+        <table style="width: 100%;">
             <tbody>
                 <tr class="gradeU">
+                    <td align="center"></td>
+                    <td align="center"></td>
                     <td align="center">Yogyakarta, <?= date('d-M-Y'); ?></td>
                 </tr>
                 <tr class="gradeU">
 
-                    <td align="center"> ttd</td>
+                    <td align="left">Mengetahui <br> Dosen Pembimbing / Kepala Instansi</td>
+                    <td align="center"> </td>
+                    <td align="center"> Mahasiswa</td>
                 </tr>
                 <tr class="gradeU">
 
                     <td align="center"> <br></td>
                 </tr>
+                <br>
+                <br>
                 <tr class="gradeU">
+                    <td align="left"> ................................</td>
+                    <td align="center"></td>
                     <td align="center"> <?= $data->Name ?></td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br><br><br>
+        <table style="width: 100%;">
+            <tbody>
+
+                <tr class="gradeU">
+
+                    <td align="left">Mengetahui <br> Dosen Pembimbing / Kepala Instansi</td>
+                    <td align="left">Mengetahui <br> Kepala Laboraturium </td>
+                    <td align="left"> Verivikator: <br> Laboran/Pj. alat/bangunan</td>
+                </tr>
+                <tr class="gradeU">
+
+                    <td align="center"> <br></td>
+                </tr>
+                <br>
+                <br>
+                <tr class="gradeU">
+                    <td align="left"> ................................</td>
+                    <td align="left"> ................................</td>
+                    <td align="left"> ................................</td>
                 </tr>
             </tbody>
         </table>
