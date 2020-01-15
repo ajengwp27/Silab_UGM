@@ -54,7 +54,7 @@
         <!-- Header -->
 
         <header class="header">
-            <div class="header_content d-flex flex-row align-items-center justify-content-start" style="padding-left:0px; padding-right:0px ;background-color: rgb(82, 81, 97); " >
+            <div class="header_content d-flex flex-row align-items-center justify-content-start" style="padding-left:0px; height:90px ;padding-right:0px ;background-color: rgb(82, 81, 97); " >
                 <div class="logo" style="margin-left: 62px;"><a href="<?= base_url("Userlanding")?>">BIOKIMIA NUTRISI</a></div>
                 <div style="padding-right:62px;"class="ml-auto d-flex flex-row align-items-center justify-content-start">
                     <nav class="main_nav">
