@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nomer Telepon</label>
-                                    <input required type="Text" onclick='validasi("PHONE","NOMER TELEPON")' id="PHONE" name="phone" class="form-control" placeholder="Enter Number">
+                                    <input required type="Text" onclick='validasi("PHONE","NOMER TELEPON")' onkeyup="angka(this)" id="PHONE" name="phone" class="form-control" placeholder="Enter Number">
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
@@ -87,6 +87,13 @@
             form.reportValidity();
             console.log(cek);
         }
+                
 
     }
+    
+      function angka(e) {
+          if (!/^[0-9]+$/.test(e.value)) {
+                    e.value = e.value.substring(0,e.value.length-1);
+                  }
+                }
 </script>

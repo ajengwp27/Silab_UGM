@@ -26,21 +26,31 @@ class Controller_alat extends CI_Controller
 
     function addAlat()
     {
-        $imgname = 'alat_' . get_current_date_img() . '.jpg';
-        $alat = array(
+        $validasi = $this->Model_alat->getDataAlatByName($this->input->post('name'));
+        if(!validate)
+        {
+            $imgname = 'alat_' . get_current_date_img() . '.jpg';
+            $alat = array(
             'Name'           => $this->input->post('name'),
             'Category_id'    => $this->input->post('Category_id'),
             'Number_of_rack' => $this->input->post('nomorrak'),
             'description'    => $this->input->post('description'),
             'stok'           => $this->input->post('stok'),
             'image'          => $imgname
-        );
-        $addalat     = $this->Model_alat->insertDataAlat($alat);
-        $hasilupload = $this->aksi_upload($imgname);
-        if ($hasilupload) {
-            $this->session->set_flashdata('Status', 'Input Succes');
-            redirect('alat');
+            );
+            $addalat     = $this->Model_alat->insertDataAlat($alat);
+            $hasilupload = $this->aksi_upload($imgname);
+            if ($hasilupload) {
+                $this->session->set_flashdata('Status', 'Input Succes');
+                redirect('alat');
+            }
         }
+        else
+        {
+            $this->session->set_flashdata('Status', 'Input Failed : Nama Alat Sudah Ada');
+                redirect('alat');
+        }
+        
     }
 
     function viewFormEditAlat($id)

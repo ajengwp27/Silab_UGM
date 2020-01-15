@@ -81,7 +81,7 @@
 
 
     function setnotifstatus(err) {
-        if (err == 'Input Succes' || err == 'Edit Succes' || err == 'Delete Success') {
+        if (err == 'Input Succes' || err == 'Edit Success' || err == 'Delete Success') {
             ttp = 'success';
         } else {
             ttp = 'danger';

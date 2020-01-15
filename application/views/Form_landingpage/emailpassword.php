@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!--
         ===
         This comment should NOT be removed.
@@ -16,7 +16,7 @@
         http://twitter.com/halalit_usman
         ===
     -->
-    <meta charset="utf-8">
+    
     <title>Laboraturium Nutrisi UGM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-md-12 center login-header">
                     <img src="<?= base_url('assets/img/logosilb.png') ?>">
-                    <h2>SILAB NUTRISI UGM</h2>
+                    <h2>Biokimia NUTRISI UGM</h2>
                 </div>
                 <!--/span-->
             </div>

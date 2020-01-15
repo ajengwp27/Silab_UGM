@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form by Colorlib</title>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nomer Telepon</label>
-                            <input required type="Text" onclick='validasi("PHONE","NOMER TELEPON")' id="PHONE"
+                            <input required type="Text" onclick='validasi("PHONE","NOMER TELEPON")' onkeyup="angka(this)" id="PHONE"
                                 name="phone" class="form-control" placeholder="Enter Number">
                         </div>
                         <div class="form-group">
@@ -191,6 +191,11 @@
         });
 
     }
+    function angka(e) {
+          if (!/^[0-9]+$/.test(e.value)) {
+                    e.value = e.value.substring(0,e.value.length-1);
+                  }
+                }
 
 </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

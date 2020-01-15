@@ -12,7 +12,7 @@ class Controller_category extends CI_Controller
     function getDataCategory()
     {
         $data['Category'] = $this->Model_category->getDataCategory();
-        $this->template->load('Template/Template_admin', 'Form_Category/Form_data_Category', $data);
+        $this->template->load('Template/Template_admin', 'Form_category/Form_data_category', $data);
     }
 
     function addCategory()
