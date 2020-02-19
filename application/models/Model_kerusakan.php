@@ -6,9 +6,10 @@ class Model_kerusakan extends CI_Model
     function getDataKerusakan()
     {
         //mendapatkan semua data alat dari tabel tb_alat
-        $this->db->select('a.*, b.Name as NamaAlat');
+        $this->db->select('a.*, b.Name c.Name as NamaAlat');
         $this->db->from('tb_kerusakan as a');
         $this->db->join('tb_alat as b', 'b.id_alat = a.id_alat');
+        $this->db->join('tb_mahasiswa as c', 'c.Name = c.Name');
         $dataalat = $this->db->get()->result();
         return $dataalat;
     }

@@ -27,15 +27,22 @@ class Controller_alat extends CI_Controller
     function addAlat()
     {
         $validasi = $this->Model_alat->getDataAlatByName($this->input->post('name'));
-        if(!validate)
+        if($validasi)
         {
-            $imgname = 'alat_' . get_current_date_img() . '.jpg';
+            $this->session->set_flashdata('Status', 'Input Failed : Nama Alat Sudah Ada');
+                redirect('alat');
+
+        }
+        else
+        {            
+                $imgname = 'alat_' . get_current_date_img() . '.jpg';
             $alat = array(
             'Name'           => $this->input->post('name'),
             'Category_id'    => $this->input->post('Category_id'),
             'Number_of_rack' => $this->input->post('nomorrak'),
             'description'    => $this->input->post('description'),
             'stok'           => $this->input->post('stok'),
+            'Merk'           => $this->input->post('Merk'),
             'image'          => $imgname
             );
             $addalat     = $this->Model_alat->insertDataAlat($alat);
@@ -44,11 +51,6 @@ class Controller_alat extends CI_Controller
                 $this->session->set_flashdata('Status', 'Input Succes');
                 redirect('alat');
             }
-        }
-        else
-        {
-            $this->session->set_flashdata('Status', 'Input Failed : Nama Alat Sudah Ada');
-                redirect('alat');
         }
         
     }
@@ -67,6 +69,7 @@ class Controller_alat extends CI_Controller
             'Category_id'    => $this->input->post('Category_id'),
             'stok'           => $this->input->post('stok'),
             'Number_of_rack' => $this->input->post('nomorrak'),
+            'Merk'           => $this->input->post('Merk'),
             'Update_at' => get_current_date() 
         );
         $editalat = $this->Model_alat->editDataAlat($id_alat, $alat);

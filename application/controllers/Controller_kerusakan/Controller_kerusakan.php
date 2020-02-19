@@ -26,7 +26,8 @@ class Controller_kerusakan extends CI_Controller
         $alat = array(
             'id_alat'          => $id_alat,
             'Jumlah_kerusakan' => $jml,
-            'Status'           => $status
+            'Status'           => $status,
+            'Name'             => $NamaMahasiswa
         );
         $dataAlatbyId     = $this->Model_alat->getDataAlatById($id_alat);
         $edialat = array('stok' => $dataAlatbyId->stok - $jml);
@@ -50,6 +51,7 @@ class Controller_kerusakan extends CI_Controller
         $id_kerusakan = $this->input->post('id_kerusakan');
         $status       = $this->input->post('status');
         $jmlold       = $this->input->post('jmlold');
+        $NamaMahasiswa  = $this->input->post('Name');
         $jml = $this->input->post('jml');
         if($status == "2")
         {

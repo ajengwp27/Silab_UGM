@@ -25,9 +25,9 @@ class Model_alat extends CI_Model
 
     function getDataAlatByName($key)
     {
-        $this->db->like('Name', $key);
+        $this->db->where('Name', $key);
         $this->db->where('deleted',0);
-        $dataalat = $this->db->get('tb_alat')->result();
+        $dataalat = $this->db->get('tb_alat')->row();
         return $dataalat;
     }
 

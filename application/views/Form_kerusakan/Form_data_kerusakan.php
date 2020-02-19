@@ -28,6 +28,7 @@
                         <tr>
                             <th>Nama Alat</th>
                             <th>Jumlah Rusak</th>
+                            <th>Nama Mahasiswa</th>
                             <th>Status</th>
                             <th>Tanggal Input</th>
                             <th>Action</th>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td><?= $k->NamaAlat ?></td>
                                 <td><?= $k->Jumlah_kerusakan ?></td>
+                                <td><?= $k->NamaMahasiswa ?></td>
                                 <td><?= $k->Status ?></td>
                                 <td><?= $k->Create_at ?></td>
                                 <td class="center">

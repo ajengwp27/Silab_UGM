@@ -24,7 +24,7 @@
                                     <select name="satuan" class="form-control selectpicker">
                                         <option value=''>None</option>
                                         <option value='L'>Liter</option>
-                                        <option value='G'>Gram</option>
+                                        <option value='G'>Kg</option>
                                     </select>
                                 </div>
                         </div>
